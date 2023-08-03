@@ -50,13 +50,10 @@ public class CartService {
         //Note: assuming userId is already validated.
 
         //Validate userId and cartId matches
-        Cart cart = cartMapper.selectById(cartId);
+        Cart cart = cartMapper.getCartAndItems(cartId);
         if (cart == null || !userId.equals(cart.getUserId())) {
             throw new ClientErrorException(CodeEnum.INVALID_ID);
         }
-
-        //TODO: To optimize reduce unnecessary price calculation
-        reCalculateTotalPrice(cart);
 
         List<GetCartResponse.Item> items = new ArrayList<>();
         cart.getItems().forEach(e -> {

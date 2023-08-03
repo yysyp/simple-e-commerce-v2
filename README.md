@@ -9,8 +9,7 @@ a simple e-commerce scenarios including:
 
 ### Build prerequisites:
 - JDK: OpenJDK 11 installed
-- Maven: 3.6.3 installed
-- Set JAVA_HOME, MAVEN_HOME environment variables and add OpenJDK and Maven path to system environment variable, make sure java and mvn commands are working
+- Set JAVA_HOME, environment variables and add OpenJDK path to system environment variable, make sure java command is working
 
 ### Build steps:
 1. Git download this repository and in folder "simple-e-commerce-v2" run command: ```mvnw clean package```
