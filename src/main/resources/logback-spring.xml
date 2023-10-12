@@ -1,5 +1,5 @@
 <configuration>
-    <springProperty scope="context" name="logging.name" source="spring.application.name" defaultValue="simple-e-commerce-v2"/>
+    <springProperty scope="context" name="logging.name" source="spring.application.name" defaultValue="app"/>
     <springProperty scope="context" name="logging.path"  source="logging.path" defaultValue="log"/>
     <springProperty scope="context" name="logging.filter-level" source="logging.filter-level" defaultValue="DEBUG"/>
     <springProperty scope="context" name="logging.total-size-cap" source="logging.total-size-cap" defaultValue="10gb"/>

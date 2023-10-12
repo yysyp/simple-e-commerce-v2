@@ -9,6 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.NoHandlerFoundException;
 import ps.demo.common.*;
 
 import java.util.HashMap;
@@ -37,6 +38,12 @@ public class GlobalControllerExceptionHandler {
     @ExceptionHandler(value = ServletRequestBindingException.class)
     public ResponseEntity<BaseResponse> handleException(ServletRequestBindingException e) {
         log.error("ServletRequestBindingException handling, message={}", e.getMessage(), e);
+        return constructResponseEntity(CodeEnum.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = NoHandlerFoundException.class)
+    public ResponseEntity<BaseResponse> handleException(NoHandlerFoundException e) {
+        log.error("NoHandlerFoundException handling, message={}", e.getMessage(), e);
         return constructResponseEntity(CodeEnum.BAD_REQUEST);
     }
 
