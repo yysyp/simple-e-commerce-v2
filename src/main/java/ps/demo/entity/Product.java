@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Getter
@@ -13,7 +14,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 @TableName("product")
-public class Product {
+public class Product implements Serializable {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

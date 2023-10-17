@@ -52,6 +52,10 @@ spring:
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd'T'HH:mm:ss.SSSZ
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:/ehcache.xml
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
