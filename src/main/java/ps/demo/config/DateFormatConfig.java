@@ -61,9 +61,11 @@ public class DateFormatConfig {
 
         @Override
         public JsonSerializer<?> createContextual(SerializerProvider prov, BeanProperty property) {
-            JsonFormat ann = property.getAnnotation(JsonFormat.class);
-            if (ann != null) {
-                return new MyJsonSerializer(ann);
+            if (property != null) {
+                JsonFormat ann = property.getAnnotation(JsonFormat.class);
+                if (ann != null) {
+                    return new MyJsonSerializer(ann);
+                }
             }
             return this;
         }
