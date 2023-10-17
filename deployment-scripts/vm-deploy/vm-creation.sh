@@ -26,5 +26,5 @@ echo "gcloud compute ssh $VM_NAME --zone $Zone --internal-ip"
 gcloud compute scp --zone $Zone --internal-ip --recurse "$DEPLOY_FOLDER" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
 echo "Folder $DEPLOY_FOLDER uploaded to remote VM"
 
-gcloud compute ssh $VM_NAME --zone $Zone --internal-ip --command "cd /home/$LOGINUSER/$DEPLOY_FOLDER && chmod 777 softwareinstall.sh appdeploy.sh && sudo ./softwareinstall.sh $USERNAME $PASSWD"
+gcloud compute ssh $VM_NAME --zone $Zone --internal-ip --command "cd /home/$LOGINUSER/$DEPLOY_FOLDER && chmod 777 app-install.sh && sudo ./app-install.sh $USERNAME $PASSWD"
 echo "Remote appinstall executed."

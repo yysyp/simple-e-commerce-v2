@@ -26,7 +26,7 @@ spring:
       max-request-size: 100GB #设置单次请求的文件的总大小 The maximum allowed size of a complete request. i.e. 100KB Priority 1, Limit the multipart/form-data file upload Maximum size.
 
   datasource:
-    url: jdbc:h2:mem:ecommercedb
+    url: jdbc:h2:mem:ecommercedb;MODE=MYSQL
     username: sa
     password:
     driver-class-name: org.h2.Driver

@@ -1,7 +1,7 @@
 #! /bin/bash
 set -o nounset
-set -e -x
-#set -o errexit
+set -o errexit
+#set -e -x
 ##sed -i 's/\r$//' *.sh
 ##Usage sudo ./softwareinstall.sh user1 pass1
 
@@ -27,8 +27,8 @@ else
     echo '/usr/local/app1 exists'
 fi
 
-cp app1-xx.jar appdeploy.sh /usr/local/app1/
-echo 'To execute appdeploy.sh'
+chmod 777 app-redeploy-start.sh
+cp app1-xx.jar app-redeploy-start.sh /usr/local/app1/
+echo 'To execute app-redeploy-start.sh'
 cd /usr/local/app1
-./appdeploy.sh
-
+./app-redeploy-start.sh
