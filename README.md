@@ -44,3 +44,10 @@ a simple e-commerce scenarios including:
 2. user authentication & authorization
 3. data query logic & database sql to optimize
 4. Use constructor injection instead of using @Autowired. Unit testing. etc.
+
+### Start with docker:
+- docker build -t app:v1 -f Dockerfile .
+- docker run --name app --rm -itd -p:8080:8080 app:v1
+- docker build -t app:v1 -f script/Dockerfile .
+- docker stop app
+
