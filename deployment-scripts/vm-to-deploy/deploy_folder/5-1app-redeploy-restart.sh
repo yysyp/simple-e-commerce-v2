@@ -5,7 +5,7 @@ set -o errexit
 
 APP_FILE_NAME=simple-e-commerce-v2-1.0.0
 
-if [[ "$PWD" == "/usr/local/app1"]]; then
+if [[ "$PWD" == "/usr/local/app1" ]]; then
   echo ""
 else
   echo "copy."
@@ -21,3 +21,5 @@ if [[ "" != "$PID" ]]; then
   kill -9 $PID
 fi
 nohup java -server -Dspring.profiles.active=dev -jar $APP_FILE_NAME.jar > /dev/null 2>&1 &
+PID=`ps -eaf | grep $APP_FILE_NAME | grep -v grep | awk '{print $2}'`
+echo "Started PID=$PID"
