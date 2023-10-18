@@ -24,6 +24,7 @@ a simple e-commerce scenarios including:
 - productId: 1 to 17
 
 ### Other URLs for reference: 
+- Home index page: http://localhost:8080/
 - API swagger doc: http://localhost:8080/springdoc/index.html
 - OpenAPI in JSON format: http://localhost:8080/springdoc/api-docs
 - OpenAPI in YAML format: http://localhost:8080/springdoc/api-docs.yaml
@@ -54,25 +55,23 @@ a simple e-commerce scenarios including:
 ###
 #Mock usage:
 1): http://localhost:8080/mock/create-mock to create mock.
-2): http://localhost:8080/mock/api/{YourMockUri} to call the mock.
-On the "creating mock" page, the headers and body content will be parsed by thymeleaf engine.
+2): http://localhost:8080/mock/api/{YourMockUri} to use the created mock.
+On the "create-mock" phase, the headers and body content will be parsed by thymeleaf engine.
 and the "request" variable will be passed to the script context. So basically you can put the
 content as below: {"requestMethod": "[(${request.method})]", "randomStr": "[(${#strings.randomAlphanumeric(8)})]"}
-
-{
-    "uri": "get-abc",
-    "regexMatch": true,
-    "method": "get",
-    "status": 200,
-    "headers": "{\"content-type\": \"application/json\"}",
-    "body": "{\"requestMethod\": \"[(${request.method})]\", \"randomStr\": \"[(${#strings.randomAlphanumeric(8)})]\"}"
-}
-
-{
-"uri": "get-abc",
+Example to create mock:
+curl -X 'POST' \
+'http://localhost:8080/mock/create-mock' \
+-H 'accept: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+"uri": "myrest-api",
 "regexMatch": true,
 "method": "get",
 "status": 200,
-"headers": "{'content-type': 'application/json'}",
-"body": "{'requestMethod': '[(${request.method})]', 'randomStr': '[(${#strings.randomAlphanumeric(8)})]'}"
-}
+"headers": "{\"myresponse-header-str\": \"[(${#strings.randomAlphanumeric(8)})]\"}",
+"body": "{\"requestMethod\": \"[(${request.method})]-[(${env.TMP})]\", \"randomStr\": \"[(${#strings.randomAlphanumeric(8)})]-[(${#strings.arrayJoin(#numbers.sequence(1, 5), '\'','\'')})]\"}"
+}'
+
+And to use the mock:
+curl --location --request GET 'http://localhost:8080/mock/api/myrest-api'
