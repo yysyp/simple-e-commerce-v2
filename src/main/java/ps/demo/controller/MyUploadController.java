@@ -8,9 +8,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ps.demo.common.ClientErrorException;
+import ps.demo.common.MyClientErrorException;
 import ps.demo.common.CodeEnum;
-import ps.demo.common.ServerErrorException;
+import ps.demo.common.MyServerErrorException;
 import ps.demo.dto.UploadHi;
 
 
@@ -56,7 +56,7 @@ public class MyUploadController {
                              @RequestParam(value = "key", required = false) String key,
                                    HttpServletRequest req) {
         if (file == null) {
-            throw new ClientErrorException(CodeEnum.BAD_REQUEST);
+            throw new MyClientErrorException(CodeEnum.BAD_REQUEST);
         }
         try {
             String fileName = file.getOriginalFilename();
@@ -94,7 +94,7 @@ public class MyUploadController {
             //file.transferTo(destFile);
 
         } catch (Exception e) {
-            throw new ServerErrorException(CodeEnum.INTERNAL_SERVER_ERROR, e);
+            throw new MyServerErrorException(CodeEnum.INTERNAL_SERVER_ERROR, e);
         }
         return "SUCCESS";
     }

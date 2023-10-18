@@ -1,7 +1,7 @@
 package ps.demo.dto;
 
 import lombok.*;
-import ps.demo.common.BaseResponse;
+import ps.demo.common.MyBaseResponse;
 
 import java.math.BigDecimal;
 
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PlaceOrderResponse extends BaseResponse {
+public class PlaceOrderResponseMy extends MyBaseResponse {
 
     private Data data;
 

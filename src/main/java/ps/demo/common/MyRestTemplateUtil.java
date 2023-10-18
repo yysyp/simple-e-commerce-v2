@@ -1,23 +1,47 @@
 package ps.demo.common;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import javax.net.ssl.SSLContext;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URI;
 import java.security.cert.X509Certificate;
+import java.util.Map;
 
 
 @Slf4j
 public class MyRestTemplateUtil {
 
+    //This to customize the factory to support http get method with requestBody payload
+    public static class SimpleClientHttpResponseWithGetBodyFactory extends SimpleClientHttpRequestFactory {
+        @Override
+        protected void prepareConnection(HttpURLConnection connection, String httpMethod) throws IOException {
+            super.prepareConnection(connection, httpMethod);
+            if ("GET".equals(httpMethod)) {
+                connection.setDoOutput(true);
+            }
+        }
+    }
+
     private RestTemplate restTemplate;
+
+    private RestTemplate restTemplate4GetWithRequestBody;
 
     private static MyRestTemplateUtil instance;
 
@@ -52,6 +76,7 @@ public class MyRestTemplateUtil {
             HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
             requestFactory.setHttpClient(httpClient);
             this.restTemplate = new RestTemplate(requestFactory);
+            this.restTemplate4GetWithRequestBody = new RestTemplate(new SimpleClientHttpResponseWithGetBodyFactory());
         } catch (Exception e) {
            throw new RuntimeException("RestTemplate initialization error!", e);
         }
@@ -156,6 +181,82 @@ public class MyRestTemplateUtil {
         }
     }
 
+    /**
+     * This doesNOT work!
+     * This is still not working, internally it will convert to use POST method for the request.
+     * Use getWithRequestBody instead.
+     *
+     * @param url: the url to call
+     * @param headers: request header
+     * @param requestBody: request body
+     * @param responseType: response type
+     * @param uriVariables: URL variables to replace in url. i.e: ?user={userId}&age={age}
+     * @param <T> Response Type.
+     * @return Response Http Status & Body
+     */
+    @Deprecated
+    public <T> ResponseEntity<T> getWithRequestBodyForObject(String url, HttpHeaders headers, String requestBody, ParameterizedTypeReference<T> responseType, Map<String, ?> uriVariables) {
+        HttpEntity<String> request = new HttpEntity<>(requestBody, headers);
+        try {
+            ResponseEntity<T> responseEntity = restTemplate4GetWithRequestBody.exchange(
+                    url,
+                    HttpMethod.GET,
+                    request,
+                    responseType, uriVariables
+            );
+            return responseEntity;
+        } catch (Exception e) {
+            log.info("Rest call getWithRequestBodyForObject error, url={}, message={}", url, e.getMessage(), e);
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public static class HttpGetWithEntity extends HttpEntityEnclosingRequestBase {
+        private final static String METHOD_NAME = "GET";
+
+        @Override
+        public String getMethod() {
+            return METHOD_NAME;
+        }
+        public HttpGetWithEntity() {
+            super();
+        }
+        public HttpGetWithEntity(final URI uri) {
+            super();
+            setURI(uri);
+        }
+        HttpGetWithEntity(final String uri) {
+            super();
+            setURI(URI.create(uri));
+        }
+
+    }
+
+    /**
+     * This works!
+     * This is not recommended, according to Restful convention, GET should not has request body data.
+     * @param url
+     * @param requestBody
+     * @param encoding
+     * @return
+     * @throws Exception
+     */
+    @SneakyThrows
+    public static String getWithRequestBody(String url, String requestBody, String encoding) {
+        String responseBody = "";
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpGetWithEntity httpGetWithEntity = new HttpGetWithEntity(url);
+        StringEntity httpEntity = new StringEntity(requestBody, ContentType.APPLICATION_JSON);
+        httpGetWithEntity.setEntity(httpEntity);
+        CloseableHttpResponse response = client.execute(httpGetWithEntity);
+        org.apache.http.HttpEntity entity = response.getEntity();
+        if (entity != null) {
+            responseBody = EntityUtils.toString(entity, encoding);
+        }
+        response.close();
+        return responseBody;
+    }
 
 
 }

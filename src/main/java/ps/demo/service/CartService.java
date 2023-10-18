@@ -4,11 +4,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ps.demo.common.ClientErrorException;
+import ps.demo.common.MyClientErrorException;
 import ps.demo.common.CodeEnum;
 import ps.demo.common.MyUtil;
-import ps.demo.common.ServerErrorException;
-import ps.demo.dto.GetCartResponse;
+import ps.demo.common.MyServerErrorException;
+import ps.demo.dto.GetCartResponseMy;
 import ps.demo.entity.Cart;
 import ps.demo.entity.CartItem;
 import ps.demo.entity.Product;
@@ -46,26 +46,26 @@ public class CartService {
      * @return detail cart & cart items
      */
     @Transactional(readOnly = true)
-    public GetCartResponse getCartDetail(Long userId, Long cartId) {
+    public GetCartResponseMy getCartDetail(Long userId, Long cartId) {
         //Note: assuming userId is already validated.
 
         //Validate userId and cartId matches
         Cart cart = cartMapper.getCartAndItems(cartId);
         if (cart == null || !userId.equals(cart.getUserId())) {
-            throw new ClientErrorException(CodeEnum.INVALID_ID);
+            throw new MyClientErrorException(CodeEnum.INVALID_ID);
         }
 
-        List<GetCartResponse.Item> items = new ArrayList<>();
+        List<GetCartResponseMy.Item> items = new ArrayList<>();
         cart.getItems().forEach(e -> {
-            items.add(GetCartResponse.Item.builder().cartItemId(e.getId())
+            items.add(GetCartResponseMy.Item.builder().cartItemId(e.getId())
                     .productId(e.getProductId()).totalPrice(e.getTotalPrice())
                     .quantity(e.getQuantity()).build());
         });
 
-        GetCartResponse.Data data = GetCartResponse.Data.builder()
+        GetCartResponseMy.Data data = GetCartResponseMy.Data.builder()
                 .curtId(cartId).userId(userId).totalPrice(cart.getTotalPrice())
                 .createdAt(cart.getCreatedAt()).items(items).build();
-        return new GetCartResponse(data);
+        return new GetCartResponseMy(data);
     }
 
     /**
@@ -83,7 +83,7 @@ public class CartService {
         // Validate product exists
         Product product = productMapper.selectById(productId);
         if (product == null) {
-            throw new ClientErrorException(CodeEnum.INVALID_ID);
+            throw new MyClientErrorException(CodeEnum.INVALID_ID);
         }
 
         // Validate stock, this is a 'soft' check
@@ -96,7 +96,7 @@ public class CartService {
          */
         Stock stock = stockMapper.selectById(productId);
         if (stock == null || stock.getQuantity() < quantity) {
-            throw new ServerErrorException(CodeEnum.NO_ENOUGH_STOCK);
+            throw new MyServerErrorException(CodeEnum.NO_ENOUGH_STOCK);
         }
 
         // Get user's cart
@@ -153,13 +153,13 @@ public class CartService {
         //Validate userId and cartId matches
         Cart cart = cartMapper.getCartAndItems(cartId);
         if (cart == null || !userId.equals(cart.getUserId())) {
-            throw new ClientErrorException(CodeEnum.INVALID_ID);
+            throw new MyClientErrorException(CodeEnum.INVALID_ID);
         }
 
         Optional<CartItem> itemOption = cart.getItems().stream().filter(e -> e.getProductId()
                 .equals(productId)).findAny();
         if (!itemOption.isPresent()) {
-            throw new ClientErrorException(CodeEnum.INVALID_ID);
+            throw new MyClientErrorException(CodeEnum.INVALID_ID);
         }
 
         CartItem cartItem = itemOption.get();

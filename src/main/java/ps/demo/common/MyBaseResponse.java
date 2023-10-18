@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BaseResponse implements Serializable {
+public class MyBaseResponse implements Serializable {
 
     @Builder.Default
     protected String code = CodeEnum.SUCCESS.getCode();
@@ -23,12 +23,12 @@ public class BaseResponse implements Serializable {
     protected String timestamp = MyUtil.getNowDateStr();;
     protected String path;
 
-    public static BaseResponse success() {
-        return new BaseResponse();
+    public static MyBaseResponse success() {
+        return new MyBaseResponse();
     }
 
-    public static BaseResponse of(CodeEnum codeEnum) {
-        return BaseResponse.builder().code(codeEnum.getCode())
+    public static MyBaseResponse of(CodeEnum codeEnum) {
+        return MyBaseResponse.builder().code(codeEnum.getCode())
                 .message(codeEnum.getDetailedMessage()).build();
     }
 

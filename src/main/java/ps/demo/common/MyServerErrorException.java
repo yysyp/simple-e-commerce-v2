@@ -1,19 +1,19 @@
 package ps.demo.common;
 
-public class ClientErrorException extends RuntimeException {
+public class MyServerErrorException extends RuntimeException {
     private CodeEnum codeEnum;
 
     public CodeEnum getCodeEnum() {
         return this.codeEnum;
     }
 
-    public ClientErrorException(CodeEnum codeEnum) {
+    public MyServerErrorException(CodeEnum codeEnum) {
         super(codeEnum.getDetailedMessage());
         this.codeEnum = codeEnum;
     }
-
-    public ClientErrorException(CodeEnum codeEnum, Throwable cause) {
+    public MyServerErrorException(CodeEnum codeEnum, Throwable cause) {
         super(codeEnum.getDetailedMessage(), cause);
         this.codeEnum = codeEnum;
     }
+
 }

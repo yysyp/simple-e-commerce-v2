@@ -97,7 +97,7 @@ public class MyUtil {
         if (date != null) {
             return date;
         }
-        throw new ClientErrorException(CodeEnum.INVALID_DATE);
+        throw new MyClientErrorException(CodeEnum.INVALID_DATE);
     }
 
     public static Date parseDate(String fmt, String text) {

@@ -20,36 +20,36 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalControllerExceptionHandler {
 
-    public ResponseEntity<BaseResponse> constructResponseEntity(CodeEnum codeEnum, Exception e) {
-        BaseResponse errorResponse = BaseResponse.of(codeEnum);
+    public ResponseEntity<MyBaseResponse> constructResponseEntity(CodeEnum codeEnum, Exception e) {
+        MyBaseResponse errorResponse = MyBaseResponse.of(codeEnum);
         errorResponse.setDetail(e.getMessage());
         HttpStatus httpStatus = HttpStatus.valueOf(codeEnum.getHttpCode());
-        return new ResponseEntity<BaseResponse>(errorResponse, httpStatus);
+        return new ResponseEntity<MyBaseResponse>(errorResponse, httpStatus);
     }
 
-    public ResponseEntity<BaseResponse> constructResponseEntity(Exception e) {
-        if (e instanceof ClientErrorException) {
-            return constructResponseEntity(((ClientErrorException)e).getCodeEnum(), e);
-        } else if (e instanceof ServerErrorException) {
-            return constructResponseEntity(((ServerErrorException)e).getCodeEnum(), e);
+    public ResponseEntity<MyBaseResponse> constructResponseEntity(Exception e) {
+        if (e instanceof MyClientErrorException) {
+            return constructResponseEntity(((MyClientErrorException)e).getCodeEnum(), e);
+        } else if (e instanceof MyServerErrorException) {
+            return constructResponseEntity(((MyServerErrorException)e).getCodeEnum(), e);
         }
         return constructResponseEntity(CodeEnum.INTERNAL_SERVER_ERROR, e);
     }
 
     @ExceptionHandler(value = ServletRequestBindingException.class)
-    public ResponseEntity<BaseResponse> handleException(ServletRequestBindingException e) {
+    public ResponseEntity<MyBaseResponse> handleException(ServletRequestBindingException e) {
         log.error("ServletRequestBindingException handling, message={}", e.getMessage(), e);
         return constructResponseEntity(CodeEnum.BAD_REQUEST, e);
     }
 
     @ExceptionHandler(value = NoHandlerFoundException.class)
-    public ResponseEntity<BaseResponse> handleException(NoHandlerFoundException e) {
+    public ResponseEntity<MyBaseResponse> handleException(NoHandlerFoundException e) {
         log.error("NoHandlerFoundException handling, message={}", e.getMessage(), e);
         return constructResponseEntity(CodeEnum.BAD_REQUEST, e);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<BaseResponse> handleValidationExceptions(
+    public ResponseEntity<MyBaseResponse> handleValidationExceptions(
             MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {
@@ -58,14 +58,14 @@ public class GlobalControllerExceptionHandler {
             errors.put(fieldName, errorMessage);
         });
         log.error("MethodArgumentNotValidException handling, message={}", ex.getMessage(), ex);
-        BaseResponse errorResponse = BaseResponse.of(CodeEnum.BAD_REQUEST);
+        MyBaseResponse errorResponse = MyBaseResponse.of(CodeEnum.BAD_REQUEST);
         HttpStatus httpStatus = HttpStatus.valueOf(CodeEnum.BAD_REQUEST.getHttpCode());
         errorResponse.setMessage(errors.toString());
-        return new ResponseEntity<BaseResponse>(errorResponse, httpStatus);
+        return new ResponseEntity<MyBaseResponse>(errorResponse, httpStatus);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<BaseResponse> handleThrowable(Exception e) {
+    public ResponseEntity<MyBaseResponse> handleThrowable(Exception e) {
         log.error("Exception handleThrowable, message={}", e.getMessage(), e);
         return constructResponseEntity(e);
     }

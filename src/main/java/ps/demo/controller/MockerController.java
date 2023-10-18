@@ -1,11 +1,8 @@
 package ps.demo.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -18,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.HandlerMapping;
-import org.springframework.web.servlet.ModelAndView;
 import ps.demo.common.*;
 import ps.demo.dto.MyMockDto;
 import ps.demo.dto.MyMockReq;
@@ -55,7 +51,7 @@ public class MockerController extends MyBaseController {
     )
     @PostMapping(value = "/create-mock", consumes = MediaType.APPLICATION_JSON_VALUE,
     produces = MediaType.APPLICATION_JSON_VALUE)
-    public BaseResponse save(@RequestBody @Validated MyMockReq myMockReq, HttpServletRequest request) {
+    public MyBaseResponse save(@RequestBody @Validated MyMockReq myMockReq, HttpServletRequest request) {
         MyMockDto myMockDto = new MyMockDto();
 
         myMockDto.setRegexMatch(null != request.getParameter("regexMatch"));
@@ -63,10 +59,10 @@ public class MockerController extends MyBaseController {
         MyMapperUtil.convert(myMockReq, myMockDto);
         //MyBeanUtil.copyProperties(myMockReq, myMockDto);
         if(null != mockerService.findByUri(myMockDto.getUri())) {
-            throw new ClientErrorException(CodeEnum.DUPLICATED_KEY);
+            throw new MyClientErrorException(CodeEnum.DUPLICATED_KEY);
         }
         mockerService.save(myMockDto);
-        return BaseResponse.success();
+        return MyBaseResponse.success();
     }
 
     @Operation(summary = "This is the endpoint for mocked api endpoints",

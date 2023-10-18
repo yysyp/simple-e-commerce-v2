@@ -4,12 +4,12 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ps.demo.common.ClientErrorException;
+import ps.demo.common.MyClientErrorException;
 import ps.demo.common.CodeEnum;
 import ps.demo.common.MyUtil;
-import ps.demo.common.ServerErrorException;
+import ps.demo.common.MyServerErrorException;
 import ps.demo.dto.PlaceOrderRequest;
-import ps.demo.dto.PlaceOrderResponse;
+import ps.demo.dto.PlaceOrderResponseMy;
 import ps.demo.entity.*;
 import ps.demo.repository.*;
 
@@ -38,13 +38,13 @@ public class OrderService {
     private PaymentMapper paymentMapper;
 
     @Transactional
-    public PlaceOrderResponse placeOrder(PlaceOrderRequest request) {
+    public PlaceOrderResponseMy placeOrder(PlaceOrderRequest request) {
 
         // Validate cart
         Cart cart = cartMapper.getCartAndItems(request.getCartId());
 
         if(cart == null || !cart.getUserId().equals(request.getUserId())) {
-            throw new ClientErrorException(CodeEnum.INVALID_ID);
+            throw new MyClientErrorException(CodeEnum.INVALID_ID);
         }
 
         // Create order from cart
@@ -60,7 +60,7 @@ public class OrderService {
         for(CartItem item : cart.getItems()) {
             Stock stock = stockMapper.selectById(item.getProductId());
             if(stock.getQuantity() < item.getQuantity()) {
-                throw new ServerErrorException(CodeEnum.NO_ENOUGH_STOCK);
+                throw new MyServerErrorException(CodeEnum.NO_ENOUGH_STOCK);
             }
             Integer originStockQuantity = stock.getQuantity();
             stock.setQuantity(originStockQuantity - item.getQuantity());
@@ -69,7 +69,7 @@ public class OrderService {
                     .eq("quantity", originStockQuantity));
             //Make sure the record updating is not conflicting.
             if (updated != 1) {
-                throw new ServerErrorException(CodeEnum.CONCURRENT_OPERATION);
+                throw new MyServerErrorException(CodeEnum.CONCURRENT_OPERATION);
             }
             OrderItem orderItem = new OrderItem();
             orderItem.setOrderId(order.getId());
@@ -94,10 +94,10 @@ public class OrderService {
         cartMapper.deleteById(cart.getId());
 
         // Build response
-        PlaceOrderResponse.Data data = PlaceOrderResponse.Data.builder()
+        PlaceOrderResponseMy.Data data = PlaceOrderResponseMy.Data.builder()
                 .orderId(order.getId()).total(order.getTotalPrice())
                 .status(MyUtil.PENDING).build();
-        return new PlaceOrderResponse(data);
+        return new PlaceOrderResponseMy(data);
 
     }
 
