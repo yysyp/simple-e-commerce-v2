@@ -20,31 +20,32 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalControllerExceptionHandler {
 
-    public ResponseEntity<BaseResponse> constructResponseEntity(CodeEnum codeEnum) {
+    public ResponseEntity<BaseResponse> constructResponseEntity(CodeEnum codeEnum, Exception e) {
         BaseResponse errorResponse = BaseResponse.of(codeEnum);
+        errorResponse.setDetail(e.getMessage());
         HttpStatus httpStatus = HttpStatus.valueOf(codeEnum.getHttpCode());
         return new ResponseEntity<BaseResponse>(errorResponse, httpStatus);
     }
 
     public ResponseEntity<BaseResponse> constructResponseEntity(Exception e) {
         if (e instanceof ClientErrorException) {
-            return constructResponseEntity(((ClientErrorException)e).getCodeEnum());
+            return constructResponseEntity(((ClientErrorException)e).getCodeEnum(), e);
         } else if (e instanceof ServerErrorException) {
-            return constructResponseEntity(((ServerErrorException)e).getCodeEnum());
+            return constructResponseEntity(((ServerErrorException)e).getCodeEnum(), e);
         }
-        return constructResponseEntity(CodeEnum.INTERNAL_SERVER_ERROR);
+        return constructResponseEntity(CodeEnum.INTERNAL_SERVER_ERROR, e);
     }
 
     @ExceptionHandler(value = ServletRequestBindingException.class)
     public ResponseEntity<BaseResponse> handleException(ServletRequestBindingException e) {
         log.error("ServletRequestBindingException handling, message={}", e.getMessage(), e);
-        return constructResponseEntity(CodeEnum.BAD_REQUEST);
+        return constructResponseEntity(CodeEnum.BAD_REQUEST, e);
     }
 
     @ExceptionHandler(value = NoHandlerFoundException.class)
     public ResponseEntity<BaseResponse> handleException(NoHandlerFoundException e) {
         log.error("NoHandlerFoundException handling, message={}", e.getMessage(), e);
-        return constructResponseEntity(CodeEnum.BAD_REQUEST);
+        return constructResponseEntity(CodeEnum.BAD_REQUEST, e);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

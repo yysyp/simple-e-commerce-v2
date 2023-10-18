@@ -51,3 +51,28 @@ a simple e-commerce scenarios including:
 - docker build -t app:v1 -f script/Dockerfile .
 - docker stop app
 
+###
+#Mock usage:
+1): http://localhost:8080/mock/create-mock to create mock.
+2): http://localhost:8080/mock/api/{YourMockUri} to call the mock.
+On the "creating mock" page, the headers and body content will be parsed by thymeleaf engine.
+and the "request" variable will be passed to the script context. So basically you can put the
+content as below: {"requestMethod": "[(${request.method})]", "randomStr": "[(${#strings.randomAlphanumeric(8)})]"}
+
+{
+    "uri": "get-abc",
+    "regexMatch": true,
+    "method": "get",
+    "status": 200,
+    "headers": "{\"content-type\": \"application/json\"}",
+    "body": "{\"requestMethod\": \"[(${request.method})]\", \"randomStr\": \"[(${#strings.randomAlphanumeric(8)})]\"}"
+}
+
+{
+"uri": "get-abc",
+"regexMatch": true,
+"method": "get",
+"status": 200,
+"headers": "{'content-type': 'application/json'}",
+"body": "{'requestMethod': '[(${request.method})]', 'randomStr': '[(${#strings.randomAlphanumeric(8)})]'}"
+}

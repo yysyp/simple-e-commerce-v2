@@ -11,11 +11,15 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class BaseResponse implements Serializable {
 
+    @Builder.Default
     protected String code = CodeEnum.SUCCESS.getCode();
+    @Builder.Default
     protected String message = CodeEnum.SUCCESS.getDetailedMessage();
+    protected String detail;
     protected String trace;
     protected String correlationId;
     protected String instance;
+    @Builder.Default
     protected String timestamp = MyUtil.getNowDateStr();;
     protected String path;
 

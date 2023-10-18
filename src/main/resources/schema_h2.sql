@@ -74,3 +74,15 @@ CREATE TABLE payment (
   created_at TIMESTAMP,
   FOREIGN KEY (order_id) REFERENCES tbl_order(id)
 );
+
+
+CREATE TABLE my_mock (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  uri VARCHAR(50),
+  regex_match BOOLEAN,
+  method VARCHAR(50),
+  status INT,
+  headers TEXT,
+  body TEXT,
+  created_at TIMESTAMP
+);
