@@ -166,9 +166,13 @@ public class MyReadWriteUtil {
     }
 
     public static void writeFileContent(File file, String content, String encoding) {
+        writeFileContent(file, content, encoding, false);
+    }
+
+    public static void writeFileContent(File file, String content, String encoding, boolean append) {
         BufferedWriter bw = null;
         try {
-            bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), encoding));
+            bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, append), encoding));
             bw.write(content);
         } catch (IOException e) {
             //e.printStackTrace();
