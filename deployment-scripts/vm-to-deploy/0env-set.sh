@@ -3,8 +3,8 @@ set -o nounset
 set -o errexit
 #sed -i 's/\r$//' *.sh
 
-Project_ID=xxx
-Zone=xxx
+PROJECT_ID=xxx
+ZONE=xxx
 VM_NAME=my-vm-001
 SA_ACCOUNT=auto_deploy@xxx.com
 DEPLOY_FOLDER=deploy_folder

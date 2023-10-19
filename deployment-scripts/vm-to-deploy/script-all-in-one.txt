@@ -7,8 +7,8 @@ set -o nounset
 set -o errexit
 #sed -i 's/\r$//' *.sh
 
-Project_ID=xxx
-Zone=xxx
+PROJECT_ID=xxx
+ZONE=xxx
 VM_NAME=my-vm-001
 SA_ACCOUNT=auto_deploy@xxx.com
 DEPLOY_FOLDER=deploy_folder
@@ -30,11 +30,11 @@ source 0env-set.sh
 gcloud config list
 gcloud auth login
 
-gcloud beta compute instances create $VM_NAME --project=$Project_ID --zone=$Zone --machine-type=n1-standard-2 \
+gcloud beta compute instances create $VM_NAME --project=$PROJECT_ID --zone=$ZONE --machine-type=n1-standard-2 \
 --network-interface=xxx \
 --service-account=$SA_ACCOUNT
 echo "VM created. vm=$VM_NAME"
-echo "gcloud compute ssh $VM_NAME --zone $Zone --internal-ip"
+echo "gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip"
 
 
 ================================================================
@@ -58,7 +58,7 @@ set -o nounset
 set -o errexit
 source 0env-set.sh
 
-gcloud compute scp --zone $Zone --internal-ip --recurse "$DEPLOY_FOLDER" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
+gcloud compute scp --zone $ZONE --internal-ip --recurse "$DEPLOY_FOLDER" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
 echo "Folder $DEPLOY_FOLDER uploaded to remote VM"
 
 
@@ -70,7 +70,7 @@ set -o nounset
 set -o errexit
 source 0env-set.sh
 
-gcloud compute ssh $VM_NAME --zone $Zone --internal-ip --command "cd /home/$LOGINUSER/$DEPLOY_FOLDER && chmod 777 4-1remote-software-install.sh && sudo ./4-1remote-software-install.sh $USERNAME $PASSWD"
+gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "cd /home/$LOGINUSER/$DEPLOY_FOLDER && chmod 777 4-1remote-software-install.sh && sudo ./4-1remote-software-install.sh $USERNAME $PASSWD"
 echo "Remote software installed"
 
 
@@ -114,7 +114,7 @@ set -o nounset
 set -o errexit
 source 0env-set.sh
 
-gcloud compute ssh $VM_NAME --zone $Zone --internal-ip --command "cd /home/$LOGINUSER/$DEPLOY_FOLDER && chmod 777 5-1app-redeploy-restart.sh && sudo ./5-1app-redeploy-restart.sh"
+gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "cd /home/$LOGINUSER/$DEPLOY_FOLDER && chmod 777 5-1app-redeploy-restart.sh && sudo ./5-1app-redeploy-restart.sh"
 echo "Remote app redeployed"
 
 
@@ -158,7 +158,7 @@ source 0env-set.sh
 ##--------------------------------------------------------------------------------##
 #Usage: find & replace "appxxx" with the actual application name.
 #Replace APP_FILE_NAME name "simple-e-commerce-v2-1.0.0" to the actual jar file name.
-#Required ENVs: $Zone $LOGINUSER $VM_NAME 
+#Required ENVs: $ZONE $LOGINUSER $VM_NAME
 ##--------------------------------------------------------------------------------##
 cat > 5app-redeploy-restart-appxxx-sub.sh <<- 'EOF'
 #! /bin/bash
@@ -187,8 +187,8 @@ PID=`ps -eaf | grep $APP_FILE_NAME | grep -v grep | awk '{print $2}'`
 echo "Started PID=$PID"
 EOF
 
-#gcloud compute scp --zone $Zone --internal-ip "5app-redeploy-restart-appxxx-sub.sh" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
-#gcloud compute ssh $VM_NAME --zone $Zone --internal-ip --command "cd /home/$LOGINUSER && chmod 777 5app-redeploy-restart-appxxx-sub.sh && sudo ./5app-redeploy-restart-appxxx-sub.sh"
+#gcloud compute scp --zone $ZONE --internal-ip "5app-redeploy-restart-appxxx-sub.sh" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
+#gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "cd /home/$LOGINUSER && chmod 777 5app-redeploy-restart-appxxx-sub.sh && sudo ./5app-redeploy-restart-appxxx-sub.sh"
 rm 5app-redeploy-restart-appxxx-sub.sh
 
 echo "Remote appxxx redeployed"

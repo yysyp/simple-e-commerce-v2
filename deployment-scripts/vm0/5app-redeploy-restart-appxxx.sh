@@ -1,7 +1,3 @@
-================================================================
-5app-redeploy-restart-appxxx.sh
-----------------------------------------------------------------
-
 #! /bin/bash
 set -o nounset
 set -o errexit
@@ -9,7 +5,7 @@ source 0env-set.sh
 ##--------------------------------------------------------------------------------##
 #Usage: find & replace "appxxx" with the actual application name.
 #Replace APP_FILE_NAME name "simple-e-commerce-v2-1.0.0" to the actual jar file name.
-#Required ENVs: $Zone $LOGINUSER $VM_NAME 
+#Required ENVs: $ZONE $LOGINUSER $VM_NAME
 ##--------------------------------------------------------------------------------##
 cat > 5app-redeploy-restart-appxxx-sub.sh <<- 'EOF'
 #! /bin/bash
@@ -38,8 +34,7 @@ PID=`ps -eaf | grep $APP_FILE_NAME | grep -v grep | awk '{print $2}'`
 echo "Started PID=$PID"
 EOF
 
-#gcloud compute scp --zone $Zone --internal-ip "5app-redeploy-restart-appxxx-sub.sh" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
-#gcloud compute ssh $VM_NAME --zone $Zone --internal-ip --command "cd /home/$LOGINUSER && chmod 777 5app-redeploy-restart-appxxx-sub.sh && sudo ./5app-redeploy-restart-appxxx-sub.sh"
+gcloud compute scp --zone $ZONE --internal-ip "5app-redeploy-restart-appxxx-sub.sh" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
+gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "cd /home/$LOGINUSER && chmod 777 5app-redeploy-restart-appxxx-sub.sh && sudo ./5app-redeploy-restart-appxxx-sub.sh"
 rm 5app-redeploy-restart-appxxx-sub.sh
-
 echo "Remote appxxx redeployed"
