@@ -29,9 +29,20 @@ public class JdbcTemplateController extends MyBaseController {
         myBook.setMyByte(GzipUtil.compress(originalBytes));
         Long key = jdbcTemplateService.createTable(myBook);
         MyBook retrivedBook = jdbcTemplateService.findById(key);
+        myBook.setId(key);
         byte[] retrivedBytes = GzipUtil.uncompress(retrivedBook.getMyByte());
         log.info("originalBytes.eq originalBytes={}", new String(originalBytes).equals(new String(retrivedBytes)));
         log.info("JdbcTemplateService created table and insert data id={}", key);
+        log.info("To test update content...");
+        myBook.setTitle("new title");
+        myBook.setMyByte("Hello world".getBytes());
+        int updated = jdbcTemplateService.updateById(myBook);
+        log.info("Updated ={}", updated);
+        myBook = jdbcTemplateService.findById(myBook.getId());
+        log.info("Updated myBook={}", myBook);
+        log.info("To test delete");
+        int deleted = jdbcTemplateService.deleteById(myBook.getId());
+        log.info("Deleted ={}", deleted);
         return MyBaseResponse.success();
     }
 

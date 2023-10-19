@@ -38,7 +38,7 @@ public class JdbcTemplateService {
                 "title      varchar   not null," +
                 "url        varchar   not null," +
                 "mytext        text," +
-                "mybyte        blob," +
+                "mybyte        longblob," +
                 "created_at timestamp," +
                 "primary key (id)" +
                 ");";
@@ -55,7 +55,7 @@ public class JdbcTemplateService {
             ps.setTimestamp(5, Timestamp.from(Instant.now()));
             return ps;
         }, keyHolder);
-        return (Long) keyHolder.getKey();
+        return keyHolder.getKey().longValue();
     }
 
     public MyBook findById(Long id) {
@@ -75,5 +75,21 @@ public class JdbcTemplateService {
                 }, id);
     }
 
+    public int updateById(MyBook myBook) {
+        return jdbcTemplate.update(conn -> {
+            String sql = "update bookmarks set title=?, url=?, mytext=?, mybyte=? where id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, myBook.getTitle());
+            ps.setString(2, myBook.getUrl());
+            ps.setString(3, myBook.getMyText());
+            ps.setBytes(4, myBook.getMyByte());
+            ps.setLong(5, myBook.getId());
+            return ps;
+        });
+    }
+
+    public int deleteById(Long id) {
+        return jdbcTemplate.update("delete from bookmarks where id=?", id);
+    }
 
 }
