@@ -12,6 +12,8 @@ import ps.demo.entity.Product;
 import ps.demo.service.AsyncService;
 import ps.demo.service.CacheService;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionService;
 import java.util.concurrent.Future;
 
 @Slf4j
@@ -44,9 +46,16 @@ public class DemoController extends MyBaseController {
     @GetMapping("/async")
     public MyBaseResponse asyncCall(@RequestParam(name = "sleepSeconds") Long sleepSeconds,
                                     @RequestParam(name = "wait") Boolean wait) {
-        Future<String> str = asyncService.asyncronizedCall(sleepSeconds);
+
+
+        CompletableFuture<String> task1 = asyncService.asyncronizedCall(sleepSeconds);
+        CompletableFuture<String> task2 = asyncService.asyncronizedCall(sleepSeconds);
+        CompletableFuture<String> task3 = asyncService.asyncronizedCall(sleepSeconds);
+        CompletableFuture<String> task4 = asyncService.asyncronizedCall(sleepSeconds);
+
         if (wait) {
-            String result = str.get();
+            CompletableFuture.allOf(task1, task2, task3, task4).join();
+            String result = task1.get();
             return StringDataResponseMy.successWithData(result);
         }
         // str.get();

@@ -9,20 +9,22 @@ import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 import ps.demo.entity.Product;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 
 @Slf4j
 @Service
 public class AsyncService {
 
-    @Async
+    @Async("taskExecutor")
     @SneakyThrows
-    public Future<String> asyncronizedCall(Long sleep) {
+    public CompletableFuture<String> asyncronizedCall(Long sleep) {
         log.info("AsyncService to sleep = {} seconds", sleep);
         Thread.sleep(sleep*1000);
         String random = RandomStringUtils.randomAlphanumeric(25);
         log.info("AsyncService return the random string={}, after sleep={}", random, sleep);
-        return AsyncResult.forValue(random);
+        //return AsyncResult.forValue(random);
+        return CompletableFuture.completedFuture(random);
     }
 
 }
