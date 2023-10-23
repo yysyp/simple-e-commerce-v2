@@ -22,9 +22,24 @@ java -version
 echo 'Jdk installed'
 
 docker login -u $1 -p $2 nexusxxx:12345
-docker stop mysql
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 3306:3306 nexusxxx:12345/com/xx/mysql:v5.7
+#docker stop `docker ps -a| grep mysql:5.7 | awk '{print $1}'`
+CONTAINERID=$(docker ps -a| grep mysql:5.7 | awk '{print $1}')
+if [ -n "$CONTAINERS" ]; then
+  echo 'Stopping mysql'
+  docker stop $CONTAINERID
+else
+  echo 'Mysql not running'
+  docker stop $CONTAINERID
+fi
+
+docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 3306:3306 nexusxxx:12345/com/xx/mysql:5.7
+sleep 5
+CONTAINERID=$(docker ps -a| grep mysql:5.7 | awk '{print $1}')
 echo 'docker mysql installed'
+
+#OR run docker mysql with init sql file.
+#docker build -t mysql57-with-init-sql -f docker-mysql/Dockerfile docker-mysql
+#docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 3306:3306 mysql57-with-init-sql
 
 if [ ! -d "/usr/local/app1" ]; then
     echo 'Not exists, so mkdir'

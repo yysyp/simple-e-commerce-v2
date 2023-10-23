@@ -11,9 +11,12 @@ public class RandomGenerateBigFile {
     public static void main(String [] args) {
 
         File file = MyFileUtil.getFileTsInHomeDir("BigFile.txt");
-        String m1 = RandomStringUtils.randomAlphabetic(1024*1024);
-        MyReadWriteUtil.writeFileContent(file, m1, "UTF-8", true);
-
-        System.out.println("1m file generated file="+file);
+        for (int i = 0; i < 5*1024; i++) {
+            for (int r = 0; r < 8; r++) {
+                String k1 = RandomStringUtils.randomAlphabetic(128) + "\n";
+                MyReadWriteUtil.writeFileContent(file, k1, "UTF-8", true);
+            }
+        }
+        System.out.println("File generated file="+file);
     }
 }
