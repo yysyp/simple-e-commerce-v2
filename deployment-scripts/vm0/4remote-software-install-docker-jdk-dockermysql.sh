@@ -22,22 +22,23 @@ java -version
 echo 'Jdk installed'
 
 docker login -u $1 -p $2 nexusxxx:12345
-#docker stop `docker ps -a| grep mysql:5.7 | awk '{print $1}'`
-CONTAINERID=$(docker ps -a| grep mysql:5.7 | awk '{print $1}')
-if [ -n "$CONTAINERS" ]; then
-  echo 'Stopping mysql'
-  docker stop $CONTAINERID
+
+#docker stop `docker ps -a| grep mysql5.7 | awk '{print $1}'`
+CONTAINERID=$(docker ps -a| grep mysql5.7 | awk '{print $1}')
+if [ -n "$CONTAINERID" ]; then
+  echo 'Stopping & remove mysql'
+  docker rm $CONTAINERID
 else
-  echo 'Mysql not running'
-  docker stop $CONTAINERID
+  echo 'Mysql is not running'
 fi
 
 docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 3306:3306 nexusxxx:12345/com/xx/mysql:5.7
 sleep 5
-CONTAINERID=$(docker ps -a| grep mysql:5.7 | awk '{print $1}')
-echo 'docker mysql installed'
+CONTAINERID=$(docker ps -a| grep mysql5.7 | awk '{print $1}')
+echo "docker mysql installed CONTAINERID=$CONTAINERID"
 
 #OR run docker mysql with init sql file.
+#docker rmi mysql57-with-init-sql
 #docker build -t mysql57-with-init-sql -f docker-mysql/Dockerfile docker-mysql
 #docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 3306:3306 mysql57-with-init-sql
 
