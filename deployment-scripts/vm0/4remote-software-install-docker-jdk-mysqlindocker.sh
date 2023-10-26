@@ -21,30 +21,28 @@ source ~/.bash_profile
 java -version
 echo 'Jdk installed'
 
+APP_NAME=mysql57-with-init-sql
 docker login -u $1 -p $2 nexusxxx:12345
-
-#docker stop `docker ps -a| grep mysql5.7 | awk '{print $1}'`
-CONTAINERID=$(docker ps -a| grep mysql5.7 | awk '{print $1}')
+CONTAINERID=$(docker ps -a| grep $APP_NAME | awk '{print $1}')
 if [ -n "$CONTAINERID" ]; then
-  echo 'Stopping & remove mysql'
-  docker rm $CONTAINERID
+  echo "Stopping & remove mysql"
+  docker rm -f $CONTAINERID
 else
-  echo 'Mysql is not running'
+  echo "Mysql is not running"
 fi
 
-docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 3306:3306 nexusxxx:12345/com/xx/mysql:5.7
+IMAGEID=$(docker images| grep $APP_NAME | awk '{print $1}')
+if [ -n "$IMAGEID" ]; then
+  docker rmi -f $APP_NAME
+fi
+
+docker build -t $APP_NAME -f docker-mysql/Dockerfile docker-mysql
+docker run --name $APP_NAME -e MYSQL_ROOT_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 3306:3306 $APP_NAME
+#docker run --name $APP_NAME -e MYSQL_ROOT_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 3306:3306 nexusxxx:12345/com/xx/mysql:5.7
 sleep 5
-CONTAINERID=$(docker ps -a| grep mysql5.7 | awk '{print $1}')
+CONTAINERID=$(docker ps -a| grep $APP_NAME | awk '{print $1}')
 echo "docker mysql installed CONTAINERID=$CONTAINERID"
 
-#OR run docker mysql with init sql file.
-#docker rmi mysql57-with-init-sql
-#IMAGEID=$(docker images| grep mysql5.7 | awk '{print $1}')
-#if [ -n "$IMAGEID" ]; then
-#  docker rmi mysql5.7
-#fi
-#docker build -t mysql57-with-init-sql -f docker-mysql/Dockerfile docker-mysql
-#docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 3306:3306 mysql57-with-init-sql
 
 if [ ! -d "/usr/local/app1" ]; then
     echo 'Not exists, so mkdir'
