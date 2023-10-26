@@ -3,7 +3,7 @@ set -o nounset
 set -o errexit
 source 0env-set.sh
 
-cat > 4remote-software-install-sub.sh <<- 'EOF'
+cat > 4remote-software-install-docker-jdk-mysqlindocker-sub.sh <<- 'EOF'
 #! /bin/bash
 set -o nounset
 set -o errexit
@@ -11,7 +11,7 @@ set -o errexit
 
 tar -xzvf dockerxxx.tgz
 cp docker/* /usr/bin/
-nohup dockerd &
+nohup dockerd > /dev/null 2>&1 &
 echo 'Docker installed & started'
 
 tar -xzvf OpenJDKxxx.tar.gz -C /opt
@@ -51,7 +51,7 @@ fi
 
 EOF
 
-gcloud compute scp --zone $ZONE --internal-ip "4remote-software-install-sub.sh" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
-gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "cd /home/$LOGINUSER && chmod 777 4remote-software-install-sub.sh && sudo ./4remote-software-install-sub.sh $USERNAME $PASSWD"
-rm 4remote-software-install-sub.sh
+gcloud compute scp --zone $ZONE --internal-ip "4remote-software-install-docker-jdk-mysqlindocker-sub.sh" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
+gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "cd /home/$LOGINUSER && chmod 777 4remote-software-install-docker-jdk-mysqlindocker-sub.sh && sudo ./4remote-software-install-docker-jdk-mysqlindocker-sub.sh $USERNAME $PASSWD"
+rm 4remote-software-install-docker-jdk-mysqlindocker-sub.sh
 echo "Remote software installed"
