@@ -222,6 +222,7 @@ Runnable principle
 ----------------------------------------------------------------
 1, File/Folder creation need to add overwrite confirmation. i.e. echo 'y' | cp xxx xxx
     cp -f xxx.ini /usr/local/appxxx/conf/
-2, Other resource creation needs to add existing check.
+2, Other resource creation/modification needs to add existing check.
+   Deletion needs to add not existing check.
 
 
