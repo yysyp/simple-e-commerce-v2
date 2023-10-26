@@ -91,7 +91,7 @@ set -o errexit
 #sed -i 's/\r$//' *.sh
 
 tar -xzvf dockerxxx.tgz
-cp docker/* /usr/bin/
+cp -f docker/* /usr/bin/
 nohup dockerd > /dev/null 2>&1 &
 echo 'Docker installed & started'
 
@@ -120,6 +120,10 @@ echo "docker mysql installed CONTAINERID=$CONTAINERID"
 
 #OR run docker mysql with init sql file.
 #docker rmi mysql57-with-init-sql
+#IMAGEID=$(docker images| grep mysql5.7 | awk '{print $1}')
+#if [ -n "$IMAGEID" ]; then
+#  docker rmi mysql5.7
+#fi
 #docker build -t mysql57-with-init-sql -f docker-mysql/Dockerfile docker-mysql
 #docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 3306:3306 mysql57-with-init-sql
 
@@ -136,6 +140,7 @@ gcloud compute scp --zone $ZONE --internal-ip "4remote-software-install-docker-j
 gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "cd /home/$LOGINUSER && chmod 777 4remote-software-install-docker-jdk-mysqlindocker-sub.sh && sudo ./4remote-software-install-docker-jdk-mysqlindocker-sub.sh $USERNAME $PASSWD"
 rm 4remote-software-install-docker-jdk-mysqlindocker-sub.sh
 echo "Remote software installed"
+
 
 
 
@@ -175,7 +180,7 @@ if [[ "$PWD" == "/usr/local/appxxx" ]]; then
   echo ""
 else
   echo "copy."
-  cp $APP_FILE_NAME.jar 5app-redeploy-restart-appxxx-sub.sh /usr/local/appxxx/
+  cp -f $APP_FILE_NAME.jar 5app-redeploy-restart-appxxx-sub.sh /usr/local/appxxx/
   cd /usr/local/appxxx
 fi
 #ps -ef | grep APP_FILE_NAME | grep -v grep | awk '{print $2}' | xargs kill -9
@@ -214,7 +219,10 @@ gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "sudo nohup doc
 
 
 ================================================================
-cp overwrite confirmation
+Runnable principle
 ----------------------------------------------------------------
+1, File/Folder creation need to add overwrite confirmation. i.e. echo 'y' | cp xxx xxx
+    cp -f xxx.ini /usr/local/appxxx/conf/
+2, Other resource creation needs to add existing check.
 
-echo 'y' | cp xxx.ini /usr/local/appxxx/conf/
+

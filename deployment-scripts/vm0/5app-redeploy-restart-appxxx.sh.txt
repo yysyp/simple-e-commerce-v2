@@ -30,7 +30,7 @@ if [[ "$PWD" == "/usr/local/appxxx" ]]; then
   echo ""
 else
   echo "copy."
-  cp $APP_FILE_NAME.jar 5app-redeploy-restart-appxxx-sub.sh /usr/local/appxxx/
+  cp -f $APP_FILE_NAME.jar 5app-redeploy-restart-appxxx-sub.sh /usr/local/appxxx/
   cd /usr/local/appxxx
 fi
 #ps -ef | grep APP_FILE_NAME | grep -v grep | awk '{print $2}' | xargs kill -9

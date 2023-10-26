@@ -10,7 +10,7 @@ set -o errexit
 #sed -i 's/\r$//' *.sh
 
 tar -xzvf dockerxxx.tgz
-cp docker/* /usr/bin/
+cp -f docker/* /usr/bin/
 nohup dockerd > /dev/null 2>&1 &
 echo 'Docker installed & started'
 
@@ -39,6 +39,10 @@ echo "docker mysql installed CONTAINERID=$CONTAINERID"
 
 #OR run docker mysql with init sql file.
 #docker rmi mysql57-with-init-sql
+#IMAGEID=$(docker images| grep mysql5.7 | awk '{print $1}')
+#if [ -n "$IMAGEID" ]; then
+#  docker rmi mysql5.7
+#fi
 #docker build -t mysql57-with-init-sql -f docker-mysql/Dockerfile docker-mysql
 #docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 3306:3306 mysql57-with-init-sql
 
