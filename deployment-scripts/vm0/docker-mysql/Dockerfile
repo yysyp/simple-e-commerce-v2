@@ -6,4 +6,5 @@ COPY docker.cnf /etc/mysql/conf.d/
 COPY init.sql ${SQL_FILE}
 RUN chown -R demo:demo /docker-entrypoint-initdb.d /etc/mysql
 USER demo
-CMD ["mysqld", "--defaults-file=/etc/mysql/conf.d/docker.cnf", "--initialize-insecure", "--max_allowed_packet=1073741824"]
+#CMD ["mysqld", "--defaults-file=/etc/mysql/conf.d/docker.cnf", "--initialize-insecure", "--max_allowed_packet=1073741824"]
+CMD ["mysqld", "--defaults-file=/etc/mysql/conf.d/docker.cnf"]
