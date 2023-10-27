@@ -1,8 +1,8 @@
-FROM openjdk:8-jdk-slim
+FROM openjdk:11-jdk-slim
 USER root
 RUN groupadd -g 9000 demo && useradd -u 9000 -g demo demo \
 && mkdir -p /app/conf /app/log
-COPY conf/* /app/conf/
+#COPY conf/* /app/conf/
 COPY target/*.jar /app/app.jar
 #xxx install ...
 RUN chown -R demo:demo /app
