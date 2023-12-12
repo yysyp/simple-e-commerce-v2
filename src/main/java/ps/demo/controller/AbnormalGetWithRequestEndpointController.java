@@ -39,7 +39,7 @@ public class AbnormalGetWithRequestEndpointController extends MyBaseController {
 //                , ImmutableMap.of("userId", "xiaolong", "age", 12));
 //        return StringDataResponseMy.successWithData(responseEntity.getBody());
 
-        String reqBody = new Gson().toJson(ImmutableMap.of("method", "get", "requestBody", "hea你好~"));
+        String reqBody = new Gson().toJson(ImmutableMap.of("method", "get", "requestBody", "Hello~"));
         String responseBody = MyRestTemplateUtil.getWithRequestBody("http://localhost:8080/abnml/getwithreq2?user=userId&age=14"
         , reqBody, "UTF-8");
         return StringDataResponseMy.successWithData(responseBody);

@@ -24,7 +24,7 @@ public class JdbcTemplateController extends MyBaseController {
     @Operation(summary = "JdbcTemplate snd database to create table")
     @PostMapping("/create-table")
     public MyBaseResponse createTable(@RequestBody MyBook myBook) {
-        String longStr = "Begin欠了人情请问人口大国☆*:3 .｡. o(≧▽≦)o .｡.:8765*☆(┬┬﹏┬┬)ಠ_ಠ(●'◡'●)(❁4´◡`❁)特殊子户qq the END";
+        String longStr = "Begin bla bla hello this is a random string what ever ... the END";
         byte[] originalBytes = longStr.getBytes();
         myBook.setMyByte(GzipUtil.compress(originalBytes));
         Long key = jdbcTemplateService.createTable(myBook);

@@ -12,22 +12,22 @@ import java.security.MessageDigest;
 public class MyMD5Util {
 
     /**
-     * 16进制的字符串数组
+     * hex digits
      */
     private final static String[] hexDigitsStrings = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d",
             "e", "f"};
 
     /**
-     * 16进制的字符集
+     * hex digits
      */
     private final static char[] hexDigitsChar = {'0', '1', '2', '3', '4', '5', '6', '7', '8',
             '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /**
-     * MD5加密字符串
+     * MD5 encryption string
      *
-     * @param source 源字符串
-     * @return 加密后的字符串
+     * @param source source string
+     * @return encrypted string
      */
     public static String getMD5(String source) {
         String mdString = null;
@@ -42,10 +42,10 @@ public class MyMD5Util {
     }
 
     /**
-     * MD5加密以byte数组表示的字符串
+     * MD5 encrypt byte array
      *
-     * @param source 源字节数组
-     * @return 加密后的字符串
+     * @param source byte array
+     * @return encrypted string
      */
     public static String getMD5(byte[] source) {
         String s = null;
@@ -74,10 +74,10 @@ public class MyMD5Util {
     }
 
     /**
-     * * 获取文件的MD5值
+     * * get the md5 of a file
      *
-     * @param file 目标文件
-     * @return MD5字符串
+     * @param file source file
+     * @return MD5 string
      * @throws Exception
      */
     public static String getFileMD5String(File file) throws Exception {
@@ -115,10 +115,10 @@ public class MyMD5Util {
     }
 
     /**
-     * * 获取文件的MD5值
+     * * get md5 for a file
      *
-     * @param fileName 目标文件的完整名称
-     * @return MD5字符串
+     * @param fileName file full path and name
+     * @return MD5 string
      * @throws Exception
      */
     public static String getFileMD5String(String fileName) throws Exception {
@@ -126,22 +126,19 @@ public class MyMD5Util {
     }
 
     /**
-     * 加密
+     * Encryption
      *
-     * @param source    需要加密的原字符串
-     * @param encoding  指定编码类型
-     * @param uppercase 是否转为大写字符串
+     * @param source    plain string
+     * @param encoding  encoding type
+     * @param uppercase Convert to uppercase?
      * @return
      */
     public static String MD5Encode(String source, String encoding, boolean uppercase) {
         String result = null;
         try {
             result = source;
-            // 获得MD5摘要对象
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            // 使用指定的字节数组更新摘要信息
             messageDigest.update(result.getBytes(encoding));
-            // messageDigest.digest()获得16位长度
             result = byteArrayToHexString(messageDigest.digest());
 
         } catch (Exception e) {
@@ -152,9 +149,9 @@ public class MyMD5Util {
 
 
     /**
-     * 转换字节数组为16进制字符串
+     * Convert to hex digits string
      *
-     * @param bytes 字节数组
+     * @param bytes byte array
      * @return
      */
     private static String byteArrayToHexString(byte[] bytes) {
@@ -166,12 +163,12 @@ public class MyMD5Util {
     }
 
     /**
-     * * 将字节数组中指定区间的子数组转换成16进制字符串
+     * * Convert specified sub array to hex string
      *
-     * @param bytes 目标字节数组
-     * @param start 起始位置（包括该位置）
-     * @param end   结束位置（不包括该位置）
-     * @return 转换结果
+     * @param bytes byte array
+     * @param start start index (included)
+     * @param end   end index (excluded)
+     * @return convert result
      */
     public static String bytesToHex(byte bytes[], int start, int end) {
         StringBuilder sb = new StringBuilder();
@@ -182,10 +179,10 @@ public class MyMD5Util {
     }
 
     /**
-     * 转换byte到16进制
+     * convert type to hex
      *
-     * @param b 要转换的byte
-     * @return 16进制对应的字符
+     * @param b byte
+     * @return hex string
      */
     private static String byteToHexString(byte b) {
         int n = b;
@@ -199,22 +196,22 @@ public class MyMD5Util {
 
 
     /**
-     * * 校验密码与其MD5是否一致
+     * * verify password against its MD5
      *
-     * @param pwd 密码字符串
-     * @param md5 基准MD5值
-     * @return 检验结果
+     * @param pwd password string
+     * @param md5 md5
+     * @return is match?
      */
     public static boolean checkPassword(String pwd, String md5) {
         return getMD5(pwd).equalsIgnoreCase(md5);
     }
 
     /**
-     * * 校验密码与其MD5是否一致
+     * * verify password against md5
      *
-     * @param pwd 以字符数组表示的密码
-     * @param md5 基准MD5值
-     * @return 检验结果
+     * @param pwd password string
+     * @param md5 md5
+     * @return is match?
      */
     public static boolean checkPassword(char[] pwd, String md5) {
         return checkPassword(new String(pwd), md5);
@@ -222,11 +219,11 @@ public class MyMD5Util {
 
 
     /**
-     * * 检验文件的MD5值
+     * * check md5 of a file
      *
-     * @param file 目标文件
-     * @param md5  基准MD5值
-     * @return 检验结果
+     * @param file target file
+     * @param md5  md5
+     * @return is match?
      * @throws Exception
      */
     public static boolean checkFileMD5(File file, String md5) throws Exception {
@@ -234,11 +231,11 @@ public class MyMD5Util {
     }
 
     /**
-     * * 检验文件的MD5值
+     * * check file md5
      *
-     * @param fileName 目标文件的完整名称
-     * @param md5      基准MD5值
-     * @return 检验结果
+     * @param fileName file path
+     * @param md5      md5
+     * @return result
      * @throws Exception
      */
     public static boolean checkFileMD5(String fileName, String md5) throws Exception {

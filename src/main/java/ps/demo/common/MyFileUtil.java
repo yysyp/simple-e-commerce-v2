@@ -275,13 +275,13 @@ public class MyFileUtil {
         ) {
             FileChannel in = fin.getChannel();
             FileChannel out = fout.getChannel();
-            //设定缓冲区
+            //set buffering zone
             ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE);
             while (in.read(buffer) != -1) {
-                //准备写入，防止其他读取，锁住文件
+                //pareparing writing, lock file to avoid conflicts
                 buffer.flip();
                 out.write(buffer);
-                //准备读取。将缓冲区清理完毕，移动文件内部指针
+                //preparing reading clean buffering
                 buffer.clear();
             }
         } catch (IOException e) {

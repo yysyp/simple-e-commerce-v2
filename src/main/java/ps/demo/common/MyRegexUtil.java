@@ -13,15 +13,15 @@ public class MyRegexUtil {
     public static final String REG_SYMBOL = "[\\pP\\pS\\pZ\\pM\\n]";
 
     /**
-     * /pP 其中的小写 p 是 property 的意思，表示 Unicode 属性，用于 Unicode 正表达式的前缀。
+     * /pP lowercase p means property，means Unicode property，used in Unicode regex prefix。
      *
-     * P：标点字符
-     * L：字母；
-     * M：标记符号（一般不会单独出现）；
-     * Z：分隔符（比如空格、换行等）；
-     * S：符号（比如数学符号、货币符号等）；
-     * N：数字（比如阿拉伯数字、罗马数字等）；
-     * C：其他字符
+     * P：punctuation
+     * L：letter
+     * M：Mark (normal not use separately)
+     * Z：separator symbol (i.e. blank, newline)
+     * S：symbol (i.e. math, currency)
+     * N：number (i.e. Arabic number, Roman number )
+     * C：Other character
      *
      */
 
@@ -72,11 +72,11 @@ public class MyRegexUtil {
     }
 
     /**
-     * 判断字符串str是否符合正则表达式reg
+     * verify whether string is matching the given regular expression
      *
-     * @param str 需要处理的字符串
-     * @param reg 正则
-     * @return 是否匹配
+     * @param str the string
+     * @param reg regular expression
+     * @return is matching?
      */
     public final static boolean isMatche(String str, String reg) {
         Pattern pattern = Pattern.compile(reg);
@@ -85,11 +85,11 @@ public class MyRegexUtil {
     }
 
     /**
-     * 获取符合reg正则表达式的字符串在String中出现的次数
+     * get the counts of sub matching strings
      *
-     * @param str 需要处理的字符串
-     * @param reg 正则
-     * @return 出现的次数
+     * @param str the whole string
+     * @param reg regular expression
+     * @return matching times
      */
     public final static int countSubStrReg(String str, String reg) {
         Pattern p = Pattern.compile(reg);
@@ -102,10 +102,10 @@ public class MyRegexUtil {
     }
 
     /**
-     * 判断是否是符合邮箱
+     * check whether email is valid
      *
-     * @param email 判断的字符串
-     * @return 是否是符合的邮箱
+     * @param email string
+     * @return is valid
      */
     public final static boolean isEmail(String email) {
         if (email == null || email.length() < 1 || email.length() > 256) {
@@ -117,7 +117,7 @@ public class MyRegexUtil {
 
 
     /**
-     * 只能判断部分CJK字符（CJK统一汉字）
+     * check whether string is matching CJK, * only partial of Chinese included.
      * @param str
      * @return
      */
@@ -128,13 +128,13 @@ public class MyRegexUtil {
         return PATTERN_CHINESE_BY_REG.matcher(str.trim()).find();
     }
 
-    // 只能判断部分CJK字符（CJK统一汉字）
+    //  only partial of Chinese included.
     public  static boolean isChineseByName(String str) {
         if (str == null) {
             return false;
         }
-        // 大小写不同：\\p 表示包含，\\P 表示不包含
-        // \\p{Cn} 的意思为 Unicode 中未被定义字符的编码，\\P{Cn} 就表示 Unicode中已经被定义字符的编码
+        // \\p mean include，\\P mean exclude
+        // \\p{Cn} means Unicode not included characters; \\P{Cn} means Unicode already defined characters
         String reg = "\\p{InCJK Unified Ideographs}&&\\P{Cn}";
         Pattern pattern = Pattern.compile(reg);
         return pattern.matcher(str.trim()).find();
@@ -142,7 +142,7 @@ public class MyRegexUtil {
 
 
     /**
-     * 完整的判断中文汉字和符号
+     * All Chinese included, is Chinese check
      * @param strName
      * @return
      */
@@ -158,7 +158,7 @@ public class MyRegexUtil {
     }
 
     /**
-     * 判断是否是中文
+     * Check whether it's Chinese
      *
      * @param c
      * @return
@@ -172,7 +172,7 @@ public class MyRegexUtil {
     }
 
     /**
-     * 获取一个字符串中中文字符的个数
+     * Count by Chinese character
      */
     public  static int chineseLength(String str) {
         Matcher m = PATTERN_CHINESE.matcher(str);
@@ -185,7 +185,7 @@ public class MyRegexUtil {
     }
 
     /**
-     * 判断是否是乱码
+     * Check whether the is messy encoding characters
      *
      * @param strName
      * @return
