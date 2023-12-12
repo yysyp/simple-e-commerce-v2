@@ -1,4 +1,4 @@
-set "doc3-simple-e-commerce-v2=..\doc3\3-learn\33-coding\337-mytool-demo-snippet-code\simple-e-commerce-v2"
+set "doc3-simple-e-commerce-v2=..\..\doc3\3-learn\33-coding\337-mytool-demo-snippet-code\simple-e-commerce-v2"
 cd ..
 rd /S /Q %doc3-simple-e-commerce-v2%\
 robocopy doc3-simple-e-commerce-v2 %doc3-simple-e-commerce-v2%\ /E /MIR /Z /XD "not-copy" "upload-folder" "log" ".git" ".gitattributes" ".mvn"
