@@ -1,3 +1,5 @@
+# This can be used as a project prototype for single Java Springboot project initialization.
+# For multiple different modules, acting as quick check quick code snippet poc, you can use "sampleall".
 # simple-e-commerce-v2
 This is a simple e-commerce demo based on springboot framework in Java 11
 This application uses H2 memory database, and provide Restful APIs to show
