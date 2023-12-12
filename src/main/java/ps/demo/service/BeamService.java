@@ -1,21 +1,21 @@
 package ps.demo.service;
 
-
-import org.apache.beam.sdk.Pipeline;
-import org.apache.beam.sdk.io.TextIO;
-import org.apache.beam.sdk.options.PipelineOptions;
-import org.apache.beam.sdk.transforms.MapElements;
-import org.apache.beam.sdk.transforms.SimpleFunction;
-import org.springframework.beans.factory.annotation.Autowired;
+//
+//import org.apache.beam.sdk.Pipeline;
+//import org.apache.beam.sdk.io.TextIO;
+//import org.apache.beam.sdk.options.PipelineOptions;
+//import org.apache.beam.sdk.transforms.MapElements;
+//import org.apache.beam.sdk.transforms.SimpleFunction;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+//import java.io.IOException;
+//import java.nio.file.Files;
+//import java.nio.file.Paths;
+//import java.nio.file.StandardOpenOption;
+//import java.util.List;
+//import java.util.stream.Collectors;
+//import java.util.stream.StreamSupport;
 
 
 @Service
