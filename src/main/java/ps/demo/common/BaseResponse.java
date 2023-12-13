@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MyBaseResponse implements Serializable {
+public class BaseResponse implements Serializable {
 
     @Builder.Default
     protected String code = CodeEnum.SUCCESS.getCode();
@@ -20,15 +20,15 @@ public class MyBaseResponse implements Serializable {
     protected String correlationId;
     protected String instance;
     @Builder.Default
-    protected String timestamp = MyUtil.getNowDateStr();;
+    protected String timestamp = ProjConstant.getNowDateStr();;
     protected String path;
 
-    public static MyBaseResponse success() {
-        return new MyBaseResponse();
+    public static BaseResponse success() {
+        return new BaseResponse();
     }
 
-    public static MyBaseResponse of(CodeEnum codeEnum) {
-        return MyBaseResponse.builder().code(codeEnum.getCode())
+    public static BaseResponse of(CodeEnum codeEnum) {
+        return BaseResponse.builder().code(codeEnum.getCode())
                 .message(codeEnum.getDetailedMessage()).build();
     }
 

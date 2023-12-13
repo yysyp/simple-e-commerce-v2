@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-public class MyYamlUtil {
+public class YamlTool {
 
     private static ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 

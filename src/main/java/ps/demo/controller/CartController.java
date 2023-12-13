@@ -5,16 +5,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ps.demo.common.MyClientErrorException;
+import ps.demo.common.ClientErrorException;
 import ps.demo.common.CodeEnum;
-import ps.demo.common.MyBaseController;
+import ps.demo.common.BaseController;
 import ps.demo.dto.*;
 import ps.demo.service.CartService;
 
 
 @RestController
 @RequestMapping("/cart")
-public class CartController extends MyBaseController {
+public class CartController extends BaseController {
 
     @Autowired
     private CartService cartService;
@@ -24,7 +24,7 @@ public class CartController extends MyBaseController {
     public GetCartResponse cartDetail(@RequestParam(value = "userId") Long userId,
                                       @RequestParam(value = "cartId") Long cartId) {
         if (userId.compareTo(0L) <= 0 || cartId.compareTo(0L) <= 0) {
-            throw new MyClientErrorException(CodeEnum.INVALID_ID);
+            throw new ClientErrorException(CodeEnum.INVALID_ID);
         }
         GetCartResponse response = cartService.getCartDetail(userId, cartId);
         return response;

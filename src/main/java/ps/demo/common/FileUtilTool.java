@@ -21,7 +21,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MyFileUtil {
+public class FileUtilTool {
 
     public static final String DIR_SEPERATOR = "/";
     private static Integer BUFFER_SIZE = 1024 * 1024 * 10;
@@ -58,16 +58,16 @@ public class MyFileUtil {
     }
 
     public static File getFileTsInHomeDir(String key) {
-        return new File(getUserHomeDir() + DIR_SEPERATOR + MyTimeUtil.getNowStr() + "-" + toValidFileName(key));
+        return new File(getUserHomeDir() + DIR_SEPERATOR + TimeTool.getNowStr() + "-" + toValidFileName(key));
     }
 
     public static File getFileDateDirInHomeDir(String key) {
         File dir = new File(getUserHomeDir() + DIR_SEPERATOR
-                + MyTimeUtil.getNowStr("yyyy-MM-dd") + DIR_SEPERATOR);
+                + TimeTool.getNowStr("yyyy-MM-dd") + DIR_SEPERATOR);
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        return new File(dir.getPath() + DIR_SEPERATOR + MyTimeUtil.getNowStr("HHmmss") + "-" + toValidFileName(key));
+        return new File(dir.getPath() + DIR_SEPERATOR + TimeTool.getNowStr("HHmmss") + "-" + toValidFileName(key));
     }
 
     public static void setFullPermission(File file) {
@@ -368,7 +368,7 @@ public class MyFileUtil {
     }
 
     public static File getAppPath() {
-        String path = MyFileUtil.class.getProtectionDomain().getCodeSource().getLocation().getFile();
+        String path = FileUtilTool.class.getProtectionDomain().getCodeSource().getLocation().getFile();
         if (path.toLowerCase(Locale.ROOT).trim().endsWith(".jar")) {
             File jar = new File(path);
             return jar.getParentFile();

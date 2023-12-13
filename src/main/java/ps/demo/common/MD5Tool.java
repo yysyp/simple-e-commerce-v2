@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
 
-public class MyMD5Util {
+public class MD5Tool {
 
     /**
      * hex digits

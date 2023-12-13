@@ -5,12 +5,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ps.demo.common.MyMapperUtil;
+import ps.demo.common.MapperTool;
 import ps.demo.dto.MyMockDto;
 import ps.demo.entity.MyMock;
 import ps.demo.repository.MyMockMapper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -25,7 +24,7 @@ public class MockerService {
         List<MyMockDto> all;
 
         List<MyMock> myMocks = myMockMapper.selectList(new QueryWrapper<>());
-        all = MyMapperUtil.convert(myMocks, MyMockDto.class);
+        all = MapperTool.convert(myMocks, MyMockDto.class);
 
         return all;
 
@@ -33,7 +32,7 @@ public class MockerService {
 
     public void save(MyMockDto myMockDto) {
         MyMock myMock = new MyMock();
-        MyMapperUtil.convert(myMockDto, myMock);
+        MapperTool.convert(myMockDto, myMock);
         myMockMapper.insert(myMock);
     }
 

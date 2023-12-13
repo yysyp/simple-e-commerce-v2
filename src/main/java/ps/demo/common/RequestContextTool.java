@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  * @desc
  */
 @Component
-public class MyRequestContextUtil implements ApplicationContextAware {
+public class RequestContextTool implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;
 
@@ -47,7 +47,7 @@ public class MyRequestContextUtil implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        MyRequestContextUtil.applicationContext = applicationContext;
+        RequestContextTool.applicationContext = applicationContext;
     }
 
     public static <T> T getBean(String name) {

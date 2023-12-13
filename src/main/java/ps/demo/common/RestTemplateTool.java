@@ -26,7 +26,7 @@ import java.util.Map;
 
 
 @Slf4j
-public class MyRestTemplateUtil {
+public class RestTemplateTool {
 
     //This to customize the factory to support http get method with requestBody payload
     public static class SimpleClientHttpResponseWithGetBodyFactory extends SimpleClientHttpRequestFactory {
@@ -43,18 +43,18 @@ public class MyRestTemplateUtil {
 
     private RestTemplate restTemplate4GetWithRequestBody;
 
-    private static MyRestTemplateUtil instance;
+    private static RestTemplateTool instance;
 
-    private MyRestTemplateUtil() {
+    private RestTemplateTool() {
         init();
     }
 
     // Double check...
-    public static MyRestTemplateUtil getInstance() {
+    public static RestTemplateTool getInstance() {
         if (instance == null) {
-            synchronized (MyRestTemplateUtil.class) {
+            synchronized (RestTemplateTool.class) {
                 if (instance == null) {
-                    instance = new MyRestTemplateUtil();
+                    instance = new RestTemplateTool();
                 }
             }
         }

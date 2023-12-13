@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ps.demo.common.MyUtil;
+import ps.demo.common.ProjConstant;
 
 import java.io.IOException;
 import java.util.Date;
@@ -36,7 +36,7 @@ public class DateFormatConfig {
         public Date deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
             String source = p.getText().trim();
             try {
-                return MyUtil.parseToDate(source);
+                return ProjConstant.parseToDate(source);
             } catch (Exception e) {
                 log.error("MyJsonDeserializer deserialize error {}", e.getMessage(), e);
             }
@@ -55,8 +55,8 @@ public class DateFormatConfig {
                 gen.writeNull();
                 return;
             }
-            String pattern = jsonFormat == null ? MyUtil.DATE_FORMAT_STR_ISO8601 : jsonFormat.pattern();
-            gen.writeString(MyUtil.formatToString(value, pattern));
+            String pattern = jsonFormat == null ? ProjConstant.DATE_FORMAT_STR_ISO8601 : jsonFormat.pattern();
+            gen.writeString(ProjConstant.formatToString(value, pattern));
         }
 
         @Override

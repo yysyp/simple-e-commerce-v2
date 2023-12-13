@@ -1,13 +1,13 @@
 package ps.demo.quicktest;
 
-import ps.demo.common.MyFileUtil;
+import ps.demo.common.FileUtilTool;
 
 import java.io.*;
 
 public class CountRowsInBigFile {
 
     public static void main(String[] args) {
-        File file = MyFileUtil.getFileInHomeDir("2023-10-18_210654-BigFile.txt");
+        File file = FileUtilTool.getFileInHomeDir("2023-10-18_210654-BigFile.txt");
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             int lineCount = 0;
             String line = br.readLine();

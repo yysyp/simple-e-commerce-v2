@@ -21,11 +21,11 @@ import java.nio.file.StandardCopyOption;
 
 @Slf4j
 @Service
-public class MyFileService {
+public class FileService {
     private final Path fileStorageLocation;
 
     @Autowired
-    public MyFileService() {
+    public FileService() {
         String uploadFolder = System.getProperty("user.dir") + "/upload-folder/";
         this.fileStorageLocation = Paths.get(uploadFolder).toAbsolutePath().normalize();
         try {

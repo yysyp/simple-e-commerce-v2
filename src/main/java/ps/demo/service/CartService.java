@@ -4,10 +4,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ps.demo.common.MyClientErrorException;
+import ps.demo.common.ClientErrorException;
 import ps.demo.common.CodeEnum;
-import ps.demo.common.MyUtil;
-import ps.demo.common.MyServerErrorException;
+import ps.demo.common.ProjConstant;
+import ps.demo.common.ServerErrorException;
 import ps.demo.dto.GetCartResponse;
 import ps.demo.entity.Cart;
 import ps.demo.entity.CartItem;
@@ -52,7 +52,7 @@ public class CartService {
         //Validate userId and cartId matches
         Cart cart = cartMapper.getCartAndItems(cartId);
         if (cart == null || !userId.equals(cart.getUserId())) {
-            throw new MyClientErrorException(CodeEnum.INVALID_ID);
+            throw new ClientErrorException(CodeEnum.INVALID_ID);
         }
 
         List<GetCartResponse.Item> items = new ArrayList<>();
@@ -83,7 +83,7 @@ public class CartService {
         // Validate product exists
         Product product = productMapper.selectById(productId);
         if (product == null) {
-            throw new MyClientErrorException(CodeEnum.INVALID_ID);
+            throw new ClientErrorException(CodeEnum.INVALID_ID);
         }
 
         // Validate stock, this is a 'soft' check
@@ -96,7 +96,7 @@ public class CartService {
          */
         Stock stock = stockMapper.selectById(productId);
         if (stock == null || stock.getQuantity() < quantity) {
-            throw new MyServerErrorException(CodeEnum.NO_ENOUGH_STOCK);
+            throw new ServerErrorException(CodeEnum.NO_ENOUGH_STOCK);
         }
 
         // Get user's cart
@@ -109,9 +109,9 @@ public class CartService {
         only one record will be created successfully for one user.
          */
         if (cart == null) {
-            cart = Cart.builder().userId(userId).createdAt(MyUtil.getNowDate()).build();
+            cart = Cart.builder().userId(userId).createdAt(ProjConstant.getNowDate()).build();
             cartMapper.insert(cart);
-            BigDecimal cartItemTotalPrice = MyUtil.multiply(product.getPrice(), quantity);
+            BigDecimal cartItemTotalPrice = ProjConstant.multiply(product.getPrice(), quantity);
             CartItem cartItem = CartItem.builder().cartId(cart.getId())
                     .productId(productId).quantity(quantity).totalPrice(cartItemTotalPrice).build();
             cartItemMapper.insert(cartItem);
@@ -153,13 +153,13 @@ public class CartService {
         //Validate userId and cartId matches
         Cart cart = cartMapper.getCartAndItems(cartId);
         if (cart == null || !userId.equals(cart.getUserId())) {
-            throw new MyClientErrorException(CodeEnum.INVALID_ID);
+            throw new ClientErrorException(CodeEnum.INVALID_ID);
         }
 
         Optional<CartItem> itemOption = cart.getItems().stream().filter(e -> e.getProductId()
                 .equals(productId)).findAny();
         if (!itemOption.isPresent()) {
-            throw new MyClientErrorException(CodeEnum.INVALID_ID);
+            throw new ClientErrorException(CodeEnum.INVALID_ID);
         }
 
         CartItem cartItem = itemOption.get();
@@ -182,7 +182,7 @@ public class CartService {
         BigDecimal cartTotalPrice = BigDecimal.ZERO;
         for (CartItem item : cartItemList) {
             Product prd = productMapper.selectById(item.getProductId());
-            BigDecimal itemTotalPrice = MyUtil.multiply(prd.getPrice(), item.getQuantity());
+            BigDecimal itemTotalPrice = ProjConstant.multiply(prd.getPrice(), item.getQuantity());
             item.setTotalPrice(itemTotalPrice);
             //TODO: to change to update in batch.
             cartItemMapper.updateById(item);

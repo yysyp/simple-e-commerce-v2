@@ -7,30 +7,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ps.demo.common.GzipUtil;
-import ps.demo.common.MyBaseResponse;
-import ps.demo.common.MyBaseController;
+import ps.demo.common.BaseResponse;
+import ps.demo.common.GzipTool;
+import ps.demo.common.BaseController;
 import ps.demo.dto.MyBook;
 import ps.demo.service.JdbcTemplateService;
 
 @Slf4j
 @RestController
 @RequestMapping("/jdbc")
-public class JdbcTemplateController extends MyBaseController {
+public class JdbcTemplateController extends BaseController {
 
     @Autowired
     private JdbcTemplateService jdbcTemplateService;
 
     @Operation(summary = "JdbcTemplate snd database to create table")
     @PostMapping("/create-table")
-    public MyBaseResponse createTable(@RequestBody MyBook myBook) {
+    public BaseResponse createTable(@RequestBody MyBook myBook) {
         String longStr = "Begin bla bla hello this is a random string what ever ... the END";
         byte[] originalBytes = longStr.getBytes();
-        myBook.setMyByte(GzipUtil.compress(originalBytes));
+        myBook.setMyByte(GzipTool.compress(originalBytes));
         Long key = jdbcTemplateService.createTable(myBook);
         MyBook retrivedBook = jdbcTemplateService.findById(key);
         myBook.setId(key);
-        byte[] retrivedBytes = GzipUtil.uncompress(retrivedBook.getMyByte());
+        byte[] retrivedBytes = GzipTool.uncompress(retrivedBook.getMyByte());
         log.info("originalBytes.eq originalBytes={}", new String(originalBytes).equals(new String(retrivedBytes)));
         log.info("JdbcTemplateService created table and insert data id={}", key);
         log.info("To test update content...");
@@ -43,7 +43,7 @@ public class JdbcTemplateController extends MyBaseController {
         log.info("To test delete");
         int deleted = jdbcTemplateService.deleteById(myBook.getId());
         log.info("Deleted ={}", deleted);
-        return MyBaseResponse.success();
+        return BaseResponse.success();
     }
 
 

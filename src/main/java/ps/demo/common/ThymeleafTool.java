@@ -8,7 +8,7 @@ import org.thymeleaf.templateresolver.StringTemplateResolver;
 
 import java.util.Map;
 
-public class MyThymeleafUtil {
+public class ThymeleafTool {
 
     public static String processText(String content, Map<String, Object> variables) {
         return process(content, variables, TemplateMode.TEXT);

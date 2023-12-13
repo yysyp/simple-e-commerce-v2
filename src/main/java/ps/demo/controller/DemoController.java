@@ -5,8 +5,8 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ps.demo.common.MyBaseResponse;
-import ps.demo.common.MyBaseController;
+import ps.demo.common.BaseResponse;
+import ps.demo.common.BaseController;
 import ps.demo.common.StringDataResponse;
 import ps.demo.entity.Product;
 import ps.demo.service.AsyncService;
@@ -17,7 +17,7 @@ import java.util.concurrent.CompletableFuture;
 @Slf4j
 @RestController
 @RequestMapping("/demo")
-public class DemoController extends MyBaseController {
+public class DemoController extends BaseController {
 
     @Autowired
     private CacheService cacheService;
@@ -27,23 +27,23 @@ public class DemoController extends MyBaseController {
 
     @Operation(summary = "Cache demo get")
     @GetMapping("/cache")
-    public MyBaseResponse findProduct(@RequestParam(name = "productId") Long productId) {
+    public BaseResponse findProduct(@RequestParam(name = "productId") Long productId) {
         Product product = cacheService.findProductById(productId);
         return StringDataResponse.successWithData(product);
     }
 
     @Operation(summary = "Cache demo delete")
     @DeleteMapping("/cache")
-    public MyBaseResponse deleteProduct(@RequestParam(name = "productId") Long productId) {
+    public BaseResponse deleteProduct(@RequestParam(name = "productId") Long productId) {
         cacheService.deleteProductFromCache(productId);
-        return MyBaseResponse.success();
+        return BaseResponse.success();
     }
 
     @SneakyThrows
     @Operation(summary = "Asynchronous demo")
     @GetMapping("/async")
-    public MyBaseResponse asyncCall(@RequestParam(name = "sleepSeconds") Long sleepSeconds,
-                                    @RequestParam(name = "wait") Boolean wait) {
+    public BaseResponse asyncCall(@RequestParam(name = "sleepSeconds") Long sleepSeconds,
+                                  @RequestParam(name = "wait") Boolean wait) {
 
 
         CompletableFuture<String> task1 = asyncService.asyncronizedCall(sleepSeconds);

@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 
 @Component
-public class MyMapperUtil {
+public class MapperTool {
 
     private static Mapper dozer = DozerBeanMapperBuilder.buildDefault();
 
@@ -105,7 +105,7 @@ public class MyMapperUtil {
         Map<String, Object> dbNameMap = new HashMap();
         for (Map.Entry<String, Object> entry : beanNameMap.entrySet()) {
             if (entry.getValue() != null) {
-                dbNameMap.put(MyStringUtil.toDbName(entry.getKey()), entry.getValue());
+                dbNameMap.put(StringTool.toDbName(entry.getKey()), entry.getValue());
             }
         }
         return dbNameMap;
@@ -118,7 +118,7 @@ public class MyMapperUtil {
         Map<String, Object> beanNameMap = new HashMap();
         for (Map.Entry<String, Object> entry : dbNameMap.entrySet()) {
             if (entry.getValue() != null) {
-                beanNameMap.put(MyStringUtil.toJavaName(entry.getKey()), entry.getValue());
+                beanNameMap.put(StringTool.toJavaName(entry.getKey()), entry.getValue());
             }
         }
         return beanNameMap;

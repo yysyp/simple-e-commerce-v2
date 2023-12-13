@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Slf4j
-public class MyUtil {
+public class ProjConstant {
 
     public final static String DATE_FORMAT_STR_ISO8601 = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
@@ -97,7 +97,7 @@ public class MyUtil {
         if (date != null) {
             return date;
         }
-        throw new MyClientErrorException(CodeEnum.INVALID_DATE);
+        throw new ClientErrorException(CodeEnum.INVALID_DATE);
     }
 
     public static Date parseDate(String fmt, String text) {

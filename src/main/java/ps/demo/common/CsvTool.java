@@ -22,7 +22,7 @@ import java.util.List;
  *     private String sex;
  * }
  */
-public class MyCsvUtil {
+public class CsvTool {
 
     public static <T> List<T> readCSVFile(String fileName, Class<T> clazz) {
         try (

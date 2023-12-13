@@ -1,3 +1,30 @@
+================================================================
+0authlogin.sh
+----------------------------------------------------------------
+#! /bin/bash
+set -o nounset
+set -o errexit
+source 0env-set.sh
+
+current_datetime_str=$(date +"%Y-%m-%d %H:%M:%S")
+
+if [ ! -e "./authLogin.output" ]; then
+    touch ./authLogin.output
+    echo "1000-01-01 00:00:00" > ./authLogin.output
+fi
+
+last_datetime_str=`cat ./authLogin.output`
+last_datetime=$(date -d "$last_datetime_str" +%s)
+current_datetime=$(date -d "$current_datetime_str" +%s)
+if (( $current_datetime - $last_datetime < 86400 )); then
+  echo "Auth within 1 day."
+else
+  echo "To login"
+  gcloud config set project $PROJECT_ID
+  gcloud auth login
+  echo "$current_datetime_str" > ./authLogin.output
+fi
+
 
 ================================================================
 0env-set.sh
@@ -11,11 +38,12 @@ PROJECT_ID=xxx
 ZONE=xxx
 VM_NAME=my-vm-001
 SA_ACCOUNT=auto_deploy@xxx.com
-#DEPLOY_FOLDER=deploy_folder
+#LOCAL_FOLDER=LOCAL_FOLDER
 LOGINUSER=ubuntu
 USERNAME=nexus1
 PASSWD=pass1
 
+./0authlogin.sh
 echo "Env set. VM_NAME=$VM_NAME"
 
 
@@ -46,9 +74,9 @@ set -o nounset
 set -o errexit
 source 0env-set.sh
 
-#rm -rf $DEPLOY_FOLDER/aa/
-#git clone --branch main --single-branch https://xxx/aa.git $DEPLOY_FOLDER/aa
-#echo "Git cloned to $DEPLOY_FOLDER for uploading"
+#rm -rf $LOCAL_FOLDER/aa/
+#git clone --branch main --single-branch https://xxx/aa.git $LOCAL_FOLDER/aa
+#echo "Git cloned to $LOCAL_FOLDER for uploading"
 
 rm -rf ./appxxx/
 git clone --branch main --single-branch https://xxx/aa.git appxxx
@@ -65,12 +93,12 @@ set -o nounset
 set -o errexit
 source 0env-set.sh
 
-#gcloud compute scp --zone $ZONE --internal-ip --recurse "$DEPLOY_FOLDER" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
-#gcloud compute scp --zone $ZONE --internal-ip "/c/tmp/abc.json" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/$DEPLOY_FOLDER/
-#echo "Folder $DEPLOY_FOLDER uploaded to remote VM"
+#gcloud compute scp --zone $ZONE --internal-ip --recurse "$LOCAL_FOLDER" $LOGINUSER@$VM_NAME:$REMOTE_FOLDER/
+#gcloud compute scp --zone $ZONE --internal-ip "/c/tmp/abc.json" $LOGINUSER@$VM_NAME:$REMOTE_FOLDER/$DEPLOY_FOLDER/
+#echo "Folder $LOCAL_FOLDER uploaded to remote VM"
 
-gcloud compute scp --zone $ZONE --internal-ip --recurse "source-folder" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
-gcloud compute scp --zone $ZONE --internal-ip "/c/tmp/abc.json" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
+gcloud compute scp --zone $ZONE --internal-ip --recurse "source-folder" $LOGINUSER@$VM_NAME:$REMOTE_FOLDER/
+gcloud compute scp --zone $ZONE --internal-ip "/c/tmp/abc.json" $LOGINUSER@$VM_NAME:$REMOTE_FOLDER/
 echo "Folder source-folder uploaded to remote VM"
 
 
@@ -134,8 +162,8 @@ fi
 
 EOF
 
-gcloud compute scp --zone $ZONE --internal-ip "4remote-software-install-docker-jdk-mysqlindocker-sub.sh" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
-gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "cd /home/$LOGINUSER && chmod 777 4remote-software-install-docker-jdk-mysqlindocker-sub.sh && sudo ./4remote-software-install-docker-jdk-mysqlindocker-sub.sh $USERNAME $PASSWD"
+gcloud compute scp --zone $ZONE --internal-ip "4remote-software-install-docker-jdk-mysqlindocker-sub.sh" $LOGINUSER@$VM_NAME:$REMOTE_FOLDER/
+gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "cd $REMOTE_FOLDER && chmod 777 4remote-software-install-docker-jdk-mysqlindocker-sub.sh && sudo ./4remote-software-install-docker-jdk-mysqlindocker-sub.sh $USERNAME $PASSWD"
 rm 4remote-software-install-docker-jdk-mysqlindocker-sub.sh
 echo "Remote software installed"
 
@@ -153,7 +181,7 @@ set -o errexit
 source 0env-set.sh
 ##--------------------------------------------------------------------------------##
 #Usage: find & replace "appxxx" with the actual application name.
-#Replace APP_FILE_NAME name "simple-e-commerce-v2-1.0.0" to the actual jar file name.
+#Replace APP_FILE_NAME name "sample1-1.0.0" to the actual jar file name.
 #Required ENVs: $ZONE $LOGINUSER $VM_NAME
 ##--------------------------------------------------------------------------------##
 cat > 5app-redeploy-restart-appxxx-sub.sh <<- 'EOF'
@@ -162,7 +190,7 @@ set -o nounset
 set -o errexit
 export JAVA_HOME="/opt/jdk-xxx"
 export PATH="$JAVA_HOME"/bin:$PATH
-APP_FILE_NAME=simple-e-commerce-v2-1.0.0
+APP_FILE_NAME=sample1-1.0.0
 if [ ! -d "/usr/local/appxxx" ]; then
     echo '/usr/local/appxxx Not exists, so mkdir'
     mkdir -p /usr/local/appxxx
@@ -196,8 +224,8 @@ PID=`ps -eaf | grep $APP_FILE_NAME | grep -v grep | awk '{print $2}'`
 echo "Started PID=$PID"
 EOF
 
-gcloud compute scp --zone $ZONE --internal-ip "5app-redeploy-restart-appxxx-sub.sh" $LOGINUSER@$VM_NAME:/home/$LOGINUSER/
-gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "cd /home/$LOGINUSER && chmod 777 5app-redeploy-restart-appxxx-sub.sh && sudo ./5app-redeploy-restart-appxxx-sub.sh"
+gcloud compute scp --zone $ZONE --internal-ip "5app-redeploy-restart-appxxx-sub.sh" $LOGINUSER@$VM_NAME:$REMOTE_FOLDER/
+gcloud compute ssh $VM_NAME --zone $ZONE --internal-ip --command "cd $REMOTE_FOLDER && chmod 777 5app-redeploy-restart-appxxx-sub.sh && sudo ./5app-redeploy-restart-appxxx-sub.sh"
 rm 5app-redeploy-restart-appxxx-sub.sh
 echo "Remote appxxx redeployed"
 

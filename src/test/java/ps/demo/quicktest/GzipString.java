@@ -1,22 +1,15 @@
 package ps.demo.quicktest;
 
 import lombok.SneakyThrows;
-import ps.demo.common.GzipUtil;
-import ps.demo.common.MyReadWriteUtil;
+import ps.demo.common.GzipTool;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
 
 public class GzipString {
 
     public static void main(String[] args) {
+
         String longStr =
                 "\uD83D\uDE0A\uD83D\uDE02\uD83D\uDC95\uD83D\uDE01\uD83D\uDC4D\uD83D\uDE0D\uD83D" +
                 "\uDE4C\uD83D\uDE4C\uD83D\uDE01\uD83D\uDE01\uD83D\uDE18\uD83D\uDE0D\uD83D" +
@@ -27,14 +20,14 @@ public class GzipString {
                 "\uDD56\uD83C\uDF54\uD83E\uDD5E\uD83E\uDED3\uD83C\uDF2F\uD83D\uDE96\uD83D\uDE96" +
                 "\uD83D\uDE8E\uD83D\uDE8E\uD83D\uDE91\uD83D\uDC94qerqlqkrqwlkrjqw;lkrqwkrlqkrjwq" +
                 "qerqerwerqwrqwrwrr3j2lksldl2345pfspokowjerlakrlwqkrq;lk34jq;wlkrjq;3k;q3k44k2wr";
-        //longStr = MyReadWriteUtil.readFileContent(new File("C:\\Users\\Dell\\2023-10-18_210654-BigFile.txt"));
+        //longStr = ReadWriteTool.readFileContent(new File("C:\\Users\\Dell\\2023-10-18_210654-BigFile.txt"));
         String compressed = compress(longStr);
 
         System.out.println("original length="+longStr.length()+"\tcompressed length="+compressed.length());
         System.out.println("-->is equal="+longStr.equals(uncompress(compressed)));
 
-        byte[] bytes = GzipUtil.compress(longStr.getBytes());
-        byte[] bytes2 = GzipUtil.uncompress(bytes);
+        byte[] bytes = GzipTool.compress(longStr.getBytes());
+        byte[] bytes2 = GzipTool.uncompress(bytes);
         System.out.println("-->is equal="+longStr.equals(new String(bytes2)));
 
         String compressed2 = compress2(longStr);
@@ -50,23 +43,23 @@ public class GzipString {
         if (str == null || str.length() == 0) {
             return str;
         }
-        return new String(Base64.getEncoder().encode(GzipUtil.compress(str.getBytes(StandardCharsets.UTF_8))));
+        return new String(Base64.getEncoder().encode(GzipTool.compress(str.getBytes(StandardCharsets.UTF_8))));
     }
 
     public static String uncompress(String compressedStr) {
         if (compressedStr == null) {
             return null;
         }
-        return new String(GzipUtil.uncompress(Base64.getDecoder().decode(compressedStr.getBytes(StandardCharsets.UTF_8))));
+        return new String(GzipTool.uncompress(Base64.getDecoder().decode(compressedStr.getBytes(StandardCharsets.UTF_8))));
     }
 
     @SneakyThrows
     public static String compress2(String str) {
-        return new String(GzipUtil.compress(str.getBytes(StandardCharsets.ISO_8859_1)), StandardCharsets.ISO_8859_1);
+        return new String(GzipTool.compress(str.getBytes(StandardCharsets.ISO_8859_1)), StandardCharsets.ISO_8859_1);
     }
 
     @SneakyThrows
     public static String uncompress2(String compressedStr) {
-        return new String(GzipUtil.uncompress(compressedStr.getBytes(StandardCharsets.ISO_8859_1)), StandardCharsets.ISO_8859_1);
+        return new String(GzipTool.uncompress(compressedStr.getBytes(StandardCharsets.ISO_8859_1)), StandardCharsets.ISO_8859_1);
     }
 }

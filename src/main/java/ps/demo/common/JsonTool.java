@@ -16,7 +16,7 @@ import java.util.TreeMap;
  * @desc
  */
 @Slf4j
-public class MyJsonUtil {
+public class JsonTool {
 
     private static ObjectMapper mapper = new ObjectMapper();
 
@@ -53,7 +53,7 @@ public class MyJsonUtil {
 
         List<String> lists = new ArrayList<String>();
         for (T t : objects) {
-            lists.add(MyJsonUtil.object2JsonString(t));
+            lists.add(JsonTool.object2JsonString(t));
         }
 
         return lists;
@@ -66,7 +66,7 @@ public class MyJsonUtil {
 
         List<T> ts = new ArrayList<T>();
         for (String j : jsons) {
-            ts.add(MyJsonUtil.jsonString2Object(j, c));
+            ts.add(JsonTool.jsonString2Object(j, c));
         }
 
         return ts;
@@ -110,6 +110,6 @@ public class MyJsonUtil {
         }
         TypeReference typeReference = new TypeReference<Map<String, Object>>() {
         };
-        return (Map<String, Object>) MyJsonUtil.jsonString2Object(json, typeReference);
+        return (Map<String, Object>) JsonTool.jsonString2Object(json, typeReference);
     }
 }

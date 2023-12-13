@@ -8,7 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MyStringUtil {
+public class StringTool {
     public static final char UNDERLINE = '_';
     public static final char HYPHEN = '-';
 

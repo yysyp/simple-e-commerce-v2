@@ -8,7 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ps.demo.service.MyFileService;
+import ps.demo.service.FileService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,10 +24,10 @@ import java.util.Base64;
 @Slf4j
 @RestController
 @RequestMapping("/api/download")
-public class MyDownloadController {
+public class DownloadController {
 
     @Autowired
-    MyFileService fileService;
+    FileService fileService;
 
     final Base64.Decoder decoder = Base64.getDecoder();
     final Base64.Encoder encoder = Base64.getEncoder();

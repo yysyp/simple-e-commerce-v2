@@ -1,13 +1,13 @@
 package ps.demo.dto;
 
 import lombok.*;
-import ps.demo.common.MyBaseResponse;
+import ps.demo.common.BaseResponse;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class RemoveFromCartResponse extends MyBaseResponse {
+public class RemoveFromCartResponse extends BaseResponse {
 
     private RemoveFromCartResponse.Data data;
 

@@ -1,7 +1,7 @@
 package ps.demo.dto;
 
 import lombok.*;
-import ps.demo.common.MyBaseResponse;
+import ps.demo.common.BaseResponse;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetCartResponse extends MyBaseResponse {
+public class GetCartResponse extends BaseResponse {
 
     private GetCartResponse.Data data;
 

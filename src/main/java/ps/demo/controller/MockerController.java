@@ -28,7 +28,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/mock")
-public class MockerController extends MyBaseController {
+public class MockerController extends BaseController {
 
     @Autowired
     private MockerService mockerService;
@@ -51,18 +51,18 @@ public class MockerController extends MyBaseController {
     )
     @PostMapping(value = "/create-mock", consumes = MediaType.APPLICATION_JSON_VALUE,
     produces = MediaType.APPLICATION_JSON_VALUE)
-    public MyBaseResponse save(@RequestBody @Validated MyMockReq myMockReq, HttpServletRequest request) {
+    public BaseResponse save(@RequestBody @Validated MyMockReq myMockReq, HttpServletRequest request) {
         MyMockDto myMockDto = new MyMockDto();
 
         myMockDto.setRegexMatch(null != request.getParameter("regexMatch"));
 
-        MyMapperUtil.convert(myMockReq, myMockDto);
+        MapperTool.convert(myMockReq, myMockDto);
         //MyBeanUtil.copyProperties(myMockReq, myMockDto);
         if(null != mockerService.findByUri(myMockDto.getUri())) {
-            throw new MyClientErrorException(CodeEnum.DUPLICATED_KEY);
+            throw new ClientErrorException(CodeEnum.DUPLICATED_KEY);
         }
         mockerService.save(myMockDto);
-        return MyBaseResponse.success();
+        return BaseResponse.success();
     }
 
     @Operation(summary = "This is the endpoint for mocked api endpoints",
@@ -82,7 +82,7 @@ public class MockerController extends MyBaseController {
             String uri = mockDto.getUri() + "";
             if (mockDto.getMethod().trim().equalsIgnoreCase(method)
                     && (uri.equals(searchTerm) || (mockDto.getRegexMatch() &&
-                    MyRegexUtil.isMatche(searchTerm, uri)))) {
+                    RegexTool.isMatche(searchTerm, uri)))) {
                 myMockDto = mockDto;
                 break;
             }
@@ -93,18 +93,18 @@ public class MockerController extends MyBaseController {
             headers.setContentType(MediaType.TEXT_PLAIN);
             return new ResponseEntity("Not Found!", headers, HttpStatus.OK);
         }
-        Map<String, Object> mockHeaders = MyJsonUtil.json2SimpleMap(myMockDto.getHeaders());
+        Map<String, Object> mockHeaders = JsonTool.json2SimpleMap(myMockDto.getHeaders());
         Map<String, Object> ctx = new HashMap<>();
         ctx.put("request", request);
         for (Map.Entry<String, Object> entry : mockHeaders.entrySet()) {
             String key = entry.getKey() + "";
-            String value = MyThymeleafUtil.processText(entry.getValue() + "", ctx);
+            String value = ThymeleafTool.processText(entry.getValue() + "", ctx);
             headers.add(key, value);
         }
         if (!headers.containsKey("Content-Type")) {
             headers.setContentType(MediaType.APPLICATION_JSON);
         }
-        String body = MyThymeleafUtil.processText(myMockDto.getBody(), ctx);
+        String body = ThymeleafTool.processText(myMockDto.getBody(), ctx);
         ResponseEntity<String> responseEntity = new ResponseEntity<String>(body,
                 headers, HttpStatus.valueOf(myMockDto.getStatus()));
 

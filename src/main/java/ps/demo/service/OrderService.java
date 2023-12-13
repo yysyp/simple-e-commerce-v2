@@ -4,10 +4,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ps.demo.common.MyClientErrorException;
+import ps.demo.common.ClientErrorException;
 import ps.demo.common.CodeEnum;
-import ps.demo.common.MyUtil;
-import ps.demo.common.MyServerErrorException;
+import ps.demo.common.ProjConstant;
+import ps.demo.common.ServerErrorException;
 import ps.demo.dto.PlaceOrderRequest;
 import ps.demo.dto.PlaceOrderResponse;
 import ps.demo.entity.*;
@@ -44,15 +44,15 @@ public class OrderService {
         Cart cart = cartMapper.getCartAndItems(request.getCartId());
 
         if(cart == null || !cart.getUserId().equals(request.getUserId())) {
-            throw new MyClientErrorException(CodeEnum.INVALID_ID);
+            throw new ClientErrorException(CodeEnum.INVALID_ID);
         }
 
         // Create order from cart
         Order order = Order.builder().userId(cart.getUserId())
                 .totalPrice(cart.getTotalPrice())
-                .paymentMethod(MyUtil.PAYMENT_METHOD)
+                .paymentMethod(ProjConstant.PAYMENT_METHOD)
                 .transactionId(UUID.randomUUID().toString())
-                .createdAt(MyUtil.getNowDate()).status(MyUtil.PENDING).build();
+                .createdAt(ProjConstant.getNowDate()).status(ProjConstant.PENDING).build();
         orderMapper.insert(order);
 
         // Validate & update stock & create order items
@@ -60,7 +60,7 @@ public class OrderService {
         for(CartItem item : cart.getItems()) {
             Stock stock = stockMapper.selectById(item.getProductId());
             if(stock.getQuantity() < item.getQuantity()) {
-                throw new MyServerErrorException(CodeEnum.NO_ENOUGH_STOCK);
+                throw new ServerErrorException(CodeEnum.NO_ENOUGH_STOCK);
             }
             Integer originStockQuantity = stock.getQuantity();
             stock.setQuantity(originStockQuantity - item.getQuantity());
@@ -69,7 +69,7 @@ public class OrderService {
                     .eq("quantity", originStockQuantity));
             //Make sure the record updating is not conflicting.
             if (updated != 1) {
-                throw new MyServerErrorException(CodeEnum.CONCURRENT_OPERATION);
+                throw new ServerErrorException(CodeEnum.CONCURRENT_OPERATION);
             }
             OrderItem orderItem = new OrderItem();
             orderItem.setOrderId(order.getId());
@@ -81,7 +81,7 @@ public class OrderService {
 
         //Store payment information
         Payment payment = Payment.builder().orderId(order.getId())
-                .createdAt(MyUtil.getNowDate())
+                .createdAt(ProjConstant.getNowDate())
                 .amount(cart.getTotalPrice())
                 .cardNo(request.getCardNo())
                 .cvcNo(request.getCvc())
@@ -96,7 +96,7 @@ public class OrderService {
         // Build response
         PlaceOrderResponse.Data data = PlaceOrderResponse.Data.builder()
                 .orderId(order.getId()).total(order.getTotalPrice())
-                .status(MyUtil.PENDING).build();
+                .status(ProjConstant.PENDING).build();
         return new PlaceOrderResponse(data);
 
     }

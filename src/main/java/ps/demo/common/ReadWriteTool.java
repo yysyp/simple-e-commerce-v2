@@ -12,13 +12,13 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class MyReadWriteUtil {
+public class ReadWriteTool {
 
     public static void writeProperties(File file, Properties prop, boolean append) {
         Writer writer = null;
         try {
             writer = new FileWriter(file, append);
-            prop.store(writer, MyTimeUtil.getNowStr());
+            prop.store(writer, TimeTool.getNowStr());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -54,7 +54,7 @@ public class MyReadWriteUtil {
     }
 
     public static void writeObjectToFileTsInHomeDir(Object content) {
-        writeObjectToFile(MyFileUtil.getFileTsInHomeDir(".log"), content);
+        writeObjectToFile(FileUtilTool.getFileTsInHomeDir(".log"), content);
     }
 
     public static void writeObjectToFile(File file, Object content) {
@@ -64,7 +64,7 @@ public class MyReadWriteUtil {
     public static void writeObjectToFile(File file, Object content, Charset charsetName, boolean append) {
         try {
             String lineEnding = System.lineSeparator();
-            FileUtils.writeStringToFile(file, MyJsonUtil.object2JsonString(content) + lineEnding, charsetName, append);
+            FileUtils.writeStringToFile(file, JsonTool.object2JsonString(content) + lineEnding, charsetName, append);
         } catch (IOException e) {
             throw new RuntimeException("Write to File failed!", e);
         }
@@ -72,7 +72,7 @@ public class MyReadWriteUtil {
 
     public static <T> T readObjectFromFile(File file, Class<T> c) {
         try {
-            return MyJsonUtil.jsonString2Object(FileUtils.readFileToString(file, StandardCharsets.UTF_8), c);
+            return JsonTool.jsonString2Object(FileUtils.readFileToString(file, StandardCharsets.UTF_8), c);
         } catch (IOException e) {
             throw new RuntimeException("Read from File failed!", e);
         }
@@ -84,7 +84,7 @@ public class MyReadWriteUtil {
 
     public static <T> void writeObjectsToFile(File file, List<T> lists, boolean append) {
         try {
-            List<String> stringList = MyJsonUtil.listObject2ListJson(lists);
+            List<String> stringList = JsonTool.listObject2ListJson(lists);
             FileUtils.writeLines(file, stringList, append);
         } catch (IOException e) {
             throw new RuntimeException("Write to File failed!", e);
@@ -98,7 +98,7 @@ public class MyReadWriteUtil {
     public static <T> List<T> readObjectsFromFile(File file, Charset charset, Class<T> c) {
         try {
             List<String> lines = FileUtils.readLines(file, charset);
-            return lines.stream().map(s -> MyJsonUtil.jsonString2Object(s, c)).collect(Collectors.toList());
+            return lines.stream().map(s -> JsonTool.jsonString2Object(s, c)).collect(Collectors.toList());
         } catch (IOException e) {
             throw new RuntimeException("Read from File failed!", e);
         }
