@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ps.demo.common.MyBaseController;
 import ps.demo.dto.PlaceOrderRequest;
-import ps.demo.dto.PlaceOrderResponseMy;
+import ps.demo.dto.PlaceOrderResponse;
 import ps.demo.service.OrderService;
 
 @RestController
@@ -21,8 +21,8 @@ public class OrderController extends MyBaseController {
 
     @Operation(summary = "Order to place order for current user's cart")
     @PostMapping("/place-order")
-    public PlaceOrderResponseMy placeOrder(@RequestBody @Validated PlaceOrderRequest request) {
-        PlaceOrderResponseMy response = orderService.placeOrder(request);
+    public PlaceOrderResponse placeOrder(@RequestBody @Validated PlaceOrderRequest request) {
+        PlaceOrderResponse response = orderService.placeOrder(request);
         return response;
 
     }

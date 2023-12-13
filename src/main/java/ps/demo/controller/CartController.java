@@ -21,31 +21,31 @@ public class CartController extends MyBaseController {
 
     @Operation(summary = "Cart to get basic info and its detail items")
     @GetMapping(value = "/detail", produces = MediaType.APPLICATION_JSON_VALUE)
-    public GetCartResponseMy cartDetail(@RequestParam(value = "userId") Long userId,
-                                        @RequestParam(value = "cartId") Long cartId) {
+    public GetCartResponse cartDetail(@RequestParam(value = "userId") Long userId,
+                                      @RequestParam(value = "cartId") Long cartId) {
         if (userId.compareTo(0L) <= 0 || cartId.compareTo(0L) <= 0) {
             throw new MyClientErrorException(CodeEnum.INVALID_ID);
         }
-        GetCartResponseMy response = cartService.getCartDetail(userId, cartId);
+        GetCartResponse response = cartService.getCartDetail(userId, cartId);
         return response;
     }
 
     @Operation(summary = "Cart to additional add product to cart")
     @PostMapping("/add")
-    public AddToCartResponseMy addToCart(@RequestBody @Validated AddToCartDto req) {
+    public AddToCartResponse addToCart(@RequestBody @Validated AddToCartDto req) {
         Long cartId = cartService.addToCart(req.getUserId(), req.getProductId(), req.getQuantity());
-        AddToCartResponseMy response = new AddToCartResponseMy(
-                AddToCartResponseMy.Data.builder().cartId(cartId).build()
+        AddToCartResponse response = new AddToCartResponse(
+                AddToCartResponse.Data.builder().cartId(cartId).build()
         );
         return response;
     }
 
     @Operation(summary = "Cart to partially remove cart items from cart")
     @PostMapping("/remove")
-    public RemoveFromCartResponseMy removeFromCart(@RequestBody @Validated RemoveFromCartDto req) {
+    public RemoveFromCartResponse removeFromCart(@RequestBody @Validated RemoveFromCartDto req) {
         Long cartId = cartService.removeFromCart(req.getUserId(), req.getCartId(), req.getProductId(), req.getQuantity());
-        RemoveFromCartResponseMy response = new RemoveFromCartResponseMy(
-                RemoveFromCartResponseMy.Data.builder().cartId(cartId).build()
+        RemoveFromCartResponse response = new RemoveFromCartResponse(
+                RemoveFromCartResponse.Data.builder().cartId(cartId).build()
         );
         return response;
     }

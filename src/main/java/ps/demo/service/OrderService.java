@@ -9,7 +9,7 @@ import ps.demo.common.CodeEnum;
 import ps.demo.common.MyUtil;
 import ps.demo.common.MyServerErrorException;
 import ps.demo.dto.PlaceOrderRequest;
-import ps.demo.dto.PlaceOrderResponseMy;
+import ps.demo.dto.PlaceOrderResponse;
 import ps.demo.entity.*;
 import ps.demo.repository.*;
 
@@ -38,7 +38,7 @@ public class OrderService {
     private PaymentMapper paymentMapper;
 
     @Transactional
-    public PlaceOrderResponseMy placeOrder(PlaceOrderRequest request) {
+    public PlaceOrderResponse placeOrder(PlaceOrderRequest request) {
 
         // Validate cart
         Cart cart = cartMapper.getCartAndItems(request.getCartId());
@@ -94,10 +94,10 @@ public class OrderService {
         cartMapper.deleteById(cart.getId());
 
         // Build response
-        PlaceOrderResponseMy.Data data = PlaceOrderResponseMy.Data.builder()
+        PlaceOrderResponse.Data data = PlaceOrderResponse.Data.builder()
                 .orderId(order.getId()).total(order.getTotalPrice())
                 .status(MyUtil.PENDING).build();
-        return new PlaceOrderResponseMy(data);
+        return new PlaceOrderResponse(data);
 
     }
 

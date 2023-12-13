@@ -11,7 +11,7 @@ server:
 
 spring:
   application:
-    name: sample1
+    name: simple-e-commerce-v2
   profiles:
     active: dev
   #  Below config will make 404 page show as a restful json response.

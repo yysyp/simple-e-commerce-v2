@@ -10,12 +10,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StringDataResponseMy extends MyBaseResponse {
+public class StringDataResponse extends MyBaseResponse {
 
     private String data;
 
     public static MyBaseResponse successWithData(Object strableObj) {
-        StringDataResponseMy stringDataResponse = new StringDataResponseMy();
+        StringDataResponse stringDataResponse = new StringDataResponse();
         stringDataResponse.setData(new Gson().toJson(strableObj));
         return stringDataResponse;
     }

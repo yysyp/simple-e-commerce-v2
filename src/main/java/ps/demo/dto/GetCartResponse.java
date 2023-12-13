@@ -11,9 +11,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetCartResponseMy extends MyBaseResponse {
+public class GetCartResponse extends MyBaseResponse {
 
-    private GetCartResponseMy.Data data;
+    private GetCartResponse.Data data;
 
     @NoArgsConstructor
     @AllArgsConstructor

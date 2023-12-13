@@ -7,9 +7,9 @@ import ps.demo.common.MyBaseResponse;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddToCartResponseMy extends MyBaseResponse {
+public class AddToCartResponse extends MyBaseResponse {
 
-    private AddToCartResponseMy.Data data;
+    private AddToCartResponse.Data data;
 
     @NoArgsConstructor
     @AllArgsConstructor

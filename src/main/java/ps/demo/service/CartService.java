@@ -8,7 +8,7 @@ import ps.demo.common.MyClientErrorException;
 import ps.demo.common.CodeEnum;
 import ps.demo.common.MyUtil;
 import ps.demo.common.MyServerErrorException;
-import ps.demo.dto.GetCartResponseMy;
+import ps.demo.dto.GetCartResponse;
 import ps.demo.entity.Cart;
 import ps.demo.entity.CartItem;
 import ps.demo.entity.Product;
@@ -46,7 +46,7 @@ public class CartService {
      * @return detail cart & cart items
      */
     @Transactional(readOnly = true)
-    public GetCartResponseMy getCartDetail(Long userId, Long cartId) {
+    public GetCartResponse getCartDetail(Long userId, Long cartId) {
         //Note: assuming userId is already validated.
 
         //Validate userId and cartId matches
@@ -55,17 +55,17 @@ public class CartService {
             throw new MyClientErrorException(CodeEnum.INVALID_ID);
         }
 
-        List<GetCartResponseMy.Item> items = new ArrayList<>();
+        List<GetCartResponse.Item> items = new ArrayList<>();
         cart.getItems().forEach(e -> {
-            items.add(GetCartResponseMy.Item.builder().cartItemId(e.getId())
+            items.add(GetCartResponse.Item.builder().cartItemId(e.getId())
                     .productId(e.getProductId()).totalPrice(e.getTotalPrice())
                     .quantity(e.getQuantity()).build());
         });
 
-        GetCartResponseMy.Data data = GetCartResponseMy.Data.builder()
+        GetCartResponse.Data data = GetCartResponse.Data.builder()
                 .curtId(cartId).userId(userId).totalPrice(cart.getTotalPrice())
                 .createdAt(cart.getCreatedAt()).items(items).build();
-        return new GetCartResponseMy(data);
+        return new GetCartResponse(data);
     }
 
     /**

@@ -3,15 +3,13 @@ package ps.demo.dto;
 import lombok.*;
 import ps.demo.common.MyBaseResponse;
 
-import java.math.BigDecimal;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PlaceOrderResponseMy extends MyBaseResponse {
+public class RemoveFromCartResponse extends MyBaseResponse {
 
-    private Data data;
+    private RemoveFromCartResponse.Data data;
 
     @NoArgsConstructor
     @AllArgsConstructor
@@ -20,9 +18,7 @@ public class PlaceOrderResponseMy extends MyBaseResponse {
     @ToString
     @Builder
     public static class Data {
-        private Long orderId;
-        private BigDecimal total;
-        private String status;
+        private Long cartId;
     }
 
 }

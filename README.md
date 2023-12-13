@@ -1,5 +1,13 @@
-# This can be used as a project prototype for single Java Springboot project initialization.
-# For multiple different modules, acting as quick check quick code snippet poc, you can use "sampleall".
+### This can be used as a project prototype for single Java Springboot project initialization.
+### For multiple different modules, acting as quick check quick code snippet poc, you can use "sampleall".
+### Replace Steps:
+1. Replace "simple-e-commerce-v2" with "new-proj-id"
+2. Remove .mvn , mvnw , mvnw.cmd
+3. Remove "<repositories>" in the pom.xml
+4. Refactor "ps.demo" to "com.xx.yy.zz"
+5. Replace "ps.demo" with "com.xx.yy.zz"
+
+
 # simple-e-commerce-v2
 This is a simple e-commerce demo based on springboot framework in Java 11
 This application uses H2 memory database, and provide Restful APIs to show
