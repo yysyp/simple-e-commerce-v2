@@ -712,3 +712,720 @@ unittest实现了测试用例集合、运行用例、验证结果功能。主要
 - TestLoader: 加载TestCase到TestSuite
 
 编写TestCase测试类,通过TextTestRunner运行测试用例。
+
+===================================================================================
+
+--phython
+Okay, let me list 100 Python interview questions for you, from easy to deep, with answers:
+
+1. What is Python?
+
+Python is an interpreter language, or it can be said to be an interactive, object-oriented, dynamic data type high-level programming language. Python was invented by Guido van Rossum in 1989, and the first public release was released in 1991.
+
+2. What are the features and advantages of Python?
+
+- Easy to learn, simple and clear syntax, easy to read code
+- Dynamically typed language, no need to declare variable types in advance
+- Supports multiple programming paradigms, such as object-oriented, functional, imperative, etc.
+- Open source and free, with an active community and a large number of excellent third-party libraries
+- Interpreted language, no need to compile and run, high development and debugging efficiency
+- High-level language, supports various system calls and memory management, and has good portability
+
+3. What are the commonly used data types in Python?
+
+Number, String, List, Tuple, Dictionary, Set, etc.
+
+4. What are the variable naming rules in Python?
+
+Variable names can only contain letters, numbers and underscores, cannot start with numbers, cannot use keywords and function names, and are strictly case-sensitive.
+
+5. How to implement multi-line statements in Python?
+
+You can use backslashes \ or parentheses () to implement multi-line statements. You can also use three single quotes ''' or three double quotes """ to assign a multiline string to a variable.
+
+6. What are the annotation methods in Python?
+
+Use # for single-line comments, and use three single quotes ''' or three double quotes """ for multi-line comments.
+
+7. What is the basic syntax of if-else statement in Python?
+
+```python
+if condition:
+     statements
+elif condition:
+     statements
+else:
+     statements
+```
+
+8. What is the syntax of for loop in Python?
+
+```python
+for variable in collection:
+     statement
+```
+
+9. What is the syntax of while loop in Python?
+
+```python
+while conditional statement:
+     Execute statement
+```
+
+10. What are the functions of break, continue, and pass statements in Python?
+
+- break: jump out of the current loop
+- continue: jump out of this cycle and continue to the next cycle
+- pass: empty statement, generally used for placeholder
+
+11. What is the basic syntax for defining functions in Python?
+
+```python
+def function name (parameter):
+     function body
+```
+
+12. What is the parameter passing mechanism of functions in Python?
+
+Python function parameters are passed by reference, that is, modifying parameters inside the function will affect external variables.
+
+13. What are the mutable and immutable objects in Python?
+
+- Mutable objects: lists, dictionaries, sets
+- Immutable objects: numbers, strings, tuples
+
+14. What are the common operations on lists in Python?
+
+- Added: append, extend, insert
+- Delete: remove, pop
+- Modification: Assignment
+- Search: index, count, in
+- Sorting: sort, sorted, reverse
+
+15. What is the slicing operation in Python?
+
+```python
+L[start:stop:step]
+```
+
+start is the starting subscript, stop is the ending subscript, and step is the step size, which can realize the slicing operation of the list.
+
+16. What are the common operations on dictionaries in Python?
+
+- Add/modify: d[key] = value
+- Delete: del d[key] or d.pop(key)
+- Search: d[key] or d.get(key)
+- Traversal: for k in d or for k,v in d.items()
+
+17. How to delete elements from a dictionary or set in Python?
+
+- Delete dictionary elements: del d[key] or d.pop(key)
+- Delete collection elements: s.remove(obj) or s.discard(obj)
+
+18. What are decorators in Python? What are their functions?
+
+A decorator is a function that is used to modify and extend the functions of other functions without directly modifying the source code of the decorated function. Common functions: logging, access control, caching, measuring time, etc.
+
+Use the @ symbol to apply the decorator on the line before the function definition.
+
+19. What are the three standard file objects in Python?
+
+- stdin: standard input
+- stdout: standard output
+- stderr: standard error
+
+20. What is the basic syntax for exception handling in Python?
+
+```python
+try:
+     Possible error code
+except:
+     If an exception occurs, the code executed
+```
+
+If an exception occurs in the try code block, the except code block will be executed. If there is no exception, the except code block will not be executed.
+
+21. What can Python’s list comprehensions be used for?
+
+Lists can be quickly generated using more concise syntax, for example:
+
+```python
+[x**2 for x in range(10)]
+```
+
+22. Explain the function of pass statement in Python?
+
+The pass statement is used as a placeholder and is equivalent to a no-op. Pass can be used when the syntax requires a statement but the logic does not require any operation to maintain the integrity of the program structure.
+
+23. How to define constants in Python?
+
+Constants can be represented by all-uppercase variable names, defined by importing the constants module, or simulated using the @lru_cache decorator of the functools module.
+
+24. What is the slicing syntax in Python?
+
+The slicing syntax in Python is as follows:
+
+```python
+Variable [start:stop:step]
+```
+
+start is the starting subscript, stop is the ending subscript, and step is the step size.
+
+25. What are the LEGB rules in Python?
+
+LEGB refers to the ordering rules of scopes in Python:
+
+- L: Local namespace within the function
+- E: Enclosing the namespace of nested functions
+- G: Namespace of the Global module
+- B: Namespace of Built-in Python built-in modules
+
+Find variables in order LEGB.
+
+26. What is the difference between is and == in Python?
+
+is is used to compare the memory address of the object, == is used to compare the value of the object. When comparing basic data types, the two are equivalent. For container types such as list and dict, you should use == to determine the element value instead of is to determine the memory address.
+
+27. How to copy an object in Python?
+
+Objects can be copied using the copy or deepcopy functions of the copy module. An object can also be copied by calling the object's copy method.
+
+28. What is the difference between eval and exec in Python?
+
+- eval: Evaluate the string as a valid expression and return the result.
+- exec: Execute a string as Python code.
+
+29. What are the basic data structures of Python?
+
+Numbers, strings, lists, tuples, dictionaries, sets.
+
+30. Please explain what is GIL in Python?
+
+GIL is Python's Global Interpreter Lock. It allows Python to have only one thread executing at the same time, preventing conflicts from modifying the same object at the same time. The GIL limits the parallelism of Python multithreaded programs.
+
+31. How to implement deep copy and shallow copy in Python?
+
+- Shallow copy: direct assignment, slice, dict.copy()
+- Deep copy: copy.deepcopy(), uses recursion to copy the sub-objects inside the object
+
+32. Python’s standard way to swap two variables?
+
+Use tuple packing and unpacking to exchange variables:
+
+```python
+a, b = b, a
+```
+
+33. How to sort a dictionary based on its value in Python?
+
+Use sorted and lambda functions:
+
+```python
+sorted(d.items(), key=lambda x:x[1])
+```
+
+34. How to get the type of object in Python?
+
+Use the type() function or isinstance() function to determine the type. You can also use the __class__ attribute directly.
+
+35. What is the difference between Python lists and arrays?
+
+Arrays store a single type of data, and lists can store different types of data. Array elements are stored continuously in memory, and list elements are stored at any location in memory. Arrays are more suitable for numerical calculations, and lists are more suitable for storage and traversal.
+
+36. What are the built-in data structures in Python?
+
+List, tuple, dictionary, set.
+
+37. Explain the concept of closures in Python.
+
+Closure refers to a function that extends the scope and can access non-global variables that exist when the function is defined. To create a closure, at least the following conditions must be met:
+
+- There must be an inline function
+- Inline functions must reference variables in external functions
+- External functions must return embedded functions
+
+38. What is the principle of decorators in Python?
+
+A decorator is essentially a function that allows other functions to add additional functions without making any code changes. The return value of the decorator is also a function object. Use the @ syntax to place the decorator before another function definition to implement the decoration function.
+
+39. What is the role of generators in Python?
+
+Generators can be used to create data streams that iterate on demand, saving a lot of memory space and implementing delayed calculations. In Python, functions containing the yield keyword are generators.
+
+40. What is the difference between sets and lists in Python?
+
+- Sets store non-repeating and unordered elements, while list elements are repeatable and ordered.
+- Lists can contain elements of different types, and collections can only contain hashable objects.
+- Lists support indexing and slicing operations, but collections do not.
+- Sets support efficient member detection, lists require linear scanning
+
+41. How to implement singleton pattern in Python?
+
+Use decorators or metaclasses to implement the singleton pattern. The core idea is to control the instantiation operation and only allow one instance to be created.
+
+```python
+class Singleton(type):
+     _instances = {}
+     def __call__(cls, *args, **kwargs):
+         if cls not in cls._instances:
+             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+         return cls._instances[cls]
+        
+class MyClass(metaclass=Singleton):
+     pass
+
+```
+
+42. Explain the difference between anti-iterators and generators in Python
+
+Anti-iterators can traverse data elements infinitely without storing the entire data stream. The generator is also an iterator. The difference is that the generator requires the user to call next() to get the next data, which is more flexible.
+
+43. What are the ways to format strings in Python?
+
+- % operator formatting
+- str.format() method formatting
+- f-string formatting
+
+44. What should you pay attention to when sharing data among multiple threads in Python?
+
+Due to limitations of the GIL, multithreading in Python has no advantage for CPU-intensive tasks. Data shared between multiple threads needs to be protected by locks, otherwise there will be problems of data competition and deadlock.
+
+45. Please briefly describe the role and implementation principle of the asyncio module in Python.
+
+The asyncio module implements an asynchronous programming framework using coroutines. It is based on the event loop and can achieve non-blocking concurrency. The coroutine gives up control through await and executes tasks asynchronously without blocking the main thread.
+
+46. What is a decorator in Python? What does it do?
+
+A decorator is essentially a function that allows other functions to add additional functions without making any code changes. The return value of the decorator is also a function object. Use the @ syntax to place the decorator before another function definition to implement the decoration function.
+
+Common uses include: inserting logs, performance testing, access control, caching, etc.
+
+47. Talk about GIL locks in Python and its impact.
+
+GIL is Python's global interpreter lock, which enables only one thread to execute at the same time, achieving interpreter-level synchronization.
+
+The existence of GIL ensures thread safety, but also limits the concurrency of Python multi-threaded programs. Significant performance in CPU-intensive tasks.
+
+48. How to merge multiple dictionaries in Python?
+
+Use {} to create new dictionaries, and use the update method to update from other dictionaries:
+
+```python
+dict1 = {'a':1, 'b':2}
+dict2 = {'b':3, 'c':4}
+dict3 = {}
+dict3.update(dict1)
+dict3.update(dict2)
+# {'a': 1, 'b': 3, 'c': 4}
+```
+
+You can also use the ** operator, and the subsequent dictionary will overwrite the keys of the same name in the previous dictionary:
+
+```python
+dict3 = {**dict1, **dict2}
+```
+
+49. Explain the slicing operation in Python.
+
+Python slicing syntax:
+
+```
+Sequence [start:stop:step]
+```
+
+- start: starting subscript, default is 0
+- stop: end subscript (not included)
+- step: step size, default is 1
+
+Slicing returns a new sequence composed of elements in the range, including the front and not the last.
+
+50. What are the LEGB rules in Python?
+
+LEGB is the scope ordering rule in Python:
+
+- L - Local: Scope within the function
+- E - Enclosing: Scope within the outer nested function
+- G - Global: Global scope defined within the module
+- B - Built-in: Scope in Python built-in modules
+
+Variables are found in this order of rules.
+
+51. What is the difference between list comprehensions and generator expressions?
+
+List comprehensions will directly produce a list, while generator expressions will return a generator object, which requires iteration to obtain elements.
+
+The generator does not need to generate and save all elements, so it saves memory space.
+
+52. How to implement modifiable read-only attributes in Python?
+
+This can be achieved through the property decorator:
+
+```python
+class Person:
+   @property
+   def name(self):
+     return self._name
+  
+   @name.setter
+   def name(self, value):
+     self._name = value
+```
+
+name becomes a readable property, and setting name will call the setter method.
+
+53. What are the scopes of variables in Python?
+
+Variables in Python have 4 scopes:
+
+- L - Local: variables defined within the function
+- E - Enclosing: Variables defined within nested functions
+- G - Global: variables defined in the module
+- B - Built-in: Python built-in variable name
+
+Find rule location variables in LEGB order.
+
+54. How to dynamically get and set object properties in Python?
+
+The built-in functions getattr() and setattr() can dynamically get and set object attributes.
+
+getattr(obj, 'attr') is equivalent to obj.attr
+setattr(obj, 'attr', value) is equivalent to obj.attr = value
+
+55. Explain the metaclass in Python.
+
+A metaclass is a class that creates class objects. The metaclass can intercept the creation of the class, modify the definition of the class, and return the modified class.
+
+type is a common metaclass. Use metaclasses to implement functions such as singleton mode and log decorators.
+
+The metaclass used is specified via __metaclass__ when defining a class.
+
+56. Please explain MRO (Method Resolution Order) in Python.
+
+MRO refers to the search order for methods in the case of multiple inheritance. It ensures that it starts from the subclass and searches in the direction of the parent class in order, following the C3 linearization algorithm.
+
+The MRO of a class can be viewed through the __mro__ attribute.
+
+57. Briefly describe the role of the Pickle module in Python.
+
+Pickle implements object serialization, which can convert Python objects into byte streams, store them in files or databases, and then parse and restore the objects later. This achieves persistent storage of objects.
+
+58. What is the function of decorator in Python?
+
+A decorator is essentially a function that adds additional functionality to other functions or classes without directly modifying the definition of the function or class. The advantage of this is that the open and closed principle of the original function code is not modified.
+
+Common uses include: logs, etc.
+
+OK, continue to output:
+
+59. How to implement the requirement that all objects be iterable in Python?
+
+The custom object needs to implement the __iter__ method, which returns an iterator object; the iterator object needs to implement the __next__ method, which returns the next available element when called, and throws a StopIteration exception if there are no elements left. .
+
+60. Explain the difference between is and == in Python
+
+is is used to determine whether the identities (memory addresses) of two objects point to the same object. == is used to determine whether the values of two objects are equal.
+
+When comparing basic data types, is and == have the same effect; for container types such as list and dict, == should be used to determine the element value instead of is to determine the memory address.
+
+61. What are the functions of *args and **kwargs in Python?
+
+*args is used to assemble an indefinite number of positional parameters into a tuple and pass it to the function.
+
+**kwargs is used to assemble an indefinite number of keyword parameters into a dict and pass it to the function.
+
+62. Talk about mutable types and immutable types in Python?
+
+Immutable types: numeric types, strings, tuples. Once an object is created, its own properties cannot be modified.
+
+Variable types: list, dictionary. After an object is created, the values of its properties can still be modified.
+
+63. How to modify global variables inside a function in Python?
+
+Just use the global keyword to declare variables:
+
+```python
+count = 0
+def add():
+     global count
+     count += 1
+```
+
+64. The problem of variable scope in Python functions, how to access variables in different scopes?
+
+Variables in Python are searched according to LEGB rules:
+
+- Local: function internal scope
+- Enclosing: Scope within the outer nested function
+- Global: module global scope
+- Built-in: System built-in scope
+
+Use the global keyword declaration to modify global variables, and use the nonlocal declaration to access variables in nested function scopes.
+
+65. What is object-oriented programming? Please briefly describe the relationship between classes and objects in Python.
+
+The idea of object-oriented programming is to use classes and objects to organize code and encapsulate data and methods of operating data.
+
+In Python, classes provide a blueprint for objects, and an object is a concrete existence created based on a class. Objects contain properties and methods for representing data and manipulating data.
+
+66. How to set access restrictions on object properties in Python?
+
+Properties of Python objects are public by default. To set a private attribute, you need to add two underscores __ before the attribute name, so that the attribute cannot be accessed externally.
+
+Private properties can be accessed and modified through object methods.
+
+67. Explain the difference between new-style classes and old-style classes in Python
+
+In Python2:
+- New style class: class that inherits object
+  -Old-style classes: classes that do not inherit object
+
+New-style classes have many features such as attribute descriptors, __slots__, metaclasses, etc. It is recommended to use new style classes.
+
+In Python 3, all classes are required to inherit object and are all new-style classes.
+
+68. What are the differences between class methods, static methods and instance methods in Python?
+
+- Instance method: the first parameter is self, which represents the instance itself
+- Class method: The first parameter is cls, which represents the class itself
+- Static method: ordinary function, no default first parameter
+
+69. What is the reflection mechanism in Python? How to implement it?
+
+Reflection is to operate object-related properties in the form of strings.
+
+Reflection is mainly implemented through getattr(), setattr(), hasattr() and other methods.
+
+70. How does Python implement overloaded instance methods?
+
+Overloading is achieved by defining method names like __method class. By passing in self and method names, you can call overloaded instance methods.
+
+71. How to dynamically create classes in Python?
+
+You can use the type function to dynamically create classes. The basic syntax is as follows:
+
+```python
+MyClass = type('MyClass', bases class tuple, attribute dictionary)
+```
+
+You can also use metaclass to achieve more flexible class creation.
+
+72. What is a metaclass in Python?
+
+Metaclasses are classes used to create classes. The metaclass can intercept the creation of a class, modify the definition of the class, and return the modified definition of the class.
+
+Use the metaclass parameter to define a class and its metaclass:
+
+```python
+class MyClass(metaclass=MetaClass):
+   ...
+```
+
+73. What is a descriptor in Python? How to implement a descriptor?
+
+A descriptor is an object property with binding behavior. When accessing the property, the descriptor method will be called.
+
+A descriptor can be implemented by defining __get__(), __set__(), and __delete__() methods.
+
+74. What is the function of @property decorator?
+
+The @property decorator converts class methods into readable properties, which can be accessed syntactically as properties, avoiding direct exposure of method calls.
+
+When setting the value, you need to use the setter method.
+
+75. What is aspect-oriented programming AOP and its implementation in Python?
+
+AOP realizes the isolation of program logic and inserts new functions into the program without modifying the source code through decorators, metaclasses, etc.
+
+The decorator function in Python is a simple AOP implementation.
+
+76. Talk about the implementation of singleton pattern in Python?
+
+Use the __new__ method to implement the singleton pattern. If it is judged that the instance exists, it will be returned directly. Otherwise, a new instance will be created and stored in the instance dictionary.
+At the same time, the __init__ method should be defined to prevent new instances from being created.
+
+You can also use decorators to implement singletons.
+
+77. How to implement derivation of lists, dictionaries, and sets in Python?
+
+```python
+[ expr for value in collection ]
+{ key_expr:value_expr for value in collection}
+{ expr for value in collection }
+```
+
+Use concise syntax to filter/convert elements based on sets to generate lists, dictionaries, and sets.
+
+78. Briefly describe list comprehension in Python?
+
+List comprehensions provide a simpler and more efficient way to create lists. Basic syntax:
+
+```python
+[ expr for value in collection ]
+```
+
+Generating a new list based on the collection according to certain rules can avoid the tediousness of the for loop.
+
+79. What is the parameter passing mechanism of Python functions?
+
+Python function parameters pass objects by reference. When an immutable object is passed in, the external object cannot be changed inside the function; but changes to the mutable object within the function will affect the external object.
+
+80. What is the difference between is and == in Python?
+
+is is used to compare the identity of an object, and == is used to compare whether the values of two objects are equal.
+
+is determines whether the object is the same, and == determines whether the values are equal. For immutable types, the two are usually equivalent.
+
+81. Please briefly describe the GIL in Python.
+
+GIL is Python's global interpreter lock, which implements interpreter-level thread synchronization. GIL ensures that only one thread is executed at the same time, so multi-threading cannot take advantage of multi-core CPUs in Python.
+
+The existence of GIL ensures thread safety, but also limits the concurrency of Python's multi-threading.
+
+82. What is closure? Please briefly describe the function and advantages of closure.
+
+A closure is a whole combination of a function and the environmental state (Lexical scope) when the function is declared. Closures have access to non-global variables that were available when the function was defined.
+
+The advantage is to avoid global variable pollution, but the disadvantage is that variables are always in memory and consume memory.
+
+83. Briefly describe the difference between method overloading and rewriting in object-oriented
+
+Method overloading refers to methods in the same class that define different parameters with the same name. Python distinguishes between different methods through parameters at run time.
+
+Method rewriting means that the subclass implements the same method as the parent class method, and PYTHON will call the rewritten method of the subclass.
+
+84. What is the function of Python’s decorator?
+
+A decorator is essentially a callable object that adds new functionality to a function without changing the original function code. Use the @ syntax to place the decorator above the function definition.
+
+Common uses include: inserting logs, performance testing, access control, caching, etc.
+
+85. What are the common methods of Python list (list)?
+
+- Added: append(), extend(), insert()
+- Delete: remove(), pop(), clear()
+- Sorting: sort(), reverse()
+- Access: __getitem__(), __setitem__(), __len__()
+- Search: index(), count(), in
+
+86. How to implement deep and shallow copy in Python?
+
+Shallow copy: Slice operations on container objects, factory function copy.copy(), etc.
+
+Deep copy: Use copy.deepcopy() to recursively copy the internal elements of the object
+
+87. What is the slots mechanism in Python? What are the usage scenarios?
+
+Slots is a class variable, which limits objects to only have attributes defined in slots, and dynamic addition is prohibited.
+
+The advantage is to reduce memory overhead and improve access speed; the disadvantage is to limit flexibility.
+
+It is suitable for scenarios with fixed class attributes and a large number of objects.
+
+88. Briefly describe the implementation mechanism of overloaded instance methods in Python
+
+Overloading is achieved by defining a special __method name format method on the instance. When calling an instance method, this special method will be searched first and called.
+
+By passing in self and method name parameters, any overloaded method can be called.
+
+89. What is the function of @property?
+
+Convert methods into class attribute calls to make syntax more elegant.
+
+Use @property to decorate the getter method and @methodname.setter to decorate the setter method.
+
+90. What is the difference between list and tuple?
+
+- Lists are mutable, tuples are immutable
+- Lists are defined with square brackets, tuples are defined with parentheses
+- List comprehensions generate new lists, and tuples have no comprehensions.
+- The list can be modified using addition and deletion operations, and the tuple is immutable
+
+91. Please briefly describe the main function of the sys module in Python
+
+The sys module is mainly used to provide system environment information and functions for interacting with the Python interpreter.
+
+The main function:
+
+- Get object references: argv, path, modules, etc.
+- Get restriction information: maxsize, maxunicode, etc.
+- Perform interactive operations with the parser: exit(), getrefcount(), etc.
+
+92. How to implement counter (count) in Python?
+
+The counter function can be implemented using the count() function of the itertools module. Each call will return an incrementing integer:
+
+```python
+import itertools
+counter = itertools.count()
+print(next(counter), next(counter)) # 0 1
+```
+
+93. What are the list sorting methods in Python? What are their respective time and space complexities?
+
+- Built-in function sorted():O(nlogn)
+- list.sort():O(nlogn)
+- sorted(items, key=...): O(nlogn)
+- Manual sorting algorithm: selection, bubble O(n^2)
+
+94. Explain the use of closures that return local variables in Python
+
+A closure that returns a local variable can maintain the state of the local variable during the function call, so that this state can be maintained for the duration of the closure.
+
+Application scenarios such as: counters, status markers, etc. that need to save information between function calls.
+
+95. Please briefly describe some magic methods in Python
+
+- \_\_init\_\_: object initialization calling method
+- \_\_str\_\_: Convert to string method
+- \_\_len\_\_: object length method
+- \_\_call\_\_: Object call method
+- \_\_getitem\_\_: Implement sequence index access
+- \_\_repr\_\_: Generate a representation that can be read by the parser
+
+and other magic methods that implement the built-in language functionality of the object.
+
+96. Briefly describe the differences between read, readline and readlines
+
+- read(): Read the entire file content and return a string.
+- readline(): Read the next line and return a string.
+- readlines(): Read the entire file and return a list of line strings.
+
+97. Talk about the method of exception handling in Python
+
+Use try-except code blocks for exception handling:
+
+```python
+try:
+   Code that may cause exceptions
+exceptExceptionType:
+   Exception occurs when executing code
+```
+
+The try block detects exceptions and jumps to the corresponding except block for processing if an exception occurs.
+
+98. Is the mechanism for passing function parameters in Python by value or by reference?
+
+Python parameters are passed into functions by reference.
+
+Modifications to immutable objects within a function do not affect external variables, that is, value transfer; modifications to mutable objects affect external variables, that is, reference transfer.
+
+99. What are dictionary comprehensions in Python?
+
+Dictionary comprehensions create new dictionaries from other dictionaries or sequences. The syntax format is as follows:
+
+```python
+{key_expr: value_expr for value in collection}
+```
+
+Filter and convert elements according to collection to generate dictionary type.
+
+100. Briefly describe the usage of unittest framework in Python
+
+Unittest implements the functions of test case collection, running test cases, and verification results. It mainly involves four components:
+
+- TestCase: Define the test class, including each test method
+- TestSuite: test collection
+- TestRunner: Run test cases
+- TestLoader: Load TestCase into TestSuite
+
+Write TestCase test class and run test cases through TextTestRunner.

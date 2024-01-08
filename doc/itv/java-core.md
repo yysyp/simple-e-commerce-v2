@@ -264,3 +264,277 @@ Java 30道面试题：
 99. Spring Boot启动流程?引导应用上下文、创建Environment、打印Banner信息、刷新上下文、应用程序启动完毕。
 
 100. Spring Boot的运行原理?利用了自动配置特性来进行默认配置,并可修改默认值来实现自定义配置。
+
+=================================================================================
+
+--javacore
+Java 30 interview questions:
+
+1. Let’s talk about Java’s reflection mechanism? Reflection can obtain class information at runtime, call the properties, methods and constructors of objects, bypassing compile-time access checks.
+
+2. What is a dynamic proxy? What is its use? A dynamic proxy dynamically generates a proxy class at runtime, and the proxy class is responsible for calling the methods of the actual object. Additional processing can be performed to add functionality without modifying the source code.
+
+3. Let’s talk about Java’s memory model? The Java memory model stipulates that all variables are stored in main memory. Each thread has its own working memory. The thread’s operations on variables are first performed in the working memory and then synchronized to the main memory.
+
+4. What is communication between multi-threads? What are the methods? wait/notify, join, volatile, BlockingQueue, producer-consumer, etc.
+
+5. What are atomicity, orderliness and visibility? Atomicity means that operations are invisible and indivisible, orderliness means that the order of operations conforms to the code order, and visibility means that the thread modification is visible to other threads.
+
+6. What are several ways to create a thread? Inherit the Thread class, implement the Runnable interface, implement the Callable interface + FutureTask, and thread pool.
+
+7. What are the states in the life cycle of a thread? New, runnable, blocked, waiting indefinitely and death.
+
+8. What is the difference between sleep() and wait()? sleep() is a static method of thread class, which gives up CPU time slice and does not release the lock. wait() is an Object method that lets the thread wait and release the lock.
+
+9. What are deadlock and livelock? Deadlock is when each other holds the lock that the other party needs and is stuck in a permanent wait. Livelock means retrying after a competition fails and repeating it again and again.
+
+10. Tell me the difference between Runnable and Callable? Runnable has no return value, while Callable has a return value. Callable can throw exceptions.
+
+11. What is a thread pool? Why use a thread pool? A thread pool can reuse threads, reduce the cost of creating and destroying threads, and provide control over the number of concurrent threads.
+
+12. The structure of the Java Collection framework? There are two interfaces: Collection and Map. The main implementations include List, Set, Queue and Map, etc.
+
+13. What is the difference between ArrayList and LinkedList? ArrayList is based on arrays, and LinkedList is based on doubly linked lists. Query is fast but addition and deletion are slow, LinkedList is the opposite.
+
+14. What is the difference between HashMap and Hashtable? HashMap is not thread-safe and has high efficiency. Hashtable is thread safe and inefficient. Hashtable does not allow null keys and values.
+
+15. How does HashMap work? HashMap is based on a hash table and is mapped to the corresponding bucket through the hashCode of the key. When a conflict occurs, compare the equals method.
+
+16. Tell me about the working principle of HashSet? The bottom layer of HashSet uses HashMap to store elements, and duplication is not allowed. Adding elements to HashSet is equivalent to adding to the key of HashMap, and the value uses PRESENT.
+
+17. What is the difference between dynamic proxy and Cglib? Dynamic proxy is based on interface, and Cglib is based on inheritance. Cglib creates a proxy by generating a subclass and overriding its methods.
+
+18. Why use generics? Generics can perform compile-time type checking and improve security. There is no need to perform forced type conversion, and the program is more concise.
+
+19. The difference between generic wildcards ?, <? extends T> and <? super T>? <?> represents any generic type, <? extends T> limits the upper bound, and <? super T> limits the lower bound.
+
+20. What is the difference between overloading and rewriting? Overloading is a method with the same name and different parameters, which belongs to static binding; overriding a parent class method belongs to dynamic binding.
+
+21. Why should String be designed to be immutable? String Pool requires that strings reside in the constant pool, and immutability ensures security.
+
+22. What are mark-clear algorithms and copy algorithms? Mark-clear marks reachable objects and cleans unmarked objects directly. Copy copies the reachable objects to the space and cleans up the space to be reclaimed at once.
+
+23. Tell us about strong, soft, weak and virtual references? Strong references are ordinary references and cannot be recycled. Soft references are recycled when memory is insufficient, weak references are recycled in the next GC, and virtual references do not determine the object life cycle.
+
+24. What is the function of the finalize() method? finalize() is a method called before the object is garbage collected to release resources. But there is no guarantee that it will be called.
+
+25. What are BIO, NIO and AIO? BIO is blocking IO, NIO is non-blocking IO, and AIO is asynchronous IO. NIO and AIO are non-blocking and will not cause thread blocking.
+
+26. What network protocols have been used? The application layer mainly uses HTTP protocol; the transport layer uses TCP and UDP protocols; the network layer mainly uses IP protocol.
+
+27. Why is TCP reliable? TCP establishes connections through three-way handshake, sliding window, confirmation response, timeout retransmission, and congestion control to ensure reliable transmission.
+
+28. What is the difference between GET and POST requests? GET adds parameters to the URL and POST puts them in the request body. GET has low security and length limit. Suitable for information acquisition, POST is used to modify server resources.
+
+29. What is the difference between Session and Cookie? Session is stored on the server side, and Cookie is stored on the client side. Session security, cookies can be disabled. The default session expiration time is long and is bound to the browser session.
+
+30. What are continuous integration, continuous delivery, and continuous deployment? Continuous integration involves frequently merging code into the trunk; continuous delivery involves frequently building software to generate test versions; continuous deployment involves frequently deploying new versions of software to the production environment.
+
+
+--javadev
+100 Java interview questions, from easy to difficult, including answers:
+
+1. What are the main features of Java? Encapsulation, inheritance, polymorphism, and abstraction.
+
+2. What is the relationship between JDK, JRE, and JVM? JDK is a Java development kit, including JRE and development tools; JRE is a Java runtime environment; JVM is a Java virtual machine, responsible for running Java programs.
+
+3. The three major characteristics of Java object-oriented? Encapsulation, inheritance, and polymorphism.
+
+4. What are the access modifiers of Java? private, protected, public, default (not written as default).
+
+5. What is the difference between interface and abstract class? Interface is completely abstract and can be implemented by default methods; abstract class can have abstract methods and non-abstract methods. Interfaces cannot be instantiated, abstract classes can.
+
+6. What is the difference between == and equals? == compares the address of the object, while equals compares the content of the object.
+
+7. Why should the String class be designed to be immutable? Because String is often used as the key of HashMap, immutability can prevent key-value pairs from being accidentally changed and improve security.
+
+8. What is the difference between overloading and rewriting? Overloading is a method with the same name and different parameters, which belongs to static binding; overriding a parent class method belongs to dynamic binding.
+
+9. The sequence of try-catch-finally? try block-->catch block-->finally block, finally will always be executed unless the JVM exits.
+
+10. Why must the main method be declared as public static void? The entry point of the Java program is for the JVM to call, and it can be called without creating an instance.
+
+11. Can the constructor be overridden? No, the constructor cannot be inherited and therefore cannot be overridden.
+
+12. What is the basic idea of object-oriented programming? It takes classes as the center, abstracts and encapsulates classes, and completes system modeling through interaction between objects and message passing.
+
+13. What is an anonymous inner class in Java? A local inner class without a name that must inherit or implement an interface or class.
+
+14. Exception inheritance architecture? The top level is Throwable, and the following is mainly divided into two branches: Exception and Error.
+
+15. What is the role of the final keyword? It can modify the class but cannot be inherited, the modified method cannot be overridden, and the modified variable is a constant.
+
+16. Can inner classes be declared static? Yes, static inner classes do not need to rely on external class instances.
+
+17. What is the difference between StringBuilder and StringBuffer? StringBuilder is not thread-safe but has high efficiency, StringBuffer is thread-safe, and the method adds synchronization lock.
+
+18. Can an interface inherit another interface? Yes, interfaces have a direct inheritance relationship, not an implementation relationship.
+
+19. What is the role of generics? Parameterized types allow code to be applied to multiple types, increasing flexibility and type safety.
+
+20. What is the return value of a method? The result is returned after the method completes the operation or performs the operation. If there is no return value, it is void.
+
+21. What is the function of the constructor of a class? When creating a class object, initialize the object and assign initial values to the object properties.
+
+22. Can static methods be overridden? No, static methods belong to classes, not instances, and can only be hidden.
+
+23. What is the difference between object equality and reference equality? Object equality compares attribute values, while reference equality compares the memory addresses they point to.
+
+24. Can Constructor be inherited? Constructors cannot be inherited, but they can call the parent class constructor.
+
+25. What is the default nature of the variables in the interface? The variables in the interface are of public static final type by default.
+
+26. When a class implements an interface, does it need to implement all the methods of the interface? No, it can only implement some methods, but it must be declared an abstract class.
+
+27. What is the difference between overloading and overwriting? Overloaded method names must be the same and parameter lists must be different; overriding parent class method names and parameters must be the same.
+
+28. What are the functions of the access modifiers public, protected, and private? Public is completely open for access; protected allows access by subclasses and the same package; private only allows access by internal and nested classes.
+
+29. What is the function of the hash code of an object? The function of the hash code is to obtain the memory address of the object to facilitate quick search.
+
+30. What are the five keywords of exception handling? try, catch, finally, throw, throws.
+
+31. What is the order of exception handling when there are multiple catch blocks? Catch matches the catch from top to bottom according to the child-parent class relationship of the caught exception.
+
+32. What is the difference between static methods and instance methods? Static methods belong to a class and can be called without an instance, while instance methods require an instance object to be called.
+
+33. What is the purpose of custom exceptions? They are used to represent special error conditions that need to be handled differently from other callers.
+
+34. What is the relationship between hashCode() and equals()? If two objects are equal through equals() comparison, then their hashCode() should be the same.
+
+35. What are the functions of serialization and deserialization? Serialization is to convert the object state into a form that can be stored or transmitted; deserialization is to restore the serialized object.
+
+36. Why should the String class be designed to be immutable? Because String is often used as the key of HashMap, immutability can prevent key-value pairs from being accidentally changed.
+
+37. The difference between the wait() and sleep() methods? wait() releases the lock, sleep() does not release the lock. wait() needs to be called in a synchronized block, sleep() can be called anywhere.
+
+38. What is the difference between character stream and byte stream? Character stream is in characters, and byte stream is in bytes; character stream processes text files, and byte stream processes binary files.
+
+39. What is the difference between input stream and output stream? Output stream writes data out of memory, and input stream reads data into memory.
+
+40. What is the difference between overloading and overriding? Overloaded method names must be the same and parameter lists must be different; overriding parent class method names and parameters must be the same.
+
+41. What is the difference between collection class Collection and Collections? Collection is a collection interface, and Collections is a tool class for operating collections.
+
+42. What is the difference between deep copy and shallow copy? Shallow copy copies the reference of the object, and deep copy copies the content of the object.
+
+43. The relationship between hashCode() and equals()? If two objects return true through the equals() method comparison, then hashCode() should be equal.
+
+44. Talk about your understanding of IOC? Inversion of control, handing over object creation to the container, can reduce coupling. The main implementation method is dependency injection.
+
+45. Which Map classes have you used? HashMap, LinkedHashMap, TreeMap, HashTable, ConcurrentHashMap, etc.
+
+46. Which List classes have you used? ArrayList, LinkedList, Vector, Stack and other main implementation classes.
+
+47. What is the difference between array (Array) and array list (ArrayList)? The length of array is immutable, and the length of ArrayList is variable. Arrays can store basic types, while ArrayList can only store objects.
+
+48. Tell us about your understanding of AOP? It is a technology that achieves unified maintenance of program functions through precompilation and runtime dynamic agents without changing the original code.
+
+49. What multi-threaded development methods have you used? Inheriting the Thread class, implementing Runnable interface, thread pool, etc.
+
+50. What are the basic states of a thread? New, runnable, blocked, waiting indefinitely and dead.
+
+51. What is the difference between a process and a thread? A process has an independent address space, while threads share the process address space; threads are lighter and process switching overhead is greater.
+
+50. What are the basic states of a thread? New, runnable, blocked, waiting indefinitely and dead.
+
+51. What is the difference between a process and a thread? A process has an independent address space, while threads share the process address space; threads are lighter and process switching overhead is greater.
+
+52. Let’s talk about the role of the volatile keyword? The volatile keyword forces variables to be read from shared memory, which can prevent threads from caching variables and causing data inconsistency.
+
+53. The main parameters of the thread pool? Number of core threads, maximum number of threads, thread survival time, blocking queue capacity, rejection policy, etc.
+
+54. Let’s talk about the reasons for deadlock? Mutual exclusion, holding, inevitability and loop waiting conditions are met at the same time.
+
+55. What is the difference between optimistic locking and pessimistic locking? Pessimistic locking assumes that conflicts will occur, and locks are locked when accessing synchronized resources; optimistic locking assumes that no conflicts will occur, and is only checked when the operation is submitted.
+
+56. Let’s talk about thread-safe collection classes? Vector, Hashtable, Stack, etc. are all thread-safe.
+
+57. Why is HashMap thread unsafe during multi-thread access? Under multi-thread conditions, a circular linked list may appear during expansion, causing an infinite loop.
+
+58. How to create a thread pool? Through the ThreadPoolExecutor constructor, the static factory method of Executors, etc.
+
+59. Methods in the ExecutorService interface? submit, execute, shutdown, shutdownNow, etc.
+
+60. What is the role of the thread pool parameter corePoolSize? The number of core threads and the minimum number of thread pool threads.
+
+61. Have you ever used CountDownLatch? In what scenario is it used? It can achieve synchronization between threads. One thread waits for another group of threads to complete the operation before executing it.
+
+62. The two main methods of CountDownLatch? countDown() and await(), the former reduces the count by 1, and the latter waits for the count to become 0.
+
+63. Let’s talk about the Java memory model? Concepts such as main memory, working memory, cache consistency, atomicity, and orderliness.
+
+64. What is thread local storage (Thread Local)? It provides data storage within the thread, and each thread does not affect each other.
+
+65. What is the implementation of thread-safe Singleton? Hungry style, lazy style, double check lock, static inner class, enumeration to implement singleton.
+
+66. The main network protocols? HTTP at the application layer, TCP/UDP at the transport layer, and IP protocol at the network layer.
+
+67. Socket programming process? The server and client establish a connection through Socket, and perform read and write operations through input and output streams.
+
+68. Commonly used methods of InetAddress? getLocalHost(), getByName(), getAllByName(), etc. to obtain the IP address.
+
+69. OSI seven-layer model? Physical layer, data link layer, network layer, transport layer, session layer, presentation layer and application layer.
+
+70. TCP three-way handshake? The client sends a SYN message, the server sends back a SYN ACK message, and finally the client sends back an ACK message.
+
+71. The difference between TCP and UDP? TCP is connection-oriented, while UDP is connectionless; TCP guarantees data integrity, but UDP may lose packets. TCP retransmits ARQ mechanism, UDP does not retransmit.
+
+72. What is the difference between GET and POST? GET transfers parameters through the URL, and the data is exposed on the URL. POST transfers parameters through the request body. There is a length limit for GET request parameters, but there is no limit for POST.
+
+73. What is the difference between Session and Cookie? Session data is stored on the server side, and Cookie is stored on the client side. Session security is high and the default expiration time is also long.
+
+74. How database indexes work and their advantages and disadvantages? Indexes reduce the amount of data retrieved by improving query efficiency. Advantages: Improve query efficiency; Disadvantages: space occupation and index maintenance costs.
+
+75. The four major characteristics of database transactions (ACID)? Atomicity, consistency, isolation, and durability.
+
+76. The three major paradigms of databases? In the first paradigm, fields are inseparable; in the second paradigm, there are no partial dependencies; in the third paradigm, there are no transitive dependencies.
+
+77. The idea of ​​database optimization? Improve query efficiency through indexes, SQL statement optimization, database structure optimization, etc.
+
+78. Let’s talk about dirty reading, phantom reading, and non-repeatable reading in the database? Dirty reading reads uncommitted data; phantom reading adds new data but does not read it; non-repeatable reading results are inconsistent after multiple reads.
+
+79. Briefly introduce the database connection pool? The database connection pool creates multiple connections in advance, and the application obtains the connections from the pool and returns the connections. Avoid repeated creation and destruction and improve system efficiency.
+
+80. SQL optimization ideas? Improve query efficiency through index optimization, SQL statement optimization, database structure optimization, etc.
+
+81. Principles and classifications of database indexes? Indexes reduce the amount of retrieved data by improving query efficiency. There are mainly tree indexes, Hash indexes, full-text indexes, etc.
+
+82. Tell me about your understanding of Spring? Spring is an open source IOC and AOP container framework. It has features such as lightweight, inversion of control, and aspect-oriented programming.
+
+83. What are the core components of Spring? IOC container, AOP module, JDBC abstraction layer, DAO support layer, etc.
+
+84. The life cycle of Spring Bean is roughly divided into 5 stages: instantiation, attribute assignment, initialization, use, and destruction.
+
+85. The basic process of Spring IOC container initialization? Locating configuration files, parsing configuration files, taking over Bean management, instantiating Beans, etc.
+
+86. The principle of Spring AOP implementation? Through dynamic proxy technology, methods can be enhanced without modifying the source code.
+
+87. What is the isolation level of Spring transactions? The default is ISOLATION_DEFAULT, and there are also levels such as READ_UNCOMMITTED.
+
+88. Spring transaction propagation behavior? REQUIRED (default), REQUIRED_NEW, NESTED and other levels.
+
+89. Spring’s transaction manager? JdbcTransactionManager, HibernateTransactionManager, etc.
+
+90. SpringMVC workflow? The dispatcher hands the request to the processor adapter, and the adapter then calls the specific processor to execute the request and return the view.
+
+91. What is the role of @RestController? Convert the object returned by the Controller method into a JSON or XML response.
+
+92. Spring Boot startup principle? Find the META-INF/spring.factories configuration automatic configuration class through the @EnableAutoConfiguration annotation.
+
+93. The core annotation of Spring Boot? @SpringBootApplication is a combined annotation, including @Configuration and other annotations.
+
+94. The order of Spring Boot management configuration files? bootstrap.properties, application.properties, application.yml.
+
+95. Spring Boot's scheduled tasks? Use the @EnableScheduling annotation to enable scheduled tasks, and use @Scheduled to declare methods that require timing.
+
+96. Which annotation is usually used by Spring Boot to call Restful services? Generally, the @RestController annotation is used to declare Restful services.
+
+97. The core configuration files of Spring Boot are the application.properties and application.yml files.
+
+98. The function of Spring Boot actuator? Provides monitoring and management of Spring Boot applications in the production environment.
+
+99. Spring Boot startup process? Boot the application context, create Environment, print Banner information, refresh the context, and the application is started.
+
+100. How does Spring Boot operate? It uses the automatic configuration feature to perform default configuration, and can modify the default value to implement customized configuration.
+

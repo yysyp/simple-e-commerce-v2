@@ -150,3 +150,159 @@
 
 50. GCP中进行数据可视化的服务?
     答:Data Studio。
+    
+================================================================================
+
+--gcp
+Okay, here are 50 GCP-related interview questions and answers from easy to difficult:
+
+1. What is the full name of GCP?
+   Answer: Google Cloud Platform.
+
+2. Which AWS service does Compute Engine in GCP correspond to?
+   Answer: EC2.
+
+3. What is the service used to store objects in GCP?
+   Answer: Cloud Storage.
+
+4. How to implement virtual network in GCP?
+   Answer: Through VPC (Virtual Private Cloud).
+
+5. How to access and manage resources in GCP?
+   Answer: Through Cloud Console and Cloud SDK.
+
+6. What is the product that provides server load balancing services in GCP?
+   Answer: Cloud Load Balancing.
+
+7. How to provide server elastic scaling in GCP?
+   Answer: Automatic expansion and contraction can be achieved by managing instance groups.
+
+8. What services are provided in GCP to manage access permissions and identities?
+   Answer: Cloud IAM.
+
+9. What service in GCP corresponds to Amazon EBS?
+   Answer: Persistent Disk.
+
+10. What are the services corresponding to the Kubernetes engine in GCP?
+    Answer: GKE (Google Kubernetes Engine).
+
+11. How to manage database instances in GCP?
+    Answer: Manage relational database services through Cloud SQL.
+
+12. How to monitor resource usage, audit operations, etc. in GCP?
+    Answer: Through Stackdriver.
+
+13. Which messaging service is provided in GCP?
+    Answer: Cloud Pub/Sub.
+
+14. How to run serverless code functions in GCP?
+    Answer: Through Cloud Functions.
+
+15. How to manage API interfaces in GCP?
+    Answer: Through Cloud Endpoints.
+
+16. Which database option in GCP is more scalable than Cloud SQL?
+    Answer: Cloud Spanner.
+
+17. What is the Network Load Balancer in GCP?
+    Answer: Cloud Load Balancing.
+
+18. What is the HTTP(S) load balancer in GCP?
+    Answer: Cloud CDN.
+
+19. In GCP, what are horizontally scalable managed services?
+    Answer: Cloud Run.
+
+20. What is the video AI platform in GCP?
+    Answer: Cloud Video Intelligence API.
+
+21. Which data analysis service is provided in GCP?
+    Answer: BigQuery.
+
+22. Which service uses remote desktop in GCP?
+    Answer: Cloud Desktop.
+
+23. What is the service that manages certificates in GCP?
+    Answer: Certificate Manager.
+
+24. What services manage configuration and resources in GCP?
+    Answer: Deployment Manager.
+
+25. What is the service for data migration in GCP?
+    Answer: Transfer Appliance.
+
+26. What is the art stylization service in GCP?
+    Answer: Cloud AI.
+
+27. What are the services for machine learning in GCP?
+    Answer: Cloud Machine Learning Engine.
+
+28. What is the service that performs security scanning in GCP?
+    Answer: Cloud Security Scanner.
+
+29. What is GCP’s product for managing multi-cloud environments?
+    Answer: Anthos.
+
+30. What services are available to create CI/CD pipelines in GCP?
+    Answer: Cloud Build.
+
+31. What services are available for data analysis and real-time analysis in GCP?
+    Answer: BigQuery and Dataflow.
+
+32. In GCP, what is a fully managed data warehouse service?
+    Answer: BigQuery.
+
+33. What is the registry service for managing containers in GCP?
+    Answer: Container Registry.
+
+34. What is the service used to migrate VMs in GCP?
+    Answer: Velostrata.
+
+35. In GCP, what is a fully managed data lake service?
+    Answer: Cloud Data Fusion.
+
+36. What is the operating system security enhancement service in GCP?
+    Answer: Shielded VMs.
+
+37. What service components does GCP use for big data analysis?
+    Answer: Dataproc, Dataflow and Bigtable.
+
+38. What is the relational database service on GCP?
+    Answer: Cloud SQL.
+
+39. What is GCP’s hybrid cloud solution?
+    Answer: Anthos.
+
+40. What services are available for data backup in GCP?
+    Answer: Cloud Backup.
+
+41. What is the open source data warehouse solution on GCP?
+    Answer: BigQuery OSS.
+
+42. What is the automated service for machine learning in GCP?
+    Answer: Cloud AutoML.
+
+43. What is the serverless computing service in GCP?
+    Answer: Cloud Functions.
+
+44. What services does GCP use to manage Hadoop clusters?
+    Answer: Cloud Dataproc.
+
+45. What is GCP’s product to implement hybrid multi-cloud?
+    Answer: Anthos.
+
+46. What is GCP’s full-stack serverless platform?
+    Answer: Cloud Run.
+
+47. Open source data processing services in GCP?
+    Answer: Dataflow.
+
+48. Does GCP implement big data data lake services?
+    Answer: Cloud Storage and Bigtable.
+
+49. Does GCP implement enterprise search services?
+    Answer: Cloud Search.
+
+50. What services are available for data visualization in GCP?
+    Answer: Data Studio.
+    

@@ -201,3 +201,209 @@
 99. 实时流计算和离线批处理的区别是什么?实时计算短延迟、离线处理吞吐量更大。
 
 100. 构建企业级大数据平台需要考虑哪些方面?硬件选择、软件选型、数据源、安全管理、运维与监控。
+
+====================================================================================
+
+--bigdata
+Please help me give 100 big data related interview questions, from easy to difficult, and include the answers.
+Okay, here are 100 big data interview questions, from easy to deep, including answers:
+
+1. What is big data? Big data refers to a collection of data that cannot be captured, managed, and processed within a certain time range using conventional software tools.
+
+2. The main characteristics of big data? 3V: Volume, Velocity, and Variety.
+
+3. What technologies does the big data technology ecosystem mainly consist of? Hadoop, Spark, Storm, Hbase, Mahout, Flink, etc.
+
+4. Hadoop components? HDFS distributed file system, MapReduce distributed computing framework, and YARN resource scheduling.
+
+5. How does HDFS work? Files are stored in multiple DataNodes in blocks, and NameNode manages file metadata.
+
+6. What are the Map and Reduce phases in the MapReduce programming model? The Map phase processes input data in parallel; the Reduce phase summarizes the Map results.
+
+7. Commonly used data serialization types in Hadoop? Text, Writable, Avro, etc.
+
+8. Hadoop optimization methods? Improve hardware performance, increase data locality, avoid small files, use compression, increase the number of Maps, adjust the number of Reduces, etc.
+
+9. HDFS federated name node (HA) working mechanism? Active and standby switching is achieved through two NameNodes.
+
+10. What are the advantages of YARN? It has high resource utilization, can support different programming frameworks, and can dynamically adjust the resource usage ratio.
+
+11. Spark core abstraction? RDD elastic distributed data set, operated through transformations and actions.
+
+12. Common RDD operations in Spark? transformation mapping, filtering, join, etc.; actions collect, count, first, etc.
+
+13. What are the advantages of Spark based on memory computing? It runs fast and can store data in memory for query.
+
+14. There are two types of Spark jobs? Interactive and batch processing. The former is interactive and ad hoc query, and the latter serves batch processing applications.
+
+15. How does Spark Streaming work? Divide the data stream into data blocks for processing, and can integrate Kafka, Flume, etc.
+
+16. What three parts does Storm’s topology consist of? Spout data source, Bolt data processing, and Topology topology.
+
+17. How does Storm ensure that messages are not lost? Through the response mechanism, the sender stops retransmitting after the stream data is output and receives the response.
+
+18. What is the difference between HBase and traditional databases? HBase is column-based storage, has strong scalability, and is suitable for storing big data.
+
+19. Talk about what you understand about Hive? Hive provides a SQL query interface to convert SQL queries into MapReduce task execution.
+
+20. Comparative advantages between Hive and traditional database queries? Processing large amounts of data, strong scalability, and low cost.
+
+21. What is Hive partitioning? Divide the table into different partitions to optimize query efficiency. The partitioning column is usually a timestamp field.
+
+22. Talk about your understanding of the MapReduce computing model? MapReduce splits tasks into Map and Reduce stages for parallel processing, which is suitable for terabyte-level data analysis.
+
+23. What are the steps of the MapReduce program? Job submission, Map phase parallelism, Reduce phase parallelism, and output results.
+
+24. What is data skew? The amount of data processed by the Map task is uneven. Can be optimized through combine operation.
+
+25. What are some common data skew situations? Uneven data distribution, data aggregation, data correlation analysis, etc. lead to unbalanced data load.
+
+26. MapReduce workflow? JobTracker coordinates tasks on each TaskTracker node; MapReduce programs run on TaskTracker.
+
+27. Key points of MapReduce programming specifications? Map input and output types must match, and Reduce input and output types must match, and try to make the calculation as close to Map as possible.
+
+28. Commonly used data compression methods in Hadoop? Gzip, Bzip2, LZO, Snappy, etc.
+
+29. Hadoop serialization mechanism? Writable, Avro, Thrift, etc.
+
+30. Common data collection tools? Flume collects log data; Sqoop collects structured data; Kafka and Logstash serve as data transmission pipelines.
+
+31. Hadoop optimization methods? Data skew optimization, small file optimization; compression acceleration; increasing data locality, etc.
+
+32. The role and advantages of Yarn? It is a resource management and job scheduling platform that can decouple MapReduce from resource management.
+
+33. Yarn components? ResourceManager, NodeManager, ApplicationMaster, Container.
+
+34. Spark Core programming model components? SparkContext, RDD, Transformation and Action.
+
+35. How does Spark SQL improve Spark performance? Reduce Shuffle operations through algorithm and code optimization. Use memory-based computing.
+
+36. Application scenarios of Spark SQL? Scenarios that require analysis and query of structured data.
+
+37. How to tune Spark applications? Optimize data skew, optimize the number of Tasks, use Broadcast variables, etc.
+
+38. What is the difference between Transformation and Action in Spark RDD operations? Transformation is delayed execution, and Action will trigger execution.
+
+39. Spark’s commonly used output modes? Anonymous shared memory and read-only shared memory.
+
+40. Commonly used shared variables in Spark? Broadcast variables.
+
+41. How does Spark Executor request resources? Executor applies for resources from Master, Master allocates Container, and then Executor runs tasks on Container.
+
+42. What is the concept of Stage in Spark tasks? Stage consists of multiple consecutive Tasks, which is the basic unit of resource scheduling and task management.
+
+43. What is the difference between Spark stream computing and batch processing? Stream computing performs real-time data processing, while batch processing performs large-scale data calculations on a regular basis.
+
+44. How does Spark Streaming work? Divide the data stream into micro-batch data for processing.
+
+45. Input sources supported by Spark Streaming? Kafka, Flume, Kinesis, etc.
+
+46. Spark Streaming’s window operations? Sliding window and rolling window.
+
+47. Comparison between Spark Streaming and Storm? Spark Streaming is based on micro-batch units and has a larger delay; Storm is essentially real-time.
+
+48. Kafka's Producer and Consumer? Producer publishes messages; Consumer subscribes to messages.
+
+49. How does Kafka ensure that messages are not lost? Write messages to disk and persist them using an asynchronous replication mechanism.
+
+50. Kafka message storage mechanism? Topics are used as categories, and partitions are distributed across multiple brokers.
+
+51. What is the offset of Kafka? The position offset identifier of the message in the Partition in Kafka.
+
+52. Kafka Rebalance process? When a Consumer leaves or joins a new partition, the owners of all partitions are redistributed.
+
+53. HDFS optimization methods? Wide table optimization, reducing the number of Maps, using CombineFileInputFormat, etc.
+
+54. How does HDFS work? Files are divided into blocks and stored in DataNode. NameNode is responsible for metadata management.
+
+55. HDFS data consistency mechanism? Heartbeat and block reporting, DataNode regularly reports metadata information to NameNode.
+
+56. HDFS copy storage strategy? Store copy data on nodes in different racks to improve fault tolerance.
+
+57. The role and advantages of Yarn? It is a job scheduling and cluster resource management platform that can decouple MapReduce from resource scheduling.
+
+58. What is the difference between HBase and traditional databases? HBase is designed for column storage and can store a large amount of sparse data.
+
+59. The row key design principle of HBase table? The hashing is even and the access hotspots are dispersed to different Regions.
+
+60. HBase read and write mechanism? Data is written in the WAL log file, flushed to the memory MemStore, and flushed to the disk StoreFile after reaching the threshold.
+
+61. The main components of Flume agent? Source, Channel, Sink.
+
+62. Channel types supported by Flume? Memory Channel, File Channel, Kafka Channel, etc.
+
+63. What is the role of Flume interceptors? Events can be filtered, modified, rerouted, etc.
+
+64. What are the advantages of Hive compared with traditional databases? It can store big data, is low-cost, is scalable, and does not require pre-defined Schema.
+
+65. How to optimize queries in Hive? Fetch, parameter tuning, avoiding Cartesian product, etc.
+
+66. What is the role of Hive partitioning? Partitioning can reduce the amount of scanned data and speed up queries.
+
+67. What is the difference between Hive table partitioning and bucketing? Partitioning is for directory division, and bucketing is for file division. Bucketing uses hash modulo.
+
+68. What are the problems without using Hive partitions? Performing a full table scan results in very slow speed.
+
+69. Comparison between Oozie and Azkaban? Oozie builds workflows; Azkaban provides scheduling for workflow jobs.
+
+70. What other components does the Hadoop ecosystem have besides Hadoop? Hive, Pig, HBase, Spark, Storm, Flink, Zookeeper, Sqoop, Flume, Oozie, etc.
+
+71. Hadoop deployment mode and deployment architecture? Stand-alone mode, pseudo-distributed mode, fully distributed mode; centralized and cloud architecture.
+
+72. MapReduce performance optimization method? Optimize data skew, increase Map task concurrency, etc.
+
+73. Commonly used data input formats in MapReduce? TextInputFormat, KeyValueTextInputFormat, etc.
+
+74. Commonly used data output formats in MapReduce? TextOutputFormat, SequenceFileOutputFormat.
+
+75. What is the solution to the Hadoop small file problem? Use Har files to merge small files; use SequenceFile binary file storage; use Hadoop Archive file format.
+
+76. The most important 4V characteristics of big data? Volume, Velocity, Variety, and Value (low value density).
+
+77. What is a data warehouse and what is a data lake? Data warehouses are used for data analysis and have a high degree of data regularization; data lakes originally store data in different formats.
+
+78. What does the big data open source technology ecosystem include? Hadoop, Spark, HBase, Storm, Kafka, Flink, etc.
+
+79. What business scenarios does big data handle? Log analysis, user behavior analysis, financial risk control, intelligent recommendations, etc.
+
+80. Tell us about the application prospects of big data? It can be used in fields such as intelligent transportation, medical health, intelligent security, risk control, and social networks.
+
+81. Challenges of big data platforms? Data security, data sharing, data quality management, platform unification and supervision, etc.
+
+82. What skills do data scientists need? Programming, data processing, machine learning, algorithms, data mining, visualization, etc.
+
+83. What is the relationship between big data and cloud computing? Cloud computing provides infrastructure and is an important platform for the implementation of big data technology.
+
+84. The main difficulties faced by big data processing? The ubiquity of data sources, large data noise, data security and privacy, rapid data growth, etc.
+
+85. The key technical points of big data application? Data collection, data storage, data analysis, data visualization, data application and other links.
+
+86. What is the difference between stream processing and batch processing in real-time computing? Stream processing data is processed and output immediately after arrival; batch processing processes all data regularly.
+
+87. What are the technology selection ideas for building a real-time computing platform? Use Spark Streaming as the underlying computing framework and integrate messaging systems such as Kafka.
+
+88. What security issues are encountered in big data development? Data leakage during data collection, transmission, storage and use.
+
+89. How to ensure the data security of the big data platform? Encrypted data, access control, audit tracking, firewalls and other means.
+
+90. Where is the scalability of big data systems? Clusters can easily expand computing and storage capabilities by adding servers.
+
+91. Tell us about the current status and development trends of big data applications? The current situation is that all walks of life are exploring applications, and the development trend is towards intelligence.
+
+92. How to evaluate big data project needs? Analyze business needs, data characteristics, technical feasibility and evaluate the return on investment period.
+
+93. What preparations are needed in the early stage of a big data project? Business needs analysis, data collection and evaluation, model design, cost evaluation, etc.
+
+94. What are the data quality problems in big data development? Irregular format, duplicate data, wrong data, missing data, etc.
+
+95. What is the role of data governance in the field of big data? Improve data quality through data governance and ensure the accuracy of analysis output.
+
+96. How to improve data quality during the data collection process? Perform verification scanning, extraction and conversion of source data, and filter out abnormal data.
+
+97. How should the big data analysis results be explained? The analysis results should be explained in conjunction with the business scenario.
+
+98. What are the precautions when deploying distributed clusters? Cluster planning, network time synchronization, system load balancing, etc.
+
+99. What is the difference between real-time stream computing and offline batch processing? Real-time computing has short latency and offline processing has greater throughput.
+
+100. What aspects need to be considered when building an enterprise-level big data platform? Hardware selection, software selection, data sources, security management, operation and maintenance, and monitoring.

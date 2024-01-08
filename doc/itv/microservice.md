@@ -33,7 +33,7 @@
     答:采用最终一致性,或2PC事务补偿。
 
 11. 微服务的领域模型应该如何设计?
-    答:遵循高内聚低耦合的原则拆分服务。
+    答:遵循高内聚低耦合的原则拆分服务。coupling
 
 12. 开发测试环境对微服务有什么不同的要求?
     答:需要模拟真实场景中的服务网格调用,注意数据隔离。
@@ -91,3 +91,99 @@
 
 30. 推荐的微服务技术栈组合是什么?为什么?
     答: Spring Cloud + Docker,因为这组合提供了完善的微服务框架和容器技术。
+    
+================================================================================
+
+--microservice
+Please help me give 30 microservices related interview questions, from easy to difficult, and include the answers.
+Okay, here are 30 microservices-related interview questions and answers from easy to difficult:
+
+1. What are microservices?
+   Answer: Microservices is an architectural approach that splits a single application into small services, and each service is deployed and expanded independently.
+
+2. What are the advantages of microservices?
+   Answer: The technology stack can be selected independently, which facilitates horizontal expansion, high fault tolerance, and rapid iteration of deployment.
+
+3. What are the disadvantages of microservices?
+   Answer: Increase deployment complexity, distributed calling overhead, and team collaboration costs.
+
+4. How do microservices communicate with each other?
+   Answer: Communicate through lightweight communication mechanisms, such as RESTful API, RPC, etc.
+
+5. How to implement service discovery of microservices?
+   Answer: Use service registries such as Eureka, Consul, Zookeeper, etc.
+
+6. How is the data of microservices stored?
+   Answer: Generally, a distributed database is used and the principle of microservice data partitioning is followed.
+
+7. In what aspects are the advantages of microservices most prominent?
+   Answer: The technology stack has good flexibility, fast iteration speed, and high fault tolerance.
+
+8. What problems may you encounter when adopting microservices?
+   Answer: Communication costs between services, repeated development, distributed transactions, and operation and maintenance complexity.
+
+9. How to achieve load balancing between services?
+   Answer: You can use software load balancing (such as Nginx) or hardware load balancing (such as F5).
+
+10. How to handle cross-service transactions in microservices?
+    Answer: Use eventual consistency, or 2PC transaction compensation.
+
+11. How should the domain model of microservices be designed?
+    Answer: Follow the principle of high cohesion and low coupling to split services. coupling
+
+12. What are the different requirements for microservices in a development and testing environment?
+    Answer: It is necessary to simulate service grid calls in real scenarios and pay attention to data isolation.
+
+13. How to monitor microservices?
+    Answer: Collect monitoring indicators from various dimensions and pay attention to dependency monitoring between services.
+
+14. What should you pay attention to when deploying microservices?
+    Answer: Distinguish between stateless services and stateful services to avoid single points of failure.
+
+15. How does the service handle circuit breakers and downgrades?
+    Answer: Use the fuse to record the request error ratio. After turning on the fuse, it will fail quickly or return the backup result through degradation.
+
+16. What are the testing strategies for microservices?
+    Answer: Unit testing, integration testing, contract testing, grayscale release, A/B testing.
+
+17. How to implement continuous integration and continuous delivery of microservices?
+    Answer: Use container technology and DevOps tools to automate the testing and deployment process.
+
+18. What are the security considerations for microservices?
+    Answer: Service authentication, data encryption, permission control, etc.
+
+19. How to log and monitor microservices?
+    Answer: Each service outputs logs and collects unified logs. Track and monitor service calls and set alarms.
+
+20. What is the disaster recovery and backup strategy for microservices?
+    Answer: Multiple remote cold backup points, and regular testing of disaster recovery switching.
+
+21. What components does a microservices architecture usually include?
+    Answer: Service registration and discovery, API gateway, message queue, configuration center, etc.
+
+22. What is the difference between microservices and servitization?
+    Answer: Servitization focuses on splitting applications into services, and microservices further emphasizes independence and lightweight.
+
+23. What are the components of a service mesh?
+    Answer: Control plane, data plane, service agent.
+
+24. What are the typical open source implementations of service grid?
+    Answer: Istio, Linkerd.
+
+25. What is Spring Cloud usually used for in microservice architecture?
+    Answer: Used to quickly build microservices. Provides configuration management, service discovery, circuit breaker and other components.
+
+26. What are the technical problems that may be encountered when adopting microservices?
+    Answer: Distributed transactions, service configuration management, service process supervision, etc.
+
+27. What is the core value of microservices?
+    Answer: Rapid iteration, flexible expansion, and fault isolation.
+
+28. What issues need to be paid attention to when migrating microservices?
+    Answer: Code refactoring, database splitting, and network call changes.
+
+29. How should the monitoring solution be designed in a microservice environment?
+    Answer: Application monitoring, business monitoring, and log collection are unified.
+
+30. What is the recommended microservice technology stack combination? Why?
+    Answer: Spring Cloud + Docker, because this combination provides a complete microservice framework and container technology.

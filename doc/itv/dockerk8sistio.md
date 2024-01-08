@@ -151,3 +151,161 @@
 
 50. Istio中的DestinationRule主要用来做什么?
     答:配置流量的子集策略,如timeout, retry,负载均衡等。
+    
+
+==================================================================================
+
+--dockerk8sistio
+Please help me give 50 docker, kubernetes, istio and other related interview questions, from easy to difficult, and include the answers
+Okay, here are 50 Docker, Kubernetes and Istio related interview questions and answers from easy to difficult:
+
+1. What is Docker?
+   Answer: Docker is an open source application container engine that allows developers to package applications and dependencies into a portable container.
+
+2. What is Image?
+   Answer: An image is a file template that contains a running environment and configuration, through which containers can be created.
+
+3. What is a container?
+   Answer: A container is a running instance created from an image. It can be started, stopped and deleted. Each container is isolated from each other.
+
+4. What is a Repository?
+   Answer: A warehouse is a place where image files are stored centrally. A commonly used public warehouse is Docker Hub.
+
+5. How to obtain a CentOS image?
+   Answer: You can use the docker pull centos command to get it from Docker Hub.
+
+6. How to view running containers?
+   Answer: Use docker ps command.
+
+7. How to stop a running container?
+   Answer: Use docker stop container ID or container name.
+
+8. Explain the role of Dockerfile.
+   Answer: A Dockerfile is a text file used to build an image and contains the instructions required to create an image.
+
+9. How to export a container as an image?
+   Answer: You can use the docker commit command.
+
+10. How to create an Nginx image?
+    Answer: Write a Dockerfile and use the FROM and COPY instructions. Then docker build is generated.
+
+11. What are the main components of Kubernetes?
+    Answer: The main components include Etcd, API Server, Controller Manager, Scheduler, kubelet, kube-proxy, etc.
+
+12. What is a Pod?
+    Answer: Pod is the smallest scheduling unit of Kubernetes, and containers must run in Pods. There can be one or more containers in a Pod.
+
+13. What is the role of Deployment?
+    Answer: Deployment is used to deploy and manage Pods and Replica Sets, and provides functions such as declarative updates.
+
+14. How to expose Kubernetes services?
+    Answer: It can be achieved through Service, Ingress or port forwarding.
+
+15. What is ConfigMap?
+    Answer: ConfigMap is used to save key-value pairs of configuration data, which can be injected into Pods.
+
+16. Explain the role of service discovery.
+    Answer: Service discovery allows Pod to detect changes in other services and update related configurations.
+
+17. What is the difference between NodePort and LoadBalancer?
+    Answer: NodePort exposes services outside the cluster, and LoadBalancer creates a load balancer in the cloud environment.
+
+18. How to save application state in Kubernetes?
+    Answer: You can use external storage such as volumes or databases to save application state.
+
+19. Explain Kubernetes’ RollingUpdate.
+    Answer: RollingUpdate uses a gradual replacement strategy to complete Pod updates without interrupting the entire service.
+
+20. What is the function of Liveness Probe?
+    Answer: Liveness Probe checks whether the container is running normally, and restarts it if it is not.
+
+21. What are the commonly used persistent storage types in Kubernetes?
+    Answer: HostPath, NFS, PV, PVC, etc.
+
+22. How to ensure the high availability of Pods in Kubernetes?
+    Answer: Combined with Pod replication, failover, service discovery, elastic scaling and other features to achieve high availability.
+
+23. What is Istio?
+    Answer: Istio is an open source Service Mesh framework that provides additional inter-service communication functions.
+
+24. What are the functions of Service Mesh?
+    Answer: Service discovery, load balancing, fault recovery, monitoring, etc.
+
+25. What does Envoy in Istio do?
+    Answer: Envoy is a high-performance service proxy that implements the data plane function of IstioService Mesh.
+
+26. What is the use of the Pilot component in Istio?
+    Answer: Pilot is responsible for obtaining each service information and distributing it to Envoy sidecar.
+
+27. How to implement traffic management in Istio?
+    Answer: You can control the flow of requests between services by configuring Istio's routing rules.
+
+28. What is Service Mesh?
+    Answer: A service mesh is an infrastructure layer that manages inter-service network communications and inter-service traffic.
+
+29. What does Sidecar mode mean?
+    Answer: Sidecar refers to deploying the agent as an independent container next to the application container. This pattern is adopted in Istio.
+
+30. How to perform traffic shadowing in Istio?
+    Answer: Use Istio's Mirror service to mirror specific traffic to the auxiliary service for testing.
+
+31. What are the main functions of Envoy?
+    Answer: As a sidecar, you are responsible for inter-service communication, routing management, telemetry data collection, etc.
+
+32. How to perform grayscale release of Istio?
+    Answer: You can perform grayscale publishing by configuring traffic weight through DestinationRule.
+
+33. How to implement circuit breaker in Istio?
+    Answer: You can configure load rules to fuse faulty requests.
+
+34. What are the benefits of using Istio?
+    Answer: You can obtain traffic management, telemetry collection and other capabilities without changing the application code.
+
+35. Explain rate limiting (Rate Limiting) in Istio.
+    Answer: Istio can limit specific traffic according to speed limit rules to prevent resources from being drained.
+
+36. How to enhance application security in Istio?
+    Answer: You can configure access control policies, enable mTLS, etc. to improve security.
+
+37. What should you pay attention to when using Istio?
+    Answer: You need to pay attention to resource consumption, increased complexity, and inevitable performance impact.
+
+38. What are the applicable scenarios for Istio?
+    Answer: Microservice architecture, multi-language application management, etc.
+
+39. What are the requirements for deploying Istio?
+    Answer: Kubernetes version 1.16 or above, at least 4G memory.
+
+40. How to solve the problem of Istio’s own dependency deterioration?
+    Answer: In addition to the core components, other components can be turned on and off as needed.
+
+41. What is the use of the Mixer component in Istio?
+    Answer: Mixer is responsible for access control and telemetry data collection.
+
+42. What is the difference between Envoy and ordinary proxy?
+    Answer: Envoy is a high-performance proxy designed for cloud-native applications with richer functions.
+
+43. How does Istio integrate with SLOs?
+    Answer: Istio provides indicators to measure SLA achievement, elastic expansion and contraction, etc.
+
+44. What security issues should you pay attention to when using Istio?
+    Answer: Configure the Istio control plane according to the principle of least privilege; mitigate DDOS risks; enable mTLS, etc.
+
+45. What are the disadvantages of Istio?
+    Answer: High complexity, steep learning curve; performance impact; reliability dependence.
+
+46. What are the deployment modes for installing Istio on k8s?
+    Answer: One-piece installation and multi-component installation.
+
+47. How to make Istio's service mesh effective?
+    A: Inject the Envoy sidecar proxy, or use the application's service account to enable automatic injection of Istio.
+
+48. What is the service role in Istio?
+    Answer: Service Accounts in Kubernetes are used to provide identity information for Pods.
+
+49. What is the difference between Istio’s tumbling window and sliding window?
+    Answer: The tumbling windows do not overlap, but the sliding windows do.
+
+50. What is the main purpose of DestinationRule in Istio?
+    Answer: Configure traffic subset policies, such as timeout, retry, load balancing, etc.
+    

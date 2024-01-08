@@ -151,3 +151,160 @@
 
 50. Azure实现业务流程的服务?
     答:Azure逻辑应用。
+    
+=================================================================================
+
+--azure
+Please help me give 50 Azure cloud-related interview questions, from easy to difficult, and include answers
+Okay, here are 50 Azure cloud-related interview questions and answers from easy to difficult:
+
+1. What is the full name of Azure?
+   Answer: Microsoft Azure.
+
+2. What is the name of the service used for computing in Azure?
+   Answer: Azure virtual machine.
+
+3. What is the object storage service in Azure called?
+   Answer: Azure Blob Storage.
+
+4. What are Azure’s services for databases?
+   Answer: Azure SQL Database.
+
+5. What is the load balancing service in Azure?
+   Answer: Azure Load Balancer.
+
+6. What is the name of Azure’s PaaS platform?
+   Answer: Azure App Service.
+
+7. In Azure, what is the file storage service called?
+   Answer: Azure File Storage.
+
+8. What is the name of Azure’s container service?
+   Answer: Azure Container Instance.
+
+9. What is Azure’s NOS SQL database service?
+   Answer: Azure Cosmos DB.
+
+10. What products does Azure provide CDN services for?
+    Answer: Azure CDN.
+
+11. What products does Azure provide voice services?
+    Answer: Azure Voice Service.
+
+12. What networks can be created in Azure?
+    Answer: Azure Virtual Network.
+
+13. What is the name of Azure’s cache service?
+    Answer: Azure Cache.
+
+14. What is the name of the Azure monitoring platform?
+    Answer: Azure Monitor.
+
+15. What are Azure’s security services?
+    Answer: Azure Security Center.
+
+16. Does Azure provide container management services?
+    Answer: Azure Kubernetes Service (AKS).
+
+17. What is the name of Azure Cloud Shell?
+    Answer: Azure Cloud Shell.
+
+18. In Azure, what is the name of the backup service?
+    Answer: Azure Backup.
+
+19. What is the name of Azure’s AI service platform?
+    Answer: Azure Cognitive Services.
+
+20. What is Azure’s ultra-large-scale cloud database?
+    Answer: Azure SQL Data Warehouse.
+
+21. What is the search service provided by Azure?
+    Answer: Azure Search.
+
+22. What can be used to develop functions in Azure?
+    Answer: Azure Functions.
+
+23. Video indexer service provided by Azure?
+    Answer: Azure Media Services.
+
+24. Which languages does Azure support for creating function apps?
+    Answer: Supports multiple languages, such as C#, JavaScript, Java, etc.
+
+25. Azure’s machine learning service platform?
+    Answer: Azure Machine Learning.
+
+26. Azure’s real-time streaming analytics service?
+    Answer: Azure Streaming Analytics.
+
+27. What database types does Azure provide?
+    Answer: Relational and non-relational databases.
+
+28. Azure DevOps services?
+    Answer: Azure DevOps.
+
+29. What types of virtual machines can be created in Azure?
+    Answer: Windows and Linux virtual machines.
+
+30. Azure’s big data analysis service?
+    Answer: Azure HDInsight.
+
+31. In Azure, what services are used to deploy resources?
+    Answer: Azure Resource Manager.
+
+32. What services can be used to build an Azure hybrid cloud?
+    Answer: Azure Stack.
+
+33. What products implement service bus in Azure?
+    Answer: Azure Service Bus.
+
+34. How to perform load testing in Azure?
+    Answer: Use the Azure load testing service.
+
+35. What are the failure recovery options for Azure?
+    Answer: Local replication, off-site backup, fault recovery, etc.
+
+36. What services are available for data migration in Azure?
+    Answer: Azure Database Migration Service.
+
+37. What are the open source database service options for Azure?
+    Answer: Azure Database for PostgreSQL.
+
+38. A service for code testing in Azure?
+    Answer: Azure Test Plan.
+
+39. What is the name of the development framework provided by Azure?
+    Answer: Azure SDK.
+
+40. How to monitor virtual machines in Azure?
+    Answer: Use Azure Monitor.
+
+41. Built-in CDN service in Azure?
+    Answer: Azure CDN.
+
+42. What is the application service environment of Azure?
+    Answer: Azure App Service.
+
+43. What is used to create bot services in Azure?
+    Answer: Azure Bot service.
+
+44. How to manage APIs in Azure?
+    Answer: Use Azure API Management.
+
+45. Azure’s blockchain service platform?
+    Answer: Azure Blockchain Service.
+
+46. What services are available for security monitoring in Azure?
+    Answer: Azure Security Center.
+
+47. What services are available for code hosting in Azure?
+    Answer: Azure DevOps.
+
+48. What services are used to manage IoT devices in Azure?
+    Answer: Azure IoT Hub.
+
+49. What machine learning services does Azure provide?
+    Answer: Azure Machine Learning.
+
+50. Azure services for implementing business processes?
+    Answer: Azure Logic Apps.
+    

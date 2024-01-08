@@ -32,3 +32,39 @@
 10. 讲一下面向对象数据库的特点。
     答:直接保存对象,通过对象导航访问,可以简化应用开发,减少面向对象和关系数据库之间的不匹配。
     
+=================================================================================
+
+--database
+Please help me give 10 database and other related interview questions, from easy to difficult, and include the answers.
+Okay, here are 10 database-related interview questions and answers from easy to difficult:
+
+1. What is the role of database?
+   Answer: A database is a warehouse that organizes, stores and manages data according to the data structure. It has functions such as persistent storage, backup and recovery, and access control.
+
+2. What is a database index? What is the role of an index?
+   Answer: A database index is a structure that pre-sorts the values of a certain column or multiple columns, which can speed up query and sorting operations.
+
+3. What is the difference between SQL and NoSQL databases?
+   Answer: SQL is a structured query language with a fixed table structure; NoSQL has a flexible Schema, supports unstructured data, and is good at high concurrency scenarios of big data.
+
+4. Briefly describe the meaning of database paradigm.
+   Answer: The goal of paradigm is to build a database model that does not produce redundancy. Complying with different paradigms means that the data structure is more reasonable and reduces data redundancy.
+
+5. What are the four characteristics (ACID) of database transactions?
+   Answer: Atomicity, Consistency, Isolation, Durability.
+
+6. What is a database view? What is the role of a view?
+   Answer: A view is a virtual table queried from the base table and does not store actual data. Its function is to simplify queries, protect data, realize row and column conversion, etc.
+
+7. How to understand the three-level Schema structure of the database?
+   Answer: The external schema describes the user's view, the conceptual schema describes the enterprise logical model, and the internal schema describes the physical storage structure of the database.
+
+8. Let’s talk about the principle of primary and secondary database replication.
+   Answer: The primary database writes changes to the binlog log, and the standby machine achieves data consistency by synchronizing the binlog.
+
+9. How to design a highly concurrent database architecture?
+   Answer: Splitting tables and databases, adding cache layers, separation of master-slave reading and writing, and synchronization mechanisms can improve database concurrency.
+
+10. Talk about the characteristics of object-oriented database.
+    Answer: Saving objects directly and accessing them through object navigation can simplify application development and reduce mismatches between object-oriented and relational databases.
+    

@@ -91,3 +91,99 @@
 
 30. Elasticsearch与Solr的区别是什么?
     答:Solr使用Lucene作为核心,Elasticsearch整合了Lucene、分布式、REST API等技术,易扩展。
+    
+=================================================================================
+
+--nginxelk
+Please help give 30 NGINX, elastic search related interview questions, from easy to difficult, and include the answers
+Okay, here are 30 Nginx and Elasticsearch related interview questions and answers from easy to difficult:
+
+1. What is the main use of Nginx?
+   Answer: Nginx is a high-performance HTTP and reverse proxy server, mainly used to serve static content and implement load balancing and other functions.
+
+2. Please explain the main components of Nginx.
+   Answer: It is mainly composed of core module, event-driven module, blocking IO module, HTTP framework module, etc.
+
+3. Explain the function of ngx_http_core_module.
+   Answer: Core functions such as processing HTTP protocol, responding to requests, and configuring listening ports.
+
+4. What is the function of ngx_http_log_module?
+   Answer: Responsible for writing access logs and implementing log analysis.
+
+5. How to use Nginx to achieve load balancing?
+   Answer: Use the upstream command to configure a group of servers and distribute requests with the load balancing algorithm.
+
+6. What is the master-worker model of Nginx?
+   Answer: The master process manages the worker process, and the worker process handles actual requests.
+
+7. Please explain the reverse proxy function of Nginx.
+   Answer: The client requests Nginx, and Nginx obtains data from the backend server according to the rules and returns it to the client.
+
+8. How to achieve dynamic and static separation through Nginx?
+   Answer: Location specifies different routing rules to proxy dynamic requests to the application server.
+
+9. What is Nginx’s grayscale release plan?
+   Answer: Divert to new and old versions through weight configuration for grayscale release.
+
+10. How to achieve high availability through Nginx?
+    Answer: Configure multiple servers to achieve hot backup and keepalived to achieve VIP drift.
+
+11. What are the basic concepts of Elasticsearch?
+    Answer: Near Realtime (NRT), Cluster, Node, Index, Document, Shards, Replicas, etc.
+
+12. Explain what the Elasticsearch document is?
+    Answer: Document is the basic unit of Elasticsearch storage and indexing, expressed in JSON format, and contains one or more fields.
+
+13. How to add indexes and documents to Elasticsearch?
+    Answer: Use PUT request, specify the index name and document information.
+
+14. What types of indexes does Elasticsearch support?
+    Answer: There are mainly text types, number types, date types, Boolean types and complex types.
+
+15. How to use query DSL for search?
+    Answer: Search by using the REST request body to carry the query DSL.
+
+16. What is Mapping?
+    Answer: Mapping defines how fields in the document are indexed and stored.
+
+17. What aggregate analyzes does Elasticsearch support?
+    Answer: Aggregations are supported to analyze data, such as sum, avg, min, etc.
+
+18. How to improve Elasticsearch query efficiency?
+    Answer: Properly create indexes and mappings to improve search speed, and use paging and result filtering appropriately.
+
+19. What is Elasticsearch’s near real-time search?
+    A: The latency from indexed documents to searchable data is short and near real-time, typically within 1 second.
+
+20. What are the node types of Elasticsearch?
+    Answer: There are three main types: master node, data node, and coordinating node.
+
+21. How to achieve horizontal expansion of the Elasticsearch cluster?
+    Answer: Capacity expansion is achieved by adding nodes and appropriately adjusting the number of replica shards.
+
+22. Explain the split-brain problem of Elasticsearch.
+    Answer: When there is a connection problem in the cluster and the nodes cannot communicate normally, a "split brain" situation may occur.
+
+23. What index replica modes does Elasticsearch support?
+    Answer: Supports zero copies, one copy, multiple copies, and mixed mode.
+
+24. Write a search statement to match document fields.
+    Answer: GET /my_index/my_type/_search { "query": { "match": { "title": "Search title" } } }
+
+25. How to traverse and process Elasticsearch search results?
+    Answer: Use the forEach method to traverse the resulting Hits array and process each returned document object.
+
+26. How to use DSL for structured search?
+    Answer: Use structured queries such as term, match, etc. to distinguish and search different fields.
+
+27. How to implement Elasticsearch to segment Chinese words?
+    Answer: You can use the IK Analysis plug-in or the official nlp plug-in to achieve Chinese word segmentation.
+
+28. Please give several common Elasticsearch filtering strategies.
+    Answer: For example, range filtering, cosine similarity filtering, geographical location distance filtering, etc.
+
+29. What scenarios is Elasticsearch suitable for?
+    Answer: It is suitable for complex data statistics and analysis, big data processing, site search and other scenarios.
+
+30. What is the difference between Elasticsearch and Solr?
+    Answer: Solr uses Lucene as its core, and Elasticsearch integrates Lucene, distributed, REST API and other technologies, making it easy to expand.

@@ -151,3 +151,161 @@
 
 50. 阿里云提供容器管理服务?
     答:容器服务ACK。
+    
+
+==================================================================================
+
+--alicloud
+Please help me give 50 alicloud related interview questions, from easy to difficult, and include the answers
+Okay, here are 50 Alibaba Cloud-related interview questions and answers from easy to difficult:
+
+1. What is the full name of Alibaba Cloud?
+   Answer: Alibaba Cloud Computing Co., Ltd.
+
+2. What are Alibaba Cloud’s server products?
+   Answer: Cloud server ECS.
+
+3. What are the object storage services provided by Alibaba Cloud?
+   Answer: OSS (Object Storage Service).
+
+4. What is Alibaba Cloud’s product that implements container services?
+   Answer: Container service ACK.
+
+5. What cloud database services does Alibaba Cloud provide?
+   Answer: Cloud database RDS version.
+
+6. What is Alibaba Cloud’s CDN product?
+   Answer: Alibaba Cloud CDN.
+
+7. What domain name registration services does Alibaba Cloud provide?
+   Answer: Cloud resolution DNS.
+
+8. What are Alibaba Cloud’s products for implementing big data services?
+   Answer: Data Lake Analytics.
+
+9. What products does Alibaba Cloud provide container management services?
+   Answer: Container service ACK.
+
+10. What products does Alibaba Cloud provide API management services?
+    Answer: API gateway.
+
+11. What are the messaging service products provided by Alibaba Cloud?
+    Answer: Messaging service MNS.
+
+12. Does Alibaba Cloud provide function computing services?
+    Answer: Function Calculation FC.
+
+13. How does Alibaba Cloud implement content distribution services?
+    Answer: Alibaba Cloud CDN.
+
+14. What products implement video services on Alibaba Cloud?
+    Answer: Video on demand VOD.
+
+15. What products does Alibaba Cloud provide GPU services?
+    Answer: Cloud server ECS GPU type.
+
+16. What message queue service does Alibaba Cloud provide?
+    Answer: Message queue MNS.
+
+17. What security services does Alibaba Cloud provide?
+    Answer: Cloud Shield.
+
+18. What are Alibaba Cloud’s products for container management?
+    Answer: Container service ACK.
+
+19. What monitoring services does Alibaba Cloud provide?
+    Answer: Cloud monitoring.
+
+20. What products does Alibaba Cloud provide log services?
+    Answer: Log Service SLS.
+
+21. Relational database provided by Alibaba Cloud?
+    Answer: Cloud database RDS version.
+
+22. What products does Alibaba Cloud provide for big data processing?
+    Answer: MaxCompute.
+
+23. NoSQL database provided by Alibaba Cloud?
+    Answer: Table storage.
+
+24. What code hosting services does Alibaba Cloud provide?
+    Answer: Code hosting.
+
+25. Does Alibaba Cloud provide lightweight application server products?
+    Answer: Lightweight application server.
+
+26. What streaming data services does Alibaba Cloud provide?
+    Answer: Data Transfer Service DTS.
+
+27. Does Alibaba Cloud provide API gateway products?
+    Answer: API gateway.
+
+28. What products does Alibaba Cloud provide serverless services?
+    Answer: Function Calculation FC.
+
+29. What products does Alibaba Cloud provide container application services?
+    Answer: Container service ACK.
+
+30. Does Alibaba Cloud provide object storage services?
+    Answer: Object storage OSS.
+
+31. Relational database provided by Alibaba Cloud?
+    Answer: Cloud database RDS version.
+
+32. What products does Alibaba Cloud provide big data services?
+    Answer: MaxCompute.
+
+33. What products does Alibaba Cloud provide content distribution services?
+    Answer: Alibaba Cloud CDN.
+
+34. Does Alibaba Cloud provide log collection and consumption services?
+    Answer: Log Service SLS.
+
+35. What products does Alibaba Cloud provide database backup services?
+    Answer: Data Transfer Service DTS.
+
+36. What core products does Alibaba Cloud provide in cloud computing?
+    Answer: Cloud server ECS.
+
+37. What products does Alibaba Cloud provide messaging services?
+    Answer: Messaging service MNS.
+
+38. What products does Alibaba Cloud provide domain name resolution services?
+    Answer: Cloud resolution DNS.
+
+39. Does Alibaba Cloud provide monitoring and logging service capabilities?
+    Answer: Cloud monitoring and logging services.
+
+40. What products does Alibaba Cloud provide containerized deployment services?
+    Answer: Container service ACK.
+
+41. What database services does Alibaba Cloud provide?
+    Answer: Cloud database RDS version.
+
+42. Does Alibaba Cloud provide big data analysis services?
+    Answer: MaxCompute.
+
+43. What security service products does Alibaba Cloud provide?
+    Answer: Cloud Shield and situational awareness.
+
+44. What CDN products does Alibaba Cloud provide?
+    Answer: Alibaba Cloud CDN.
+
+45. What products does Alibaba Cloud provide GPU instances?
+    Answer: Cloud server ECS GPU type.
+
+46. What products does Alibaba Cloud provide data lake services?
+    Answer: Data lake analysis.
+
+47. What products does Alibaba Cloud provide video services?
+    Answer: Video on demand.
+
+48. Does Alibaba Cloud provide API gateway services?
+    Answer: API gateway.
+
+49. Does Alibaba Cloud provide function computing services?
+    Answer: Function calculation FC.
+
+50. Does Alibaba Cloud provide container management services?
+    Answer: Container service ACK.
+    

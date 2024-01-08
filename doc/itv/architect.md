@@ -151,3 +151,160 @@
 
 50. 设计一个秒杀系统,可以承受百万级并发访问,怎么做?
     答:限流配合队列削峰,缓存减少数据库压力,异步并行处理流量,多副本部署提高可用性。
+    
+================================================================================
+
+--architect
+Please help me give 50 system architecture related interview questions, from easy to difficult, and include answers
+Okay, here are 50 system architecture-related interview questions and answers from easy to difficult:
+
+1. What is high availability?
+   Answer: High availability is the ability of a system to continue to provide services using redundant components when components fail.
+
+2. What is the role of load balancing?
+   Answer: Distribute request traffic to multiple servers to improve system processing capabilities and availability.
+
+3. What are horizontal scaling and vertical scaling?
+   Answer: Horizontal expansion is to add server nodes, and vertical expansion is to increase the size of a single node.
+
+4. What is the role of a Content Delivery Network (CDN)?
+   Answer: Use edge nodes distributed in various places to quickly distribute content to users and improve access speed.
+
+5. Explain the role of service discovery.
+   Answer: Service discovery enables services to be automatically registered and discovered without the need to manually record service addresses.
+
+6. Talk about what you understand about Service Mesh.
+   Answer: Service Mesh provides inter-service communication, flow control and other capabilities to simplify the complexity of microservice architecture.
+
+7. What is caching and what are its usage scenarios?
+   Answer: The cache is between the application and the persistent storage and is used to speed up data reading. Can be used for database queries, static resources, etc.
+
+8. How to achieve asynchronous and decoupled?
+   Answer: Asynchronous processing and decoupling are achieved through message queues, event-driven and other means.
+
+9. What are cloud native applications?
+   Answer: Elastically scalable applications designed using cloud platform governance capabilities. It has the characteristics of dynamic, distributed and fault-tolerant.
+
+10. How to carry out system capacity planning?
+    Answer: Based on analysis of business growth forecasts and peak period traffic characteristics, system processing capabilities are regularly evaluated and expanded in advance.
+
+11. How to design a high-concurrency system?
+    Answer: Distributed architecture, using technologies such as caching, message queue peak shaving, and current limiting, and monitoring and expansion.
+
+12. Explain the difference between stateless and stateful services.
+    Answer: Stateless services do not save state, and requests can be forwarded to any node. Stateful services need to save state and requests need to be forwarded to the same node.
+
+13. How to solve the single point of failure problem?
+    Answer: Multi-level redundant deployment to eliminate single points of failure.
+
+14. Talk about your understanding of microservices.
+    Answer: Microservices split the system into small services. Each service is deployed and expanded independently and communicates through API. Suitable for distributed and large-scale systems.
+
+15. How to implement grayscale release and rollback of services?
+    Answer: Use techniques such as increasing or decreasing weights, request identification, etc. to control traffic import to achieve progressive release. Roll back a version when problems are discovered.
+
+16. Explain the CAP theorem.
+    Answer: The CAP theorem states that consistency, availability, and partition tolerance cannot be satisfied at the same time, and at most two of them can be satisfied at the same time.
+
+17. What scenarios are suitable for using message queues?
+    Answer: Decoupling and peak-shaving are suitable for using message queues.
+
+18. How to choose to use a relational database or a NoSQL database?
+    Answer: Relational databases handle structured data better, and NoSQL handles unstructured data better. Choose according to business needs.
+
+19. How to design a flexible and scalable data architecture for the system?
+    Answer: Use the microservice governance model and use Polyglot Persistence to design a diverse persistence layer architecture.
+
+20. How to monitor system performance and high availability?
+    Answer: Collect key indicators of the system, conduct visualization and alarms, and establish a complete monitoring system.
+
+21. Explain the implementation of distributed locks.
+    Answer: Use Redis, Zookeeper, etc. to establish lock services, and use SETNX to implement mutex locks in a distributed environment.
+
+22. What are the common database expansion methods?
+    Answer: Master-slave replication, sub-database and table sub-database, switching to NoSQL database, etc.
+
+23. How to understand the supplement of BASE theory to AP in CAP?
+    Answer: BASE emphasizes availability and performance first, allowing the system to return stale data, a typical AP system.
+
+24. How to realize the separation of reading and writing in the database?
+    Answer: Using master-slave replication, read requests are offloaded to the slave database, reducing the pressure on the master database.
+
+25. Tell me about your understanding of Lambda architecture.
+    Answer: A data processing architecture that combines batch and stream processing to split query workloads through event sourcing.
+
+26. What are the implementation strategies for distributed transactions?
+    Answer: 2PC, 3PC, reliable messages, TCC, SAGA, local message table, etc.
+
+27. How to design an excellent API?
+    Answer: Good documentation, reasonable interface range, standard response format, version management, etc.
+
+28. Explain what the retry strategy does?
+    Answer: The retry strategy achieves fault tolerance by reinitiating access to failed requests.
+
+29. How to formulate disaster preparedness and disaster recovery strategies?
+    Answer: Formulate recovery goals, backup strategies, etc. at different levels, and improve recovery capabilities through multi-point off-site backup, disaster recovery drills, etc.
+
+30. If you want to store tens of billions of data, how would you design the database?
+    Answer: You can use sub-database and sub-table to split it into multiple tables. And query by ID association.
+
+31. What will you do when the number of service visits suddenly increases 100 times?
+    Answer: Expand horizontally according to the situation, find out the reasons for the sudden increase, and limit the flow if necessary.
+
+32. When the database pressure increases sharply, how to deal with it?
+    Answer: Use technologies such as caching, read-write separation, sub-database and sub-table to optimize database access.
+
+33. How do you understand technical debt? How to manage technical debt?
+    Answer: Technical debt is a problem that arises from rapid iteration. Pay attention to code refactoring and pay off debt regularly.
+
+34. How to ensure consistency when designing a flash sale architecture?
+    Answer: Use caching + current limiting, asynchronous database drop, and use message queues to achieve ultimate consistency.
+
+35. How to design the payment system architecture?
+    Answer: Divide services according to functional modules, adopt idempotent design, and use distributed locks to ensure consistency.
+
+36. How to design a reliable push notification system?
+    Answer: Establish a stable queue, failure storage, and retry mechanism. At the same time, handle the mobile phone connection problem.
+
+37. When designing a picture sharing community, what are the main bottlenecks? How to expand?
+    Answer: Image storage and distribution consume bandwidth resources and can be expanded using distributed file systems and CDN.
+
+38. How to design an instant messaging system?
+    Answer: Adopt a distributed structure, use message queue decoupling, redis to store status, and Streaming to process messages.
+
+39. Design an online programming system and how to run the code?
+    Answer: Use Docker containers to isolate the running environment, limit CPU usage, etc. to prevent resource exhaustion.
+
+40. Design a crawler system to deal with large amounts of data.
+    Answer: Distributed architecture, using message queue to pass URL, MapReduce and other technologies to process data.
+
+41. Design a cloud disk system, how to store files?
+    Answer: File segmentation, redundant resources, use of distributed storage systems, and caching of hot files.
+
+42. What are the main challenges in designing a real-time traffic navigation system?
+    Answer: A large amount of real-time data processing, quick response to routing calculations. Data pipeline and cache need to be optimized.
+
+43. When designing a social app, how to store user relationship chains?
+    Answer: Use a graph database, use node relationships to build social chains, and optimize the relationship chains.
+
+44. How to design a product recommendation system for an e-commerce website?
+    Answer: Collect user behavior data, extract tags based on product characteristics, and match user interests and recommendations based on product tags.
+
+45. When designing a rush-sale APP, the peak order volume may be 100 times higher than usual. How should you deal with it?
+    Answer: Current limiting queuing, message queue cache peak shaving, microservices and horizontal expansion support peaks.
+
+46. Designing a highly concurrent scheduled sales system, how to ensure service stability?
+    Answer: Current-limiting queuing handles request peaks, asynchronously processes orders, and monitors system resources to avoid breakdown.
+
+47. When designing a number registration system, how to ensure that the number is unique?
+    Answer: Use the unique key constraints and concurrency control of the database to ensure this. Increase cache to improve performance.
+
+48. How to design an advertising publishing and display system to support millions of visits per second?
+    Answer: Make full use of the cache, split it, use stateless services, and add machines for horizontal expansion.
+
+49. When designing a message notification system, how to ensure message consistency?
+    Answer: Written messages must be persisted and copied asynchronously to multiple storage nodes, and reads must be read sequentially and confirmed by ACK.
+
+50. How to design a flash sale system that can withstand millions of concurrent accesses?
+    Answer: Current limiting cooperates with queue peak shaving, caching reduces database pressure, asynchronous parallel processing of traffic, and multi-copy deployment improves availability.
+    

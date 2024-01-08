@@ -200,3 +200,209 @@
 99. Spring Boot 配置应用上下文路径?使用server.servlet.context-path属性。
 
 100. Spring Boot 常用的启动参数?–debug、–trace、–jmx等参数,用来调试和跟踪应用。
+
+=================================================================================
+
+--spring
+100 Spring and Spring Boot related interview questions, from easy to difficult, including answers:
+
+1. What is the Spring framework? Spring is a lightweight open source Java EE framework that can solve the complexity of enterprise application development.
+
+2. What are the main modules of Spring? Core container, AOP, data access/integration, Web, testing and other modules.
+
+3. What does Spring’s core container module include? Beans, Core, Context, Expression Language, etc.
+
+4. What containers does Spring support? BeanFactory and ApplicationContext, the latter adds more enterprise features.
+
+5. What is Spring IOC container? Spring IOC container is responsible for instantiating, locating and managing Beans.
+
+6. What is dependency injection and its method? Dependency injection (DI) is an implementation of IOC, including constructor injection, Setter method injection, interface injection, etc.
+
+7. The life cycle of Spring Bean includes four stages: definition, initialization, use and destruction.
+
+8. How to define Spring Bean? Beans can be defined using XML or annotations such as @Bean and @Component.
+
+9. What is a Spring configuration file? A Spring configuration file contains definition beans, configuration information, etc., and is usually an XML file.
+
+10. Explain Spring Bean autowiring? Spring can automatically wire dependencies between beans based on property names or bean names.
+
+11. How to implement Spring AOP? Use dynamic proxy, mainly JDK dynamic proxy and CGLIB bytecode generation technology.
+
+12. What is aspect? Aspect includes pointcuts, notifications (enhanced processing), and introductions (declaration of added functions).
+
+13. What advice types does Spring AOP support? before, after returning, after throwing, after, around, etc.
+
+14. What is weaving? Weaving is the process of applying aspects to target objects and creating new proxy objects.
+
+15. How to implement XML-based AOP aspect configuration? Use <aop:aspect> to define aspects, <aop:before> and so on to define notifications.
+
+16. The characteristics of Spring transactions? Encapsulate business operations as services and make them have transaction semantics through declarative transaction management.
+
+17. Spring's transaction isolation level? The default value is ISOLATION_DEFAULT, which can be set to other isolation levels such as READ_UNCOMMITTED.
+
+18. What are the propagation behaviors of Spring transactions? REQUIRED, REQUIRES_NEW, NESTED and other levels.
+
+19. Spring transaction rollback rules? RuntimeException and its subclasses will be rolled back, but Checked Exception will not.
+
+20. What are the common parameters of @Transactional? propagation, isolation, timeout, rollbackFor, noRollbackFor, etc.
+
+21. How many transaction managers does Spring have? JDBC, Hibernate, JPA, JTA, etc.
+
+22. What is Spring MVC? Spring MVC is Spring's Web framework, using the MVC design pattern.
+
+23. The role of DispatcherServlet? As the core dispatcher of Spring MVC, it is responsible for routing and scheduling requests.
+
+24. The difference between @Controller and @RestController? @RestController uses the return value directly as a response, and @Controller also needs to write @ResponseBody.
+
+25. Commonly used attributes of @RequestMapping? value maps the request path, and method specifies the request method type.
+
+26. What are the Springboot starters? web, data-jpa, security, actuator, etc.
+
+27. The principle of Spring Boot automatic configuration? Spring Boot loads the automatic configuration class when it starts, and assembles it according to the jar dependency Configuration conditions.
+
+28. What are the ways to customize the configuration of Spring Boot? Use application.properties, write configuration classes and add @Configuration, etc.
+
+29. How to modify Spring Boot’s default port number and context path? Through the server.port and server.servlet.context-path properties.
+
+30. What embedded containers does Spring Boot support? Tomcat, Jetty, Undertow, etc. Tomcat is the default.
+
+31. How to solve the problem of 404 Unable to map resources in Spring Boot application? Use Spring MVC to configure addResourceHandlers.
+
+32. How is Spring Boot's multi-environment configuration implemented? By using application-prod.properties to specify the active environment.
+
+33. What is an actuator? Spring Boot Actuator provides monitoring and management capabilities for production environment applications.
+
+34. What is the difference between JdbcTemplate and JdbcDaoSupport? JdbcTemplate is more concise and does not depend on the spring framework class.
+
+35. How to monitor the running status of Spring Boot application? You can use Actuator to expose the monitoring interface data when the application is running.
+
+36. How does Spring Boot Starter work? Starter will import automatic configuration based on the jar package in the classpath, reducing manual configuration.
+
+37. How to perform integration testing in Spring Boot? Use @SpringBootTest to perform startup class testing, and use @MockBean to create mock objects.
+
+38. What are the two methods of conditional configuration of Spring Boot? Use @Profile and @Conditional annotations.
+
+39. How to implement hot update of Spring Boot? Use spring-boot-devtools to achieve hot deployment at the classloader level.
+
+40. What are the common annotations of Spring Boot Scheduler? @Scheduled, @EnableScheduling, etc.
+
+41. How to use Filter in Spring Boot? Register Filter through @Bean, or add @ServletComponentScan to enable scanning.
+
+42. How to add an interceptor in Spring Boot? Implement the WebMvcConfigurer interface to add an interceptor and set addInterceptors.
+
+43. What log frameworks does Spring Boot support? JUL, Log4j2, Logback, etc. Logback is the default.
+
+44. How to switch the Spring Boot logging framework? Remove the default log dependency, add the corresponding log dependency, and configure loggers as the corresponding framework.
+
+45. In which configuration file is the Spring Boot log file configured? Use logging.file or logging.path configuration in application.properties.
+
+46. How to configure the log level in Spring Boot? Use logging.level.<logger-name>=<level> to set the level.
+
+47. How to track the logs of Spring Boot application? Use logging.level.root=trace, or start with --debug.
+
+48. What functions does the @SpringBootApplication annotation include? It includes @Configuration, @EnableAutoConfiguration, and @ComponentScan.
+
+49. How to configure the data source in Spring Boot? Configure the spring.datasource.* properties in application.properties.
+
+50. What are the ways for Spring Boot to access the database? JdbcTemplate, JPA, JdbcDaoSupport, MyBatis, etc.
+
+51. How to implement caching in Spring Boot? You can use @EnableCaching to enable caching, and use @Cacheable and other annotation caching methods.
+
+52. What are the listeners in Spring Boot? There are two main types: Spring Application Listener and Servlet listener.
+
+53. What are the events in Spring Boot? Mainly include Spring ApplicationEvent and Servlet events.
+
+54. How to use WebSocket in Spring Boot? Register the endpoint Url by implementing the WebSocketConfigurer interface.
+
+55. How to do unit testing in Spring Boot? Use the @SpringBootTest annotation to load the complete context.
+
+56. How to do integration testing in Spring Boot? Use @SpringBootTest+MockMVC for integration testing.
+
+57. How to start a scheduled task in Spring Boot? Use the @EnableScheduling annotation to enable the scheduled task function.
+
+58. How to use interceptors in Spring Boot? Implement the WebMvcConfigurer interface to add interceptors and set the addInterceptors method.
+
+59. Steps to use filters in Spring Boot? Register the filter through @Bean method, or use @ServletComponentScan.
+
+60. How to do asynchronous processing in Spring Boot? Inject the AsyncTaskExecutor executor and use the @Async annotation to indicate that asynchronous processing is required.
+
+61. How does Spring Boot package applications? You can use the maven or gradle plug-in to generate a jar package and run it directly, or generate a war and deploy it to the server.
+
+62. The role of Spring Boot Actuator? It is mainly used to monitor and manage Spring Boot applications in production environments.
+
+63. What are the endpoints of Spring Boot Actuator? health, beans, caches, conditions, etc.
+
+64. How to get the value of property configuration in Spring Boot? Use the @Value("${property}") annotation, or the Environment.getProperty method.
+
+65. The loading order of configuration files in Spring Boot? bootstrap.properties, application.properties and application.yml.
+
+66. How to integrate Swagger in Spring Boot? Use springfox-swagger dependency and use @EnableSwagger2 annotation.
+
+67. How to implement exception handling in Spring Boot? Global exception handling is implemented through @ControllerAdvice and @ExceptionHandler annotations.
+
+68. The startup process in Spring Boot? Boot context loads configuration, creates environment, prints banner, refreshes context, starts Tomcat, etc.
+
+69. How to solve cross-domain problems in Spring Boot? Use @CrossOrigin or WebMvcConfigurer to handle cross-domain problems.
+
+70. How to implement hot deployment of Spring Boot applications? Introduce the spring-boot-devtools dependency to automatically restart the application.
+
+71. What starters have been used in Spring Boot? web, data-jpa, security, actuator, etc.
+
+72. How to use connection pooling in Spring Boot? HikariCP connection pool is used by default, and DBCP2 or Tomcat connection pool can be specified in the configuration.
+
+73. Spring Boot automatic configuration principle? Match the @\ConditionalOnClass and @\ConditionalOnMissingBean conditions based on the introduced jar dependency.
+
+74. How to override the default configuration in Spring Boot? Use @Bean to replace the default Bean, or use @ConditionalOnMissingBean to preset conditions.
+
+75. How to use interceptors in Spring Boot? Implement the WebMvcConfigurer interface and overload the addInterceptors method.
+
+76. How to exclude Spring Boot’s automatic configuration class? Use @EnableAutoConfiguration(exclude=classname.class)
+
+77. How to implement scheduled tasks in Spring Boot? Use @EnableScheduling to enable scheduled tasks, and use @Scheduled to declare methods that need to be executed regularly.
+
+78. How does Spring Boot implement asynchronous calls? Inject the AsyncTaskExecutor executor and use the @Async annotation to indicate the method that requires asynchronous processing.
+
+79. How does Spring Boot customize Banner? Through spring.banner.location or through the Banner interface.
+
+80. How to implement network paging in Spring Boot? Inherit PagedResourcesAssemblerWrapper to wrap the paging result set.
+
+81. The function of Spring Boot Admin? Manage and monitor SpringBoot applications.
+
+82. What information does the Spring Boot Admin UI interface mainly contain? Application overview, detailed information, log tracking, JMX management, indicator monitoring, etc.
+
+83. The automation principle of Spring Boot Admin? After the client registers with the server, it sends a heartbeat, and the server maintains and checks the heartbeat status.
+
+84. Things to note when developing distributed applications with Spring Boot? Configure service discovery, circuit breakers to implement fault tolerance, use message queues, and interface idempotent design.
+
+85. What monitoring interfaces does Spring Boot Actuator provide? Mainly health, info, metrics, etc.
+
+86. How to handle global exceptions in Spring Boot? Use @ControllerAdvice+@ExceptionHandler to catch global exceptions.
+
+87. Spring Boot starter principle? The starter packages relevant dependencies and handles version compatibility issues. @ConditionalOnClass automatically configured.
+
+88. How to use Redis in Spring Boot? Introduce spring-boot-starter-data-redis and use Redis through RedisTemplate.
+
+89. Spring Boot monitoring interface call chain tracking? Use spring-cloud-sleuth-zipkin to integrate zipkin to implement call chain tracking.
+
+90. How does Spring Boot deploy the server? You can publish it as a jar package and then run it using java -jar; or you can publish it as a war and put it in a servlet container.
+
+91. Why use Spring Boot? Spring Boot simplifies Spring application development, with embedded web servers, automatic configuration components, no code generation and XML configuration.
+
+92. The core annotations of Spring Boot? @SpringBootApplication, @Configuration, @EnableAutoConfiguration, etc.
+
+93. Spring Boot endpoint monitoring? Mainly Actuator provides different endpoints, corresponding to different aspects of monitoring applications.
+
+94. Spring Boot core configuration file? Mainly application.properties or application.yml file.
+
+95. Logging frameworks supported by Spring Boot? Logback, Log4J2, Java Util Logging, etc.
+
+96. How to modify the default port number of Spring Boot? Configure the server.port property in application.properties.
+
+97. Common annotations for Spring Boot web development? @Controller, @RestController, @RequestMapping, etc.
+
+98. How to configure the data source in Spring Boot? Configure the spring.datasource.* properties in application.properties.
+
+99. How to configure the application context path in Spring Boot? Use the server.servlet.context-path property.
+
+100. Spring Boot commonly used startup parameters? –debug, –trace, –jmx and other parameters, used to debug and trace applications.
+

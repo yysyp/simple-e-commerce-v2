@@ -145,3 +145,155 @@
 
 48. 如何理解私有云、公有云和混合云?
     答:私有云由单个组织构建的云服务平台。公有云向公众开放的云服务。
+    
+=================================================================================
+--ops
+Please help me give 50 interview questions with common operation and maintenance frameworks, from easy to difficult, and include the answers.
+Okay, I will try my best to compile 50 common operation and maintenance framework interview questions and answers from easy to difficult for you:
+
+1. What is operation and maintenance? What are the work contents of operation and maintenance?
+   Answer: Operation and maintenance is an important part of information technology service management (ITSM). It is mainly responsible for monitoring, operating and maintaining the enterprise's IT systems and networks to ensure the efficient, stable and safe operation of the systems and networks. Operation and maintenance work includes hardware operation and maintenance, system operation and maintenance, network operation and maintenance, application operation and maintenance, cloud operation and maintenance, database operation and maintenance, etc.
+
+2. Introduce the main responsibilities of operation and maintenance engineers.
+   Answer: The main responsibilities of operation and maintenance engineers include deployment and configuration of servers and network equipment, system monitoring, daily operation and maintenance and troubleshooting, formulation of operation and maintenance specifications and processes, business insight and demand analysis, and establishment of automated operation and maintenance environment, etc.
+
+3. How to improve operation and maintenance efficiency and service quality?
+   Answer: Methods to improve operation and maintenance efficiency and service quality include: building a standardized operation and maintenance system and standardizing operation and maintenance processes, applying automated operation and maintenance tools, implementing continuous monitoring, building a knowledge base and experience base, optimizing personnel structure and improving team collaboration capabilities, etc. .
+
+4. What is DevOps? What is its relationship with operations and maintenance?
+   Answer: DevOps is a culture, movement and practice that values collaboration between "development" and "operations" teams. It advocates automated processes, continuous integration and delivery, infrastructure as code, monitoring and troubleshooting. DevOps has the same goals as operation and maintenance, which can improve operation and maintenance efficiency and shorten problem response time.
+
+5. Briefly describe the role of configuration management and estimators.
+   Answer: Configuration management is the process of managing IT system configuration, and estimators are important tools for configuration management. It can track machine configuration, maintain historical configuration records, version control, implement infrastructure as code, and facilitate operation and maintenance personnel to conduct model-based configuration management of the system. Commonly used estimators include: Ansible, SaltStack, Puppet, etc.
+
+6. What is SRE? What is its difference and connection with DevOps?
+   Answer: SRE (Site Reliability Engineering) is an operation and maintenance concept proposed by Google, focusing on the stable and reliable operation of large-scale systems. SRE and DevOps both attach great importance to automation, monitoring, troubleshooting and other practices. The difference is that SRE pays more attention to engineering methods and indicators, and pursues precise service reliability. They are all important practices for shortening the DevOps feedback loop.
+
+7. Introduce common monitoring systems and their characteristics.
+   Answer: Common monitoring systems include Zabbix, Nagios, Prometheus, etc. Zabbix has comprehensive functions, Nagios system is mature, and Prometheus is emerging and easy to expand horizontally. In addition, Grafana provides rich chart displays, and ELK provides log analysis. Each has its own advantages and can be selected according to specific needs.
+
+8. What are the common methods for system performance diagnosis?
+   Answer: Commonly used system performance diagnosis methods include TOP command analysis, VMSTAT analysis of system resources, IOSTAT analysis of IO status, Netstat analysis of network connections, Sar statistical analysis of system performance, etc. You can also use tools to locate performance bottlenecks, such as Perf.
+
+9. Briefly describe the five running levels of Linux systems.
+   Answer: Linux has 5 operating levels: level 0 shutdown state, level 1 single-user mode, level 2 incomplete multi-user mode, level 3 complete multi-user state without graphical interface, level 5 complete multi-user state with graphical interface, default The operating level is level 5. You can switch the run level through the init command.
+
+10. If the server load increases, how will you troubleshoot and optimize performance?
+    Answer: You can use the TOP command to find application processes with high CPU and memory usage, use VMSTAT to check the memory swap situation, use IOSTAT to check the IO load, and use Sar to count performance bottlenecks, etc. Optimize applications according to the situation, increase capacity, or use read-write separation, caching, etc. to improve system performance.
+
+11. Please explain LAMP/LNMP stacks.
+    Answer: LAMP refers to the Apache+MySQL+PHP open source architecture stack under the Linux system. LNMP replaces Apache with Nginx. Both of these are common open source architecture stacks for web applications, with rich components, good collaboration, and easy expansion.
+
+12. Explain the difference between status codes 301 and 302.
+    Answer: The 301 status code indicates permanent redirection, and the browser will remember the redirected address. 302 means temporary redirection, and the browser will not remember the redirected address. In search engine optimization, 301 is better than 302.
+
+13. Please list three ways you can help improve website performance.
+    Answer: 1) Use a Content Delivery Network (CDN). 2) Turn on Gzip compression. 3) Use caching technology (Redis, etc.). 4) Optimize database queries. 5) Use a suitable web server such as Nginx.
+
+14. Please explain the difference between RAID 0,1,5,10.
+    Answer: RAID 0 striping increases speed but has no fault tolerance. RAID 1 mirror backup is fault-tolerant but costly. RAID 5 balances speed and fault tolerance. RAID 10 combines the advantages of 1 and 0, is fast and fault-tolerant.
+
+15. What are horizontal scaling and vertical scaling?
+    Answer: Horizontal expansion is to increase the number of servers, and vertical expansion is to improve the performance of a single server. Application design usually scales vertically first and then horizontally.
+
+16. Please explain how load balancing works and common algorithms.
+    Answer: Load balancing distributes user requests to multiple servers. Common algorithms include polling, proportion, least connection, response time, source IP hash, etc. You can choose according to your needs. High availability strategies such as hot standby can also be set.
+
+17. How to find the top 10 processes that occupy the largest memory on the server?
+    Answer: You can use the command: ps aux | sort -nrk 4 | head to view the top 10 processes taking up memory.
+
+18. Please list common tools for performance analysis under Linux systems.
+    Answer: Commonly used tools for performance analysis under Linux include: top, vmstat, iostat, sar, perf, stap, etc.
+
+19. Briefly describe the differences between TCP and UDP protocols.
+    Answer: TCP is connection-oriented, and UDP is connection-less. TCP guarantees that data arrives in order, but UDP does not. TCP has flow control, UDP does not. Generally, TCP is used for applications that require higher reliability, and UDP is used for applications that require higher real-time performance.
+
+20. Explain what virtual memory is.
+    Answer: Virtual memory is a piece of logical memory space that is virtualized using disk space to meet the situation of insufficient physical memory. It swaps inactive memory pages to disk, allowing more processes to occupy physical memory and improving memory utilization efficiency.
+
+21. Explain what buffer overflow is and how to prevent it.
+    Answer: Buffer overflow means that the size of the data written to the buffer exceeds the actual allocated size of the buffer, causing a buffer overflow that may be exploited to run arbitrary code. Buffer overflows can be prevented through bounds checking, using language safety features, etc.
+
+22. Explain what the function of Message Queue is.
+    Answer: Message queue is used for asynchronous communication between processes, publish and subscribe model. It can decouple the communication between processes and improve the scalability and flexibility of the system. Commonly used message queues include Kafka, RabbitMQ, ActiveMQ, etc.
+
+23. Briefly describe the directory services you know and their characteristics.
+    Answer: Directory service is used to build a centralized directory structure of users, devices, applications and other network objects for authorization verification and other purposes. Common directory services include LDAP, Active Directory, etc.
+
+24. Explain the meaning of file permissions represented by 1234 and 0777.
+    Answer: 1234 means that the user permission is read and write, the group permission is read, and other users have no permission. 0777 indicates that the user, group, and other users have read, write, and execute permissions.
+
+25. Use a one-line command to output the name of the program that is listening on the port.
+    Answer: netstat -tulpn | grep LISTEN
+
+26. Please explain the meaning of RESTful programming style.
+    Answer: RESTful is a software architecture style that uses HTTP methods to express the semantics of creating, reading, updating, and deleting data. Simplify component interactions using standard HTTP verbs and resources identification through URIs.
+
+27. Explain the main concepts and characteristics of Cloud Native.
+    Answer: Cloud native is supported by technologies such as microservices, containers, service grids, and immutable infrastructure, and has the characteristics of dynamic management, elastic expansion, fault isolation, and rapid iteration. It is an important new architectural method for building large-scale distributed and highly elastic cloud applications.
+
+28. What is container orchestration? What is the difference between Kubernetes and Docker Swarm?
+    Answer: Container orchestration is a tool for managing the life cycle of containers. Kubernetes has more complete functions and is Google's open source container orchestration platform. Docker Swarm is integrated into Docker, is simple to operate, and is suitable for small-scale applications.
+
+29. How to get the top 10 largest files or directories on the Linux server?
+    Answer: Use the du command combined with the sort and head commands, for example: du -sh /* | sort -rh | head -10
+
+30. What is the difference between LVS, HAProxy and Nginx?
+    Answer: LVS works on layer 4 and has good performance; HAProxy works on layer 7 and is powerful; Nginx can be used as a reverse proxy server or a load balancer. Generally speaking, Nginx has the richest functions and LVS has the best performance.
+
+31. Explain the difference between GET and POST methods of HTTP requests.
+    Answer: The GET request parameters are displayed in the URL, the data size is limited, and it is not very safe. The POST data packet is in the request body, with no size limit and is more secure. GET is only used to obtain data, POST can also be used to modify data.
+
+32. Please explain the functions and differences between Session and Cookie.
+    Answer: Session is stored on the server side, and Cookie is on the browser side. Session relies on Cookie to save session id to implement user tracking. Cookies are mainly used for personalization settings, and Sessions are mainly used to save user status.
+
+33. Explain the difference between continuous integration and continuous delivery.
+    Answer: Continuous integration emphasizes that developers frequently submit code and automatically build and test it. Continuous delivery builds on this by deploying code to a production-like environment and running more comprehensive tests.
+
+34. Explain the difference between public cloud and private cloud.
+    Answer: Public cloud services are open for use and resources are shared, while private clouds are only used by a single organization and are more secure. Public cloud is suitable for small projects, while private cloud is suitable for large companies or projects that require extremely high security and compliance.
+
+35. Explain what Docker is and how it works.
+    Answer: Docker is an open source application container engine that uses lightweight containers to separate them from the underlying infrastructure. It can package application code and dependencies in the container. Docker uses layered storage and mirroring technology to enable applications to be quickly deployed and run in different environments.
+
+36. Explain Auto Scaling and how it works.
+    Answer: Autoscaling monitors system indicators (such as CPU, memory usage, etc.) and dynamically increases or decreases the number of instances according to rules to achieve elastic expansion of the system and optimal utilization of resources. It can improve fault tolerance, cope with sudden traffic surges, and reduce costs.
+
+37. Introduce several common monitoring indicators.
+    Answer: Common monitoring indicators include: CPU, memory, disk and network utilization, request response time, error rate, number of concurrencies, etc. These indicators can evaluate system performance and service quality achievement.
+
+38. Explain how log aggregation works and its advantages.
+    Answer: Log aggregation collects logs from multiple servers in a distributed system into a central location for easy viewing and analysis. Its advantages include: unified log management, correlation analysis, and security auditing.
+
+39. Explain the difference between bare metal servers and virtual machine servers.
+    Answer: Bare metal servers directly install operating systems and applications. The hardware performance is good but resources cannot be dynamically allocated. Virtual machines can run multiple VMs on one physical server to achieve dynamic allocation of hardware resources and improve resource utilization.
+
+40. Explain the full name of AAA and its role in network security.
+    Answer: AAA stands for Authentication, Authorization and Accounting. It provides a reliable network security mechanism by controlling and auditing user access to resources.
+
+41. What is a distributed denial of service attack (DDoS)? How to prevent it?
+    Answer: DDoS makes services unavailable by occupying a large amount of resources. Prevention methods include increasing bandwidth, using DDoS mitigation services, configuring ACL rules, etc.
+
+42. What is an Internet Content Delivery Network (CDN)? How does it work?
+    Answer: CDN enables users to obtain nearby low-latency access by caching and distributing content at edge nodes. The working principle is to use DNS to redirect requests to the corresponding edge nodes based on the user's location.
+
+43. Explain the difference between master-slave replication and read-write separation.
+    Answer: Master-slave replication synchronizes the incremental log of the master database to the slave database to improve backup and disaster recovery capabilities. Read and write separation is to route read requests and write requests to the master-slave library respectively to improve read performance and avoid single point pressure.
+
+44. Briefly describe the working principle and advantages of RAID.
+    Answer: RAID achieves data redundancy, increases speed or increases capacity by combining multiple disks into one logical disk. It improves the reliability of the storage system and improves read and write performance.
+
+45. Explain how to implement code version control.
+    Answer: Using a version control system (such as Git) can record code modification history and support multi-person collaborative development. It implements functions such as code modification tracking, backup and recovery, code management and team collaboration.
+
+46. What is Agile development methodology? Explain the task roles in the Scrum model.
+    Answer: Agile development adopts an iterative and incremental approach. Scrum defines three major roles: product owner, Scrum Master, and team responsible for product planning, process management, and task execution.
+
+47. Explain the difference between continuous deployment and continuous delivery.
+    Answer: Continuous deployment is automatically building, testing and deploying to the production environment after each code change. Continuous delivery is the automated building, testing, and deployment to a production-like environment for manual release.
+
+48. How to understand private cloud, public cloud and hybrid cloud?
+    Answer: Private cloud is a cloud service platform built by a single organization. Public cloud is a cloud service open to the public.
+    
+
+

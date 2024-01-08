@@ -151,3 +151,156 @@
 
 50. AWS中如何管理多种云资源的配置变更?
     答:使用AWS Config服务跟踪资源配置并管理变更。
+    
+==================================================================================
+
+1. What is the full name of AWS?
+   Answer:Amazon Web Services
+
+2. Which service in AWS provides cloud storage?
+   Answer:S3
+
+3. What is AWS EC2?
+   Answer: Elastic Compute Cloud provides scalable cloud computing capacity.
+
+4. What is EBS in AWS?
+   Answer: Elastic Block Store provides block storage.
+
+5. How to access AWS services through AWS CLI?
+   Answer: After installing and configuring the AWS CLI, use the aws command line interface and parameters.
+
+6. What services in AWS provide relational databases?
+   Answer: RDS (Relational Database Service)
+
+7. How to implement server elastic scaling in AWS?
+   Answer: Use Auto Scaling
+
+8. What is the difference between S3 and EBS?
+   Answer: S3 serves object storage, and EBS serves block storage.
+
+9. What is the main use of Lambda in AWS?
+   Answer: Lambda provides serverless computing for running code.
+
+10. What is the role of VPC in AWS?
+    Answer: VPC is used to launch a virtual network environment in AWS.
+
+11. How to implement load balancing in AWS?
+    Answer: Use ELB (Elastic Load Balancing) service.
+
+12. How to manage access permissions for multiple AWS services?
+    Answer: Through IAM (Identity and Access Management).
+
+13. What is ElastiCache mainly used in AWS?
+    Answer: Used to enhance the performance of databases and applications.
+
+14. What can AWS CloudFormation be used for?
+    Answer: Cloud resource orchestration manages the cloud environment in code.
+
+15. What are AWS Organizations?
+    Answer: A service used to centrally manage multiple AWS accounts.
+
+16. How to prevent DDoS attacks in AWS?
+    Answer: Use AWS Shield service.
+
+17. What can AWS Snowball be used for?
+    Answer: Physically move large amounts of data to the AWS cloud.
+
+18. How to perform database backup in AWS?
+    Answer: Use AWS Backup service.
+
+19. How to use AWS database service to achieve multi-AZ deployment?
+    Answer: Choose to deploy a database instance in multiple availability zones.
+
+20. What is the role of CloudWatch in AWS?
+    Answer: Cloud monitoring service, monitoring AWS resources and applications.
+
+21. What is the difference between SQS and SNS?
+    Answer: SQS is a queue service, and SNS is a publish and subscribe service.
+
+22. How to estimate usage costs in AWS?
+    Answer: Use Cost Explorer for cost analysis.
+
+23. How to use AWS to ensure high availability of applications?
+    Answer: Multi-AZ deployment, automatic expansion and contraction, and load balancing.
+
+24. What scenarios is Glacier storage used in AWS?
+    Answer: Long-term low-cost data archiving.
+
+25. How to perform log analysis in AWS?
+    Answer: Use CloudWatch Logs to subscribe to logs and combine it with the log analysis service.
+
+26. What is the role of AWS Direct Connect?
+    A: Connect to AWS resources via a dedicated network line.
+
+27. How to implement automated deployment in AWS?
+    Answer: Use the CodeDeploy service.
+
+28. What is AWS VPC peering?
+    Answer: Private network connections between different VPCs.
+
+29. How to implement server monitoring in AWS?
+    Answer: Use CloudWatch service.
+
+30. What are the usage scenarios of AWS Spot Instance?
+    Answer: Used to seize idle resources to obtain computing power.
+
+31. What is AWS Transit Gateway?
+    Answer: Implement network connections between different AWS services.
+
+32. How to perform snapshot backup of EBS volumes in AWS?
+    Answer: Use the Amazon Data Lifecycle Manager snapshot function.
+
+33. How to use AWS database service to achieve read and write separation?
+    Answer: Deploy a read replica to synchronize the primary database to achieve read and write separation.
+
+34. How to evaluate the cost-benefit of moving to the AWS cloud?
+    A: Use the AWS TCO Calculator to evaluate total cost of ownership.
+
+35. What is MFA in AWS?
+    Answer: Multi-factor authentication improves account security.
+
+36. How to perform traffic mirroring analysis in AWS?
+    Answer: Use the VPC flow log function.
+
+37. How to build an internal service mesh in AWS?
+    Answer: Use AWS App Mesh service.
+
+38. What is the open source configuration management tool released by AWS?
+    Answer: AWS CloudFormation provides support for infrastructure as code.
+
+39. What is the purpose of AWS API Gateway?
+    Answer: Manage multiple types of application programming interfaces (APIs).
+
+40. How to do text analysis and speech recognition in AWS?
+    A: Use Amazon Comprehend and Amazon Transcribe services.
+
+41. How to use AWS CloudTrail to audit user activities?
+    Answer: CloudTrail can record operational activities in AWS accounts.
+
+42. How to monitor and alert EC2 instances in AWS?
+    Answer: Use CloudWatch to monitor EC2 status and configure alarms.
+
+43. How to realize resource sharing between multiple AWS accounts?
+    Answer: Resource sharing is achieved through the Resource Access Manager (RAM).
+
+44. How to build Serverless applications in AWS?
+    Answer: Use Lambda, API Gateway and other services for Serverless architecture.
+
+45. How to build microservice applications in AWS?
+    Answer: Use ECS and EKS to build containerized microservice applications.
+
+46. How to perform data lake analysis in AWS?
+    A: Use Amazon EMR and Amazon Athena services.
+
+47. How to perform cost and usage analysis in AWS?
+    Answer: Use Cost Explorer for cost analysis.
+
+48. What is the difference between AWS CloudTrail and VPC Flow Logs?
+    Answer: CloudTrail records console operation logs, and Flow Logs records VPC traffic logs.
+
+49. How to use AWS CloudFront to achieve global content distribution?
+    Answer: CloudFront can deploy edge nodes to achieve low-latency global access.
+
+50. How to manage configuration changes of multiple cloud resources in AWS?
+    Answer: Use the AWS Config service to track resource configuration and manage changes.
+    

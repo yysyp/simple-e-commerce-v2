@@ -268,3 +268,237 @@ function debounce(fn,delay){
   }
 }
 ```
+
+====================================================================================
+
+1. What is the relationship between HTML, CSS and JavaScript?
+
+HTML is used to define the content semantics and structure of web pages, CSS is used to control the style and layout of web pages, and JavaScript is used to achieve interactive and dynamic effects on web pages. The three can be used together, HTML builds the web page structure, CSS beautifies the web page, and JavaScript realizes web page interaction.
+
+2. Introduce what are the new features of HTML5?
+
+New semantic tags, Canvas, video and audio, geolocation, local storage, web workers, form controls, and more.
+
+3. What are the new features of CSS3?
+
+Rounded corners, shadows, animations, transitions, gradients, etc. New features give CSS the ability to draw.
+
+4. What is responsive design? How to implement it?
+
+Responsive design is a web design concept that uses CSS media queries to automatically adapt web page layout and content to devices of different sizes. The implementation method is to monitor window width changes through media queries and match the corresponding CSS styles.
+
+5. Please explain the CSS box model?
+
+Content, padding, border, and margin. The total width of the box = content width + padding + border width + margin. The calculation method can be changed through box-sizing.
+
+6. What are the CSS selectors? What are the characteristics of each?
+
+Tag selector, class selector, id selector, wildcard selector, adjacent sibling selector, etc. The id selector has the highest priority.
+
+7. How is the CSS priority algorithm calculated?
+
+!important > Inline Styles > ID Selectors > Class Selectors > Tags > Wildcards > Inheritance > Browser Default Properties. With the same weight, the style that appears later will take effect.
+
+8. Please explain BFC and how it works?
+
+Block formatting context is an independent rendering area. Rules: Floated elements and absolutely positioned elements are out of the document flow. Common methods to trigger BFC: float except none, overflow except visible, display as table layout, etc. It can solve problems such as overlapping margins and clearing floats.
+
+9. What values does display have? Explain their functions.
+
+Block elements occupy one row, inline elements can be arranged horizontally, inline-block has block and inline characteristics, flex elastic layout, grid layout, none hidden elements, etc.
+
+10. What are the relative and absolute positioning origins of position? What are the characteristics of each?
+
+Relative moves based on its own position, and absolute is positioned based on the padding box of the nearest ancestor element. Relative does not break away from the document flow, absolute will break away from the document flow.
+
+Next, more common front-end development interview questions are given, including JS basics, network requests, security, performance optimization, framework-related issues, etc. Code examples are at the end of the answer.
+
+11. What are event bubbling and capturing? What is the difference between them?
+
+12. Please describe the workflow of AJAX requests
+
+13. What are the methods for cross-domain requests? What are their advantages and disadvantages?
+
+14. What is the difference between SYNC and ASYNC?
+
+15. Introduce common front-end security protection measures
+
+16. How to optimize page performance?
+
+17. Please explain what the prototype chain is and what is its use?
+
+18. What are the new features of ES6?
+
+19. What are the common methods of arrays? What are their functions?
+
+20. What are the commonly used string methods? What are their functions?
+
+21. Introduce the concept of variable promotion
+
+22. What is closure? What is the function of closure?
+
+23. Please explain the direction of this
+
+24. Handwrite a throttling function
+
+25. Handwrite an anti-shake function
+
+26. Introduce modular development specifications and what are their advantages
+
+27. Introduce the concepts of MVC and MVVM
+
+28. Introduce the two-way data binding principle of Vue
+
+29. What are the life cycles of Vue? What are the functions of each life cycle?
+
+30. Introduce the communication method between Vue components
+
+31. What are the two modes of Vue Router? What are the differences?
+
+32. Please talk about your understanding of SPA (Single Page Application)
+
+33. What are the advantages and disadvantages of Vue?
+
+34. Introduce the working principle of Vuex
+
+35. What are the advantages and disadvantages of React?
+
+36. Introduce the role of each stage of the React life cycle
+
+37. Introduce the changes brought by React Hooks
+
+38. Introduce the communication method of React components
+
+39. The difference between React Router and Vue Router
+
+40. What is the workflow of Redux?
+
+41. The difference between redux-saga and redux-thunk
+
+42. Introduce the working principle of webpack
+
+43. What is the difference between webpack loader and plugin?
+
+44. What is the function of Babel?
+
+45. Tell me about your knowledge of TypeScript
+
+46. Introduce the characteristics of GraphQL
+
+47. Introduce the advantages of server-side rendering SSR
+
+48. Talk about your understanding of cross-terminal development
+
+49. Introduce the responsive principles of responsive design
+
+50. Introduce the implementation of CSS modularization
+
+51. Introduce redrawing and reflow and how to optimize it
+
+52. Introduce the caching strategy and how to implement page caching
+
+53. The difference between http1, http2 and http3
+
+54. What is the principle of https? What is the difference from http?
+
+55. The difference between TCP and UDP protocols
+
+56. The difference between get and post requests
+
+57. Introduce the browser caching mechanism
+
+58. The difference between Cookie and Session
+
+59. What goes through from entering the URL to the page display?
+
+60. The difference between processes and threads
+
+61. Introduce the browser rendering process
+
+62. Talk about your understanding of front-end security
+
+63. Introduce web accessibility
+
+64. Introduce the implementation of PWA
+
+65. Introduce the browser storage methods
+
+66. Talk about your understanding of front-end monitoring
+
+67. Directory structure specifications for front-end projects
+
+68. Introduction to common git commands
+
+69. Introduce your understanding of micro front-end
+
+70. Front-end test categories, and the differences between unit tests and integration tests
+
+71. Talk about your understanding of continuous integration and continuous deployment
+
+72. Introduce the code splitting implementation of webpack
+
+73. What are the pain points of front-end optimization? What measures have you taken?
+
+74. Introduce yourself component design and development
+
+75. What problems were encountered in the project and how were they solved?
+
+76. What tools do you use daily to improve development efficiency?
+
+77. What technical difficulties have you encountered and how did you solve them?
+
+78. What technical achievement are you most proud of?
+
+79. What is your career plan?
+
+80. How do you usually learn new technologies?
+
+81. What abilities do you think front-end engineers need to master?
+
+82. What is the front-end development process of your team?
+
+83. Tell me about your understanding of code refactoring
+
+84. How to ensure code maintainability in projects
+
+85. What are the standards and implementations of front-end modular development?
+
+86. Comparison between webpack and vite
+
+87. Talk about your understanding of programming paradigms
+
+88. The difference between functional programming and object-oriented programming
+
+89. Why did you choose the front-end development position?
+
+90. Why did you leave your last company?
+
+91. What is your desired working environment?
+
+92. Introduce yourself and your technology stack
+
+93. What do you think a good team should look like?
+
+94. What do you think of the overtime culture?
+
+95. Tell me about your strengths and weaknesses
+
+96. What new technology are you learning recently?
+
+97. What are your current salary expectations?
+
+98. Any more questions?
+
+99. Do you have any comments or suggestions about this interview?
+
+100. Do you have anything else to add?
+
+The above covers many common front-end development interview questions, and each question contains key points for the answer. I hope it will be helpful to you. The interviewer makes a comprehensive evaluation based on the technical depth and breadth of the candidate, so extensive study and in-depth study are very necessary. Good luck with your interview!
+
+Here is the code example:
+
+101. Event bubbling up the DOM tree. Event capture is propagated down the DOM tree.
+
+102. Throttling function
+
+103. Anti-network instability function??
