@@ -105,6 +105,12 @@ If you could choose one superhero power, what would it be and why?
 If you could get rid of any one of the US states, which one would you get rid of and why?
 With your eyes closed, tell me step-by-step how to tie my shoes.
 Question: Ready to get a job? Do this next
-You won't be asked a hundred questions at a job interview, but it's completely understandable if you feel overwhelmed looking at this list. Just know this: Nobody expects you to have all the answers—that's what the experts at Monster are for. Still have questions about the hiring process? Join Monster for free today. As a member, you'll get career advice and useful tips sent directly to your inbox. From resume-writing checklists to lists of companies hiring to how to get promoted, Monster will help you plot an awesome career path, one step at a time. 
+You won't be asked a hundred questions at a job interview, but it's completely understandable if you feel overwhelmed looking at this list. Just know this: Nobody expects you to have all the answers—that's what the experts at Monster are for. Still have questions about the hiring process? Join Monster for free today. As a member, you'll get career advice and useful tips sent directly to your inbox. From resume-writing checklists to lists of companies hiring to how to get promoted, Monster will help you plot an awesome career path, one step at a time.
+What is Your Current Notice Period?
+Answer 1: I have to serve a 2 months notice period at my present job, so I can join your team after 2 months.
+Answer 2: I have an obligation to serve 30 days notice period as per my present company’s terms and conditions, so it will take at least 1 month for me to start the new job.
+Answer 3: I have been already serving the notice period, and I can be able to join after 1 month.
+Answer 4: As per my present company’s policy, I have to serve 2 months notice period if I want to leave, so I can be available to join after 2 months after my resignation.
+Answer 5: Once you confirm, then I can join immediately after 2 months of my notice period at my present organization.
 
  

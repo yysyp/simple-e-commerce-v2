@@ -269,6 +269,16 @@ function debounce(fn,delay){
 }
 ```
 
+Core Redux Concepts：
+
+
+ [Components] --Dispatch-> [Action] --Forwarded To->[Reducer Function] --Mutates (changes) store data->[Central Data (State) Store] -|
+     ^                                                                                                                               |
+     |---------------------------------------------------------Subscription----------------------------------------------------------
+
+
+UmiJs, nextJs, Antd, formily, MFE(micro front-end).
+
 ====================================================================================
 
 1. What is the relationship between HTML, CSS and JavaScript?
