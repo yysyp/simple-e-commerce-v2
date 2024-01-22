@@ -6,6 +6,9 @@ import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
 import com.alibaba.excel.read.listener.ReadListener;
 import com.alibaba.excel.write.metadata.WriteSheet;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomUtils;
@@ -50,15 +53,15 @@ public class Main {
             public void invoke(Map<String, Object> rowData, AnalysisContext analysisContext) {
                 LinkedHashMap<String, Object> dataMap = new LinkedHashMap<>();
                 for (int i = 0, n = rowData.size(); i < n; i++) {
-                    String key = headMap.get(i).trim();
+                    String key = (headMap.get(i)+i).trim();
                     Object value = rowData.get(i);
-                    int keyPrefix = 0;
-                    String key1 = key;
-                    while (dataMap.containsKey(key1)) {
-                        keyPrefix++;
-                        key1 = key+keyPrefix;
-                    }
-                    dataMap.put(key1, value);
+//                    int keyPrefix = 0;
+//                    String key1 = key;
+//                    while (dataMap.containsKey(key1)) {
+//                        keyPrefix++;
+//                        key1 = key+keyPrefix;
+//                    }
+                    dataMap.put(key, value);
                 }
                 dataList.add(dataMap);
             }
@@ -73,6 +76,11 @@ public class Main {
         System.out.println("-->(2)Read excel dataList.0=" + dataList.get(0));
         System.out.println("-->(2)Read excel dataList.size=" + dataList.size());
         System.out.println("-->(2)Read excel dataList=" + dataList);
+        //Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
+        Gson gson = new Gson();
+        String json1 = gson.toJson(dataList);
+        System.out.println("-->(2)Read excel json1=" + json1);
+
         //FileUtils.delete(new File(filename));
     }
 
