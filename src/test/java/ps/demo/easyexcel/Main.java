@@ -12,6 +12,7 @@ import com.google.gson.GsonBuilder;
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomUtils;
+import ps.demo.common.RegexTool;
 
 import java.io.File;
 import java.util.*;
@@ -53,7 +54,8 @@ public class Main {
             public void invoke(Map<String, Object> rowData, AnalysisContext analysisContext) {
                 LinkedHashMap<String, Object> dataMap = new LinkedHashMap<>();
                 for (int i = 0, n = rowData.size(); i < n; i++) {
-                    String key = (headMap.get(i)+"-"+getExcelColumnName(i+1)).trim();
+                    //String key = RegexTool.removeSymbols(""+headMap.get(i))+"_"+getExcelColumnName(i+1);
+                    String key = getExcelColumnName(i+1);
                     Object value = rowData.get(i);
 //                    int keyPrefix = 0;
 //                    String key1 = key;

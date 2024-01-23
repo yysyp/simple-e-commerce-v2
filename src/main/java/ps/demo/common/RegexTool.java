@@ -10,7 +10,7 @@ public class RegexTool {
      * Email
      */
     public static final String REG_EMAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
-    public static final String REG_SYMBOL = "[\\pP\\pS\\pZ\\pM\\n]";
+    public static final String REG_SYMBOL = "[\\pP\\pM\\pZ\\pS\\pC\\n]";
 
     /**
      * /pP lowercase p means property，means Unicode property，used in Unicode regex prefix。
