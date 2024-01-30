@@ -13,6 +13,7 @@ import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomUtils;
 import ps.demo.common.RegexTool;
+import ps.demo.common.StringTool;
 
 import java.io.File;
 import java.util.*;
@@ -55,7 +56,7 @@ public class Main {
                 LinkedHashMap<String, Object> dataMap = new LinkedHashMap<>();
                 for (int i = 0, n = rowData.size(); i < n; i++) {
                     //String key = RegexTool.removeSymbols(""+headMap.get(i))+"_"+getExcelColumnName(i+1);
-                    String key = getExcelColumnName(i+1);
+                    String key = StringTool.excelNumToCol(i + 1);
                     Object value = rowData.get(i);
 //                    int keyPrefix = 0;
 //                    String key1 = key;
